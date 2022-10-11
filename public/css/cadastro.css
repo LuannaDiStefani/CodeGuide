@@ -1,0 +1,186 @@
+body {
+	background-color: var(--black);	
+}
+
+.bg_video{
+	position: absolute;
+	right: 0; 
+	min-width: 100%;
+	min-height: 100%;
+	width: 100%; 
+    object-fit: cover;
+    display: block;
+	height: auto; 
+	z-index: -1000;
+	background: url(./source/preview.png) no-repeat;
+	background-size: cover;
+}
+
+.cadastro {
+	font-family: 'Courier New', Courier, monospace;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid var(--color2);
+	background-color: var(--black);
+	margin-top: 100px;
+}
+
+.container{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.cadastro_titulo {
+	padding: 20px 55px;
+	align-self: flex-start;
+}
+
+
+.line_um {
+	color: var(--white);
+	font-size: 20px;
+	 border-right: 2px solid transparent;
+	white-space: nowrap;
+	overflow: hidden;
+	line-height: 20px;
+}
+
+.line_dois{
+	color: var(--white);
+	font-size: 20px;
+	border-right: 2px solid transparent;
+	white-space: nowrap;
+	overflow: hidden;
+	line-height: 20px;
+	visibility: hidden;
+}
+
+.animacao{
+	animation: cursor 5s steps(40) normal, texto 4s steps(40) 1s normal both;
+    display: 2s,2s,2s;
+}
+
+ .animacao_dois{
+	animation: cursor 4s steps(40) normal, texto 4s steps(40) 1s normal both,visibilidade 3s infinite;
+    animation-delay: 5s,5s,5s;
+	
+}
+
+@keyframes visibilidade{
+
+0%{
+visibility: visible;	
+}100%{
+visibility: visible;
+}	
+
+}
+
+
+@keyframes cursor{
+
+
+0%{
+
+	border-right-color: var(--color6);
+
+}
+99%{
+
+	border-right-color: var(--color6);	
+}
+
+100%{
+	border-right-color: transparent;
+
+}
+}
+
+@keyframes texto{
+from{
+
+width: 0px;
+}to{
+width: 100%;
+}
+}
+
+
+.formulario {
+	text-align: center;
+	width: 100%;
+	color: var(--color1);
+	font-size: 20px;
+ 
+}
+
+
+ .fomulario_cadastro{
+opacity: 0;
+
+} 
+
+.faed_in{
+animation: fadein 3s alternate forwards ;
+animation-delay: 9s;
+
+}
+
+
+@keyframes fadein {
+	0%{
+
+	  opacity: 0;
+	}
+	 100%{
+	
+	  opacity: 2;
+	}
+  }
+  
+
+input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	background-color: var(--black);
+	width: 300px;
+	height: 20px;
+	border: solid var(--color2) 1px;
+	color: var(--white);
+}
+
+#data {
+
+	color: rgb(71, 69, 69);
+
+}
+
+.enviar {
+	margin-top: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	width: 300px;
+	height: 30px;
+	background-color: var(--color4);
+	color: var(--white);
+	margin-bottom: 10px;
+	border-radius: 10px;
+
+}
+
+.botao_login {
+	width: 100%;
+	text-align: center;
+}
+
+.botao {
+	width: 230px;
+	background-color: var(--black);
+	color: var(--color1);
+	text-align: center;
+}

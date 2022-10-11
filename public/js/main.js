@@ -125,9 +125,21 @@ $(".add-stack").click(function () {
   }, 400);
 });
 
+$(".course-comment-icon").click(function () {
+  $(".model-container").css("transform", "scale(1)");
+  setTimeout(function () {
+    $(".model-container").css("background", "rgba(0, 0, 0, 0.8)");
+  }, 400);
+});
+
 $(".close-button").click(function () {
   $(".model-container").css("background", "transparent");
   setTimeout(function () {
     $(".model-container").css("transform", "scale(0)");
   }, 200);
 });
+
+/* CADASTRO */
+function cor() {
+  document.getElementById("data").style.color = "white";
+}
