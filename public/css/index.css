@@ -60,6 +60,7 @@ section.highlight{
     padding: 30px;
     width: 100%;
     height: auto;
+    position: relative;
 }
 
 section.highlight .container{
@@ -83,7 +84,9 @@ section.highlight .course-preview{
 section.highlight .course-preview .course-preview-video{
     background: grey;
     width: 100%;
-    height: 450px;
+    /* height: auto; */
+    min-height: 450px;
+    max-height: 450px;
 }
 
 section.highlight .course-preview .course-preview-button{
@@ -91,6 +94,25 @@ section.highlight .course-preview .course-preview-button{
     justify-content: center;
     align-items: center;
 }
+
+section.highlight .close-highlight{
+    position: absolute;
+    padding: 15px;
+    top: 0;
+    right: 0;
+}
+
+section.highlight .close-highlight-button{
+    font-size: 30px;
+    color: var(--color6);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+section.highlight .close-highlight-button:hover{
+    color: var(--color2);
+}
+
 
 
 .course-preview-button a{
@@ -219,6 +241,9 @@ section.highlight .course-rate .rate-icon{
     font-size: 32px;
     width: 80px;
 }
+
+/* Section HighLight Responsividade */
+
 
 /* Carrossel de cursos */
 .thumbSection {
@@ -381,18 +406,18 @@ section.highlight .course-rate .rate-icon{
   }
 
  .comment-block{
-    margin: 5px 0;
+    border-radius: 15px;
+    margin: 10px 0;
     width: 100%;
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y: scroll;
+    height: auto;
     padding: 10px;
     font-size: 0.9rem;
     background: rgba(18, 18, 18, 0.9);
   }
 
   .comment-block-autor{
-    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    background: var(--color3);
     text-align: left;
     padding: 5px 10px;
   }
