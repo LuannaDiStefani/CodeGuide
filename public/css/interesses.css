@@ -1,0 +1,71 @@
+.bg_video {
+	position: fixed;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: 100%;
+	object-fit: cover;
+	display: block;
+	height: auto;
+	z-index: -1000;
+	background: url(./source/preview.png) no-repeat;
+	background-size: cover;
+}
+
+.principal {
+	margin-top: 100px;
+	background-color: rgba(225, 225, 225, 0.1);
+	height: 400px;
+	width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+	overflow-y: scroll;
+}
+
+.texto {
+	padding-top: 10px;
+	padding-bottom: 8px;
+	text-align: center;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+	border-bottom: 1.5px solid var(--color6);
+}
+
+.interesses {
+	margin-top: 10px;
+	display: flex;
+	max-width: 550px;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.itens {
+	height: 90px;
+	width: 90px;
+	background-color: rgba(255, 255, 255, 0.304);
+	border-radius: 5px;
+}
+
+
+.enviar {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.botao {
+	margin-top: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	width: 300px;
+	height: 30px;
+	background-color: var(--color3);
+	color: var(--white);
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
