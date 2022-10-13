@@ -386,7 +386,6 @@ header #profile i:hover{
 
 /* Footer */
 footer{
-    margin-top: 50px;
     border-top: 2px solid var(--color1);
     width: 100%;
     height: auto;

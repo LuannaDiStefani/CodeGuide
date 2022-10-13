@@ -84,9 +84,7 @@ section.highlight .course-preview{
 section.highlight .course-preview .course-preview-video{
     background: grey;
     width: 100%;
-    /* height: auto; */
-    min-height: 450px;
-    max-height: 450px;
+    height: 450px;
 }
 
 section.highlight .course-preview .course-preview-button{
@@ -112,8 +110,6 @@ section.highlight .close-highlight-button{
 section.highlight .close-highlight-button:hover{
     color: var(--color2);
 }
-
-
 
 .course-preview-button a{
     position: relative;
@@ -186,7 +182,7 @@ section.highlight .course-info{
 
 section.highlight .course-title{
     color: var(--color6);
-    font-size: 24px;
+    font-size: 22px;
 }
 
 section.highlight .course-description{
@@ -243,10 +239,26 @@ section.highlight .course-rate .rate-icon{
 }
 
 /* Section HighLight Responsividade */
+@media screen and (max-width: 760px) {
+    section.highlight .container{
+        display: block;
+        width: 100%;    
+    }
+
+    section.highlight .course-preview{
+        min-width: 100%;
+        padding: 30px 0;
+    }
+
+    section.highlight .course-info{
+        min-width: 100%;
+    }
+}
 
 
 /* Carrossel de cursos */
 .thumbSection {
+    margin-bottom: 50px;
     background: var(--black);
     padding-top: 2%;
 }
@@ -340,11 +352,12 @@ section.highlight .course-rate .rate-icon{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    width: 99vw;
+    width: 100vw;
+    padding: 0 2%;
     top: 0;
+    left: -7px;
     z-index: 1999;
-    left: 0;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     transform: scale(0);
   }
 
