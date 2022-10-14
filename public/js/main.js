@@ -79,25 +79,30 @@ $(".close-highlight-button").click(function () {
 
 //Menu Mobile
 const myMedia = window.matchMedia("(max-width: 570px)");
-const searchButton = document.querySelectorAll(".mobile-search-button");
+let searchButton = document.querySelectorAll(".mobile-search-button");
 const searchBox = document.querySelector(".search-bar input");
 const categoryButton = document.querySelector(".category-button");
 
 function responsive(media) {
   if (media.matches) {
+    $(".search-bar i").addClass("mobile-search-button");
+    searchButton = document.querySelectorAll(".mobile-search-button");
     $(searchBox).removeClass("search-active").css("width", "100%");
     $(searchBox).addClass("search-inactive").css("width", "20%");
-    $(searchButton).on("click", function () {
-      event.preventDefault();
-      if ($(searchBox).css("visibility") == "hidden") {
-        $(searchBox).removeClass("search-inactive");
-        $(searchBox).addClass("search-active").css("width", "100%");
-      } else {
-        $(searchBox).removeClass("search-active");
-        $(searchBox).addClass("search-inactive").css("width", "20%");
-      }
+    searchButton.forEach((item) => {
+      $(item).on("click", function () {
+        event.preventDefault();
+        if ($(searchBox).css("visibility") == "hidden") {
+          $(searchBox).removeClass("search-inactive");
+          $(searchBox).addClass("search-active").css("width", "100%");
+        } else {
+          $(searchBox).removeClass("search-active");
+          $(searchBox).addClass("search-inactive").css("width", "20%");
+        }
+      });
     });
   } else {
+    $(".search-bar i").removeClass("mobile-search-button");
     $(searchBox).removeClass("search-inactive");
     $(searchBox).addClass("search-active").css("width", "100%");
   }
