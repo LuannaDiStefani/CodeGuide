@@ -425,3 +425,26 @@ footer .footer-social-media i:hover{
     cursor: pointer;
     color: var(--color1);
 }
+
+/* Scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background: var(--color5);
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color3); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color2); 
+  }
