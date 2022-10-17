@@ -78,7 +78,7 @@ $(".close-highlight-button").click(function () {
 });
 
 //Menu Mobile
-const myMedia = window.matchMedia("(max-width: 570px)");
+const myMedia = window.matchMedia("(max-width: 595px)");
 let searchButton = document.querySelectorAll(".mobile-search-button");
 const searchBox = document.querySelector(".search-bar input");
 const categoryButton = document.querySelector(".category-button");
