@@ -153,12 +153,14 @@ a.menu-mobile-button:hover{
 
     
 #menu{
-    font-size: 1.1rem;
-    display: block; 
-    background-color: rgba(0, 0, 0, 0.9);
+    display: flex; 
+    justify-content: center;
+    background: rgb(0,0,0);
+    background: linear-gradient(135deg, rgba(0,0,0,1) 50%, rgba(0,5,36,1) 100%);
     position: absolute;
     top: 70px;
-    min-width: 200px;
+    left: 0;
+    width: 100%;
     border-radius: 10px;
     height: 0;
     transition: all 0.6s ease-in-out;
@@ -166,9 +168,19 @@ a.menu-mobile-button:hover{
     overflow: hidden;
 }
 
+.menu-ul{
+    padding-top: 10px;
+    display: flex;
+    width: 1000px;
+    justify-content: center;
+}
+
 #menu ul li a{
+    font-size: 1.1rem;
+    font-family: 'Courier New', Courier, monospace;
     display: inline-block;
     padding: 10px;
+    padding-left: 20px;
     width: 100%;
     font-weight: 400;
     color: white;
@@ -177,8 +189,12 @@ a.menu-mobile-button:hover{
 }
 
 #menu ul li a:hover{
-    color: var(--color1);
+    color: var(--color6);
     text-shadow: -3px 0px 11px var(--color7);
+}
+
+#menu ul li{
+    position: relative;
 }
 
 #menu ul li a::before{
@@ -188,8 +204,24 @@ a.menu-mobile-button:hover{
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--color7);
+    background: var(--color6);
     transition: all 0.8s ease;
+}
+
+#menu ul li::before{
+    content: '<';
+    position: absolute;
+    color: var(--color6);
+    top: 30%;
+    left: 5px;
+    font-size: 14px;
+}
+
+#menu ul li a::after{
+    content: '/>';
+    color: var(--color6);
+    font-size: 14px;
+    padding-left: 7px;
 }
 
 #menu ul li a:hover::before{
@@ -207,9 +239,12 @@ a.menu-mobile-button:hover{
 
 #menu.active{
     visibility: visible;
-    display: flex;
-    height: 230px;
+    height: 300px;
     
+}
+
+#menu ul h4{
+    padding: 10px;
 }
 
 /* Header Barra de pesquisa */
@@ -342,7 +377,7 @@ header #profile i:hover{
 
 }
 
-@media (max-width: 570px){
+@media (max-width: 595px){
     .container-mobile{
         display: block;
     } 
@@ -448,3 +483,17 @@ footer .footer-social-media i:hover{
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color2); 
   }
+
+
+/* Buttons */
+  .btn-1{
+    cursor: pointer;
+    height: 42px;
+    width: 100px;
+    background: black;
+    outline: none;
+    border: none;
+    color: var(--color6);
+    font-size: 1rem;
+    border-radius: 5px;
+}

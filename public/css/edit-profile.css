@@ -1,0 +1,85 @@
+section.edit-profile{
+    margin-top: 100px;
+}
+
+section.edit-profile .container{
+    margin-bottom: 30px;
+    display: flex;
+    padding: 0 2%;
+}
+
+section.edit-profile .edit-profile-menu{
+    background: rgb(10, 10, 10);
+    padding: 15px;
+    width: 25%;
+    min-width: 200px;
+}
+
+section.edit-profile .edit-profile-container{
+    width: 100%;
+}
+
+.edit-field-title{
+    background: rgb(10, 10, 10);
+    text-align: center;
+    padding: 10px 0;
+}
+
+section.edit-profile .edit-field-user{
+    background: rgba(18, 18, 18, 1);
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.edit-user-picture{
+    padding: 0 20px;
+}
+
+section.edit-profile .edit-user-picture img{  
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+.edit-username{
+    width: 60%;
+}
+
+
+section.edit-profile .edit-field-user-submit{
+    background: rgba(18, 18, 18, 1);
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    gap: 40px;
+}
+
+.edit-username p{
+    font-size: 1.2rem;
+    padding: 10px 0;
+}
+
+.edit-username #change-username{
+    width: 60%;
+    background: var(--black);
+    font-weight: bold;
+    color: var(--white);
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    height: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.edit-username #change-username:focus{
+    border: 1px solid var(--color6);
+}
+
