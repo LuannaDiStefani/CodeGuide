@@ -25,7 +25,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid var(--color2);
-	background-color: var(--black);
+	background-color: rgba(8, 8, 8, 0.6);
 	margin-top: 100px;
 	margin-bottom: 50px;
 }
@@ -41,19 +41,23 @@ main{
 .cadastro_titulo {
 	padding: 20px 55px;
 	align-self: flex-start;
+	
 }
 
 
+
 .line_um {
+	max-width: 320px;
 	color: var(--white);
 	font-size: 20px;
-	 border-right: 2px solid transparent;
+	border-right: 2px solid transparent;
 	white-space: nowrap;
 	overflow: hidden;
 	line-height: 20px;
 }
 
 .line_dois{
+	max-width: 340px;
 	color: var(--white);
 	font-size: 20px;
 	border-right: 2px solid transparent;
@@ -63,14 +67,32 @@ main{
 	visibility: hidden;
 }
 
+.line_um_responsivo{
+color: var(--white);
+display: none;
+border-right: 2px solid transparent;
+white-space: nowrap;
+overflow: hidden;
+
+}
+
+.line_dois_responsivo{
+color: var(--white);
+display: none;
+border-right: 2px solid transparent;
+white-space: nowrap;
+overflow: hidden;
+
+}
+
 .animacao{
-	animation: cursor 5s steps(40) normal, texto 4s steps(40) 1s normal both;
+	animation: cursor 3s steps(40) normal, texto 2s steps(40) 1s normal both;
     display: 2s,2s,2s;
 }
 
  .animacao_dois{
-	animation: cursor 4s steps(40) normal, texto 4s steps(40) 1s normal both,visibilidade 3s infinite;
-    animation-delay: 5s,5s,5s;
+	animation: cursor 3s steps(40) normal, texto 2s steps(40) 1s normal both,visibilidade 1s infinite;
+    animation-delay: 3s,3s,3s;
 	
 }
 
@@ -86,8 +108,6 @@ visibility: visible;
 
 
 @keyframes cursor{
-
-
 0%{
 
 	border-right-color: var(--color6);
@@ -108,8 +128,10 @@ visibility: visible;
 from{
 
 width: 0px;
-}to{
+} to{
+
 width: 100%;
+
 }
 }
 
@@ -117,7 +139,7 @@ width: 100%;
 .formulario {
 	text-align: center;
 	width: 100%;
-	color: var(--color1);
+	color: var(--color6);
 	font-size: 20px;
  
 }
@@ -129,8 +151,8 @@ opacity: 0;
 } 
 
 .faed_in{
-animation: fadein 3s alternate forwards ;
-animation-delay: 9s;
+animation: fadein 1s alternate forwards ;
+animation-delay: 5s;
 
 }
 
@@ -153,8 +175,14 @@ input {
 	background-color: var(--black);
 	width: 60%;
 	height: 20px;
-	border: solid var(--color2) 1px;
+	border: solid var(--color1) 1px;
 	color: var(--white);
+	outline: none;
+	text-align: center;
+}
+
+input:focus{
+	border: 1px solid var(--color6);
 }
 
 #data {
@@ -168,17 +196,13 @@ input {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	height: 30px;
-	background-color: var(--color4);
+	background-color: var(--color1);
 	color: var(--white);
 	margin-bottom: 10px;
 	border-radius: 10px;
 
 }
 
-.botao_login {
-	width: 100%;
-	text-align: center;
-}
 
 .botao {
 	width: 230px;
@@ -190,12 +214,38 @@ input {
 /* Cadastro Responsividade */
 @media screen and (max-width: 640px) {
 	.cadastro{
-		max-width: 80vw;
+		max-width: 85vw;
 	}
 
 	.formulario{
 		padding: 10px;
 	}	
+
+.line_um{
+display: none;
+}
+
+.line_dois{
+display: none;
+}
+
+.line_um_responsivo{
+
+display: block;
+
+}
+
+.line_dois_responsivo{
+display: block;
+
+}
+
+p{
+
+	white-space: nowrap;	
+}
+
+
 
 }
 

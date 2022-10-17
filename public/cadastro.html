@@ -90,7 +90,7 @@
                 Menu
             </a>
 
-        </div>
+        </div> 
     </nav>
 
     <div class="mobile-category">
@@ -117,21 +117,26 @@
            <p class="line_um  animacao"> Bem-vindo(a) ao CodeGuide! </p>
            <p class="line_dois animacao_dois"> A sua jornada começa aqui... </p>
 
+           <p class="line_um_responsivo animacao"> Bem-vindo(a) ao CodeGuide! </p>
+           <p class="line_dois_responsivo animacao_dois"> A sua jornada começa aqui</p>
+           
+           
+           
       </div>
 
       <div class="fomulario_cadastro faed_in" id="teste">
 
         <form class="formulario" name="cadastro" action="" method="post">
 
-          <p class="faed_in"> Digite seu nome:<br> <input type="text" name="nome"> <br><br></p>
+          <p class="faed_in"> Digite seu nome:<br> <input type="text" name="nome" required pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"> <br><br></p>
+             
+          Digite seu e-mail:<br> <input type="email" name="email" required><br><br>
 
-          Digite seu e-mail:<br> <input type="email" name="email"> <br><br>
+          Digite sua senha:<br> <input type="password" name="senha" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
 
-          Digite sua senha:<br> <input type="password" name="senha"> <br><br>
+          Confirme sua senha:<br> <input type="password" name="confirmacao" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
 
-          Confirme sua senha:<br> <input type="password" name="confirmacao"> <br><br>
-
-          Digite sua data de nascimento:<br> <input type="date" name="data" id="data" onfocus="cor()">
+          Digite sua data de nascimento:<br> <input type="date" name="data" id="data" onfocus="cor()" required>
 
           <input type="submit" name="cadastro" value="Continuar" class="enviar">
 
