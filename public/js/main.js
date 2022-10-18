@@ -166,3 +166,5 @@ $(".thumbTile").click(function () {
     $(thisHighlight).hide("slow");
   });
 });
+
+

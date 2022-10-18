@@ -28,6 +28,7 @@ section.admin-panel .container{
 }
 
 .admin-menu ul li h4{
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -97,7 +98,7 @@ section.admin-panel .container{
     }
 
     .admin-menu ul li a i{
-        font-size: 3rem;
+        font-size: 2.3rem;
     }
 
 
