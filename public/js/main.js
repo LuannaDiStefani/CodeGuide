@@ -106,6 +106,25 @@ function responsive(media) {
     $(searchBox).removeClass("search-inactive");
     $(searchBox).addClass("search-active").css("width", "100%");
   }
+  //Página cadastro - Menu
+  if (media.matches) {
+    $(".admin-menu ul li").hover(
+      function () {
+        $(this).append(
+          $(
+            "<h4>" + $(this).children("a").children("i").attr("title") + "</h4>"
+          )
+        );
+      },
+      function () {
+        $(this).find("h4").last().remove();
+      }
+    );
+  } else {
+    $(".admin-menu ul li").hover(function () {
+      $(this).find("h4").last().remove();
+    });
+  }
 }
 
 responsive(myMedia);
@@ -153,3 +172,40 @@ $(".close-button").click(function () {
 function cor() {
   document.getElementById("data").style.color = "white";
 }
+
+//Editar Imagem Efeito
+$(".edit-user-picture").hover(
+  function () {
+    $(".edit-user-picture img").css("opacity", "0.3");
+    $(this).append($("<span>Editar Imagem</span>"));
+  },
+  function () {
+    $(this).find("span").last().remove();
+    $(".edit-user-picture img").css("opacity", "1");
+  }
+);
+
+//Upload Button
+let uploadButton = document.getElementById("upload-button");
+let choosenImg = document.getElementById("choosen-img");
+let fileName = document.getElementById("file-name");
+
+$(uploadButton).change(function () {
+  let reader = new FileReader();
+  reader.readAsDataURL(uploadButton.files[0]);
+  console.log(uploadButton.files[0]);
+  reader.onload = () => {
+    choosenImg.setAttribute("src", reader.result);
+  };
+  fileName.textContent = uploadButton.files[0].name;
+});
+
+//Target - Edit-field
+let targetDivs = document.querySelectorAll(".edit-field");
+$(targetDivs).hide();
+$(targetDivs[0]).show();
+$(".target-edit-field").click(function () {
+  event.preventDefault();
+  $(".edit-field").hide();
+  $(".target" + $(this).attr("target")).show();
+});

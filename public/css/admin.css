@@ -1,0 +1,214 @@
+section.admin-panel{
+    margin-top: 150px;
+}
+
+section.admin-panel .container{
+    margin-bottom: 30px;
+    display: flex;
+    padding: 0 2%;
+}
+
+.edit-field-title{
+    background: rgb(10, 10, 10);
+    text-align: center;
+    padding: 10px 0;
+}
+
+ .admin-menu{
+    background: rgb(10, 10, 10);
+    padding: 15px;
+    width: 25%;
+    min-width: 220px;
+}
+
+.admin-menu ul li{
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color1);
+}
+
+.admin-menu ul li h4{
+    cursor: pointer;
+}
+
+.admin-menu ul li a span::before{
+    content: '<';
+    padding: 0 5px;
+    color: var(--color6);
+}
+
+.admin-menu ul li a span::after{
+    content: '/>';
+    padding: 0 5px;
+    color: var(--color6);
+}
+
+
+.admin-menu ul li a{
+    color: white;
+}
+
+.admin-menu ul li a i{
+    font-size: 20px;
+}
+
+/* Responsividade Menu Admin */
+@media screen and (max-width: 595px) {
+    section.admin-panel .container{
+        flex-direction: column;
+    }
+
+    .admin-menu{
+        width: 100%;
+    }
+
+    .admin-menu ul{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .admin-menu ul li{
+        text-align: center;
+        border: none;
+    }
+
+    .admin-menu ul li span{
+        display: none;
+    }
+
+    .admin-menu ul li a i{
+        font-size: 3rem;
+    }
+
+
+}
+
+.admin-container{
+    width: 100%;
+}
+
+ .edit-field-user{
+    background: rgba(18, 18, 18, 1);
+    display: flex;
+    max-width: 100%;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+
+ .edit-field-user-submit{
+    background: rgba(18, 18, 18, 1);
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    gap: 40px;
+}
+
+.form-course{
+    width: 100%;
+    padding: 0 20px;
+}
+
+.form-course div{
+    padding: 10px 0;
+}
+
+.form-course .input-course{
+    width: 100%;
+    background: var(--black);
+    font-weight: bold;
+    color: var(--white);
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    height: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.form-course .input-course:focus{
+    border: 1px solid var(--color6);
+}
+
+.form-course textarea{
+    width: 100%;
+    background: var(--black);
+    font-weight: bold;
+    color: var(--white);
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.form-course textarea:focus{
+    border: 1px solid var(--color6);
+}
+
+.form-course .pago{
+    font-size: 1.1rem;
+}
+
+
+.form-course .pago input{
+    width: 30px;
+    background-color: #eee;
+    height: 30px;
+    accent-color: var(--color1);
+}
+
+.form-course .options{
+    color: var(--white);
+    border: 1px solid var(--white);
+    outline: none;
+    width: 100%;
+    background: rgba(0, 0, 0, 1);
+    height: 35px;
+    padding: 20px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.form-course .options:focus{
+    border: 1px solid var(--color6);
+}
+
+.form-course .img-preview{
+    width: 40%;
+}
+
+.form-course .img-preview img{
+    width: 100%;
+}
+
+.form-course #upload-button{
+    display: none;
+}
+
+.form-course .upload-button-container{
+    background: rgba(10, 10, 10, 1);
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    border-radius: 7px;
+    transition: all 0.3s ease-in;
+}
+
+.form-course .upload-button-container label{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form-course .upload-button-container:hover{
+    background: var(--color4);
+    cursor: pointer;
+}

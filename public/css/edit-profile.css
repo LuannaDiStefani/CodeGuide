@@ -15,6 +15,29 @@ section.edit-profile .edit-profile-menu{
     min-width: 200px;
 }
 
+.edit-profile-menu ul li{
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color1);
+}
+
+.edit-profile-menu ul li a::before{
+    content: '<';
+    padding: 0 5px;
+    color: var(--color6);
+}
+
+.edit-profile-menu ul li a::after{
+    content: '/>';
+    padding: 0 5px;
+    color: var(--color6);
+}
+
+
+.edit-profile-menu ul li a{
+    color: white;
+}
+
 section.edit-profile .edit-profile-container{
     width: 100%;
 }
@@ -37,14 +60,36 @@ section.edit-profile .edit-field-user{
     padding: 0 20px;
 }
 
-section.edit-profile .edit-user-picture img{  
+.edit-user-picture img{  
     width: 150px;
     height: 150px;
     border-radius: 100%;
     background-position: center;
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    transition: all 0.4s ease-in-out;
 }
+
+.edit-user-picture{
+    position: relative;
+    transition: all 0.4s ease-in-out;
+}
+
+.edit-user-picture span{
+    cursor: pointer;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    color: var(--color6);
+    opacity: 1 !important;
+    transform: translate(-50%, -50%);
+}
+
 
 .edit-username{
     width: 60%;
