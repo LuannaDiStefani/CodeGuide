@@ -146,7 +146,7 @@ $(categoryButton).click(function () {
   }
 });
 
-//Página de Perfil - Adicionar Stack
+//Página de Perfil - Modal
 $(".open-model").click(function () {
   $(".model-container").css("transform", "scale(1)");
   setTimeout(function () {
@@ -167,11 +167,6 @@ $(".close-button").click(function () {
     $(".model-container").css("transform", "scale(0)");
   }, 200);
 });
-
-/* CADASTRO */
-function cor() {
-  document.getElementById("data").style.color = "white";
-}
 
 //Editar Imagem Efeito
 $(".edit-user-picture").hover(

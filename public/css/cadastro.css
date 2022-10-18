@@ -186,9 +186,12 @@ input:focus{
 }
 
 #data {
-
+	cursor: pointer;
 	color: rgb(71, 69, 69);
+}
 
+#data:focus{
+	color: white !important;
 }
 
 .enviar {
