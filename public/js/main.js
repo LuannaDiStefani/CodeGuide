@@ -147,7 +147,7 @@ $(categoryButton).click(function () {
 });
 
 //Página de Perfil - Adicionar Stack
-$(".add-stack").click(function () {
+$(".open-model").click(function () {
   $(".model-container").css("transform", "scale(1)");
   setTimeout(function () {
     $(".model-container").css("background", "rgba(0, 0, 0, 0.8)");
@@ -177,11 +177,15 @@ function cor() {
 $(".edit-user-picture").hover(
   function () {
     $(".edit-user-picture img").css("opacity", "0.3");
-    $(this).append($("<span>Editar Imagem</span>"));
+    $(".edit-user-picture span").fadeTo(100, 0.15, function () {
+      $(this).css("opacity", "1");
+    });
   },
   function () {
-    $(this).find("span").last().remove();
     $(".edit-user-picture img").css("opacity", "1");
+    $(".edit-user-picture span").fadeTo(100, 0.15, function () {
+      $(this).css("opacity", "0");
+    });
   }
 );
 

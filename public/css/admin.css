@@ -1,5 +1,5 @@
 section.admin-panel{
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 section.admin-panel .container{
@@ -22,9 +22,9 @@ section.admin-panel .container{
 }
 
 .admin-menu ul li{
+    position: relative;
     font-size: 18px;
     padding: 10px 0;
-    border-bottom: 1px solid var(--color1);
 }
 
 .admin-menu ul li h4{
@@ -46,6 +46,26 @@ section.admin-panel .container{
 
 .admin-menu ul li a{
     color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin-menu ul li::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color6);
+    transition: all 0.8s ease;
+}
+
+.admin-menu ul li:hover::before{
+    width: 100%;
+}
+
+.admin-menu ul li a:hover{
+    color: var(--color6);
 }
 
 .admin-menu ul li a i{
@@ -184,6 +204,7 @@ section.admin-panel .container{
 
 .form-course .img-preview{
     width: 40%;
+    max-width: 250px;
 }
 
 .form-course .img-preview img{
@@ -197,7 +218,8 @@ section.admin-panel .container{
 .form-course .upload-button-container{
     background: rgba(10, 10, 10, 1);
     padding: 10px;
-    width: 50%;
+    width: 100%;
+    max-width: 250px;
     text-align: center;
     border-radius: 7px;
     transition: all 0.3s ease-in;
