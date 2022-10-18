@@ -1,14 +1,14 @@
 body {
-	background-color: var(--black);	
+	background-color: var(--black);
 }
 
-.background{
+.background {
 	position: relative;
 	min-width: 100%;
 	height: auto;
 }
 
-.background video{
+.background video {
 	position: absolute;
 	z-index: -1000;
 	max-width: 100%;
@@ -30,7 +30,7 @@ body {
 	margin-bottom: 50px;
 }
 
-main{
+main {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -41,7 +41,7 @@ main{
 .cadastro_titulo {
 	padding: 20px 55px;
 	align-self: flex-start;
-	
+
 }
 
 
@@ -56,7 +56,7 @@ main{
 	line-height: 20px;
 }
 
-.line_dois{
+.line_dois {
 	max-width: 340px;
 	color: var(--white);
 	font-size: 20px;
@@ -67,72 +67,77 @@ main{
 	visibility: hidden;
 }
 
-.line_um_responsivo{
-color: var(--white);
-display: none;
-border-right: 2px solid transparent;
-white-space: nowrap;
-overflow: hidden;
+.line_um_responsivo {
+	color: var(--white);
+	display: none;
+	border-right: 2px solid transparent;
+	white-space: nowrap;
+	overflow: hidden;
 
 }
 
-.line_dois_responsivo{
-color: var(--white);
-display: none;
-border-right: 2px solid transparent;
-white-space: nowrap;
-overflow: hidden;
+.line_dois_responsivo {
+	color: var(--white);
+	display: none;
+	border-right: 2px solid transparent;
+	white-space: nowrap;
+	overflow: hidden;
 
 }
 
-.animacao{
+.animacao {
 	animation: cursor 3s steps(40) normal, texto 2s steps(40) 1s normal both;
-    display: 2s,2s,2s;
+	display: 2s, 2s, 2s;
 }
 
- .animacao_dois{
-	animation: cursor 3s steps(40) normal, texto 2s steps(40) 1s normal both,visibilidade 1s infinite;
-    animation-delay: 3s,3s,3s;
-	
-}
-
-@keyframes visibilidade{
-
-0%{
-visibility: visible;	
-}100%{
-visibility: visible;
-}	
+.animacao_dois {
+	animation: cursor 3s steps(40) normal, texto 2s steps(40) 1s normal both, visibilidade 1s infinite;
+	animation-delay: 3s, 3s, 3s;
 
 }
 
+@keyframes visibilidade {
 
-@keyframes cursor{
-0%{
+	0% {
+		visibility: visible;
+	}
 
-	border-right-color: var(--color6);
-
-}
-99%{
-
-	border-right-color: var(--color6);	
-}
-
-100%{
-	border-right-color: transparent;
+	100% {
+		visibility: visible;
+	}
 
 }
+
+
+@keyframes cursor {
+	0% {
+
+		border-right-color: var(--color6);
+
+	}
+
+	99% {
+
+		border-right-color: var(--color6);
+	}
+
+	100% {
+		border-right-color: transparent;
+
+	}
 }
 
-@keyframes texto{
-from{
+@keyframes texto {
+	from {
 
-width: 0px;
-} to{
+		width: 0px;
+	}
 
-width: 100%;
+	to {
 
-}
+		width: 100%;
+
+	}
 }
 
 
@@ -141,33 +146,34 @@ width: 100%;
 	width: 100%;
 	color: var(--color6);
 	font-size: 20px;
- 
+
 }
 
 
- .fomulario_cadastro{
-opacity: 0;
+.fomulario_cadastro {
+	opacity: 0;
 
-} 
+}
 
-.faed_in{
-animation: fadein 1s alternate forwards ;
-animation-delay: 5s;
+.faed_in {
+	animation: fadein 1s alternate forwards;
+	animation-delay: 5s;
 
 }
 
 
 @keyframes fadein {
-	0%{
+	0% {
 
-	  opacity: 0;
+		opacity: 0;
 	}
-	 100%{
-	
-	  opacity: 2;
+
+	100% {
+
+		opacity: 2;
 	}
-  }
-  
+}
+
 
 input {
 	font-family: 'Open Sans', sans-serif;
@@ -176,12 +182,13 @@ input {
 	width: 60%;
 	height: 20px;
 	border: solid var(--color1) 1px;
+	border-radius: 5px;
 	color: var(--white);
 	outline: none;
 	text-align: center;
 }
 
-input:focus{
+input:focus {
 	border: 1px solid var(--color6);
 }
 
@@ -190,7 +197,7 @@ input:focus{
 	color: rgb(71, 69, 69);
 }
 
-#data:focus{
+#data:focus {
 	color: white !important;
 }
 
@@ -216,48 +223,48 @@ input:focus{
 
 /* Cadastro Responsividade */
 @media screen and (max-width: 640px) {
-	.cadastro{
+	.cadastro {
 		max-width: 85vw;
 	}
 
-	.formulario{
+	.formulario {
 		padding: 10px;
-	}	
+	}
 
-.line_um{
-display: none;
-}
+	.line_um {
+		display: none;
+	}
 
-.line_dois{
-display: none;
-}
+	.line_dois {
+		display: none;
+	}
 
-.line_um_responsivo{
+	.line_um_responsivo {
 
-display: block;
+		display: block;
 
-}
+	}
 
-.line_dois_responsivo{
-display: block;
+	.line_dois_responsivo {
+		display: block;
 
-}
+	}
 
-main p{
+	main p {
 
-	white-space: nowrap;	
-}
+		white-space: nowrap;
+	}
 
 
 
 }
 
 @media screen and (max-width: 580px) {
-	.formulario input{
+	.formulario input {
 		width: 80%;
 	}
 
-	.cadastro_titulo{
+	.cadastro_titulo {
 		padding: 15px 20px;
 	}
 }
