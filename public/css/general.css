@@ -498,3 +498,20 @@ footer .footer-social-media i:hover{
     font-size: 1rem;
     border-radius: 5px;
 }
+
+/* Alert */
+.alert{
+    display: none;
+    color: var(--white);
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 100%;
+    top: 70px;
+    position: fixed;
+    z-index: 2000;
+}
+
+.alert-danger{
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(7px);
+}

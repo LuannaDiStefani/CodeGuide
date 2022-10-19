@@ -117,7 +117,7 @@ section.admin-panel .container{
 }
 
 
- .edit-field-user-submit{
+ .edit-field-submit{
     background: rgba(18, 18, 18, 1);
     display: flex;
     padding: 20px;
@@ -134,7 +134,7 @@ section.admin-panel .container{
     padding: 10px 0;
 }
 
-.form-course .input-course{
+.input-course{
     width: 100%;
     background: var(--black);
     font-weight: bold;
@@ -149,11 +149,11 @@ section.admin-panel .container{
     transition: all 0.5s ease-in-out;
 }
 
-.form-course .input-course:focus{
+.input-course:focus{
     border: 1px solid var(--color6);
 }
 
-.form-course textarea{
+textarea{
     width: 100%;
     background: var(--black);
     font-weight: bold;
@@ -167,23 +167,23 @@ section.admin-panel .container{
     transition: all 0.5s ease-in-out;
 }
 
-.form-course textarea:focus{
+textarea:focus{
     border: 1px solid var(--color6);
 }
 
-.form-course .pago{
+.pago{
     font-size: 1.1rem;
 }
 
 
-.form-course .pago input{
+.pago input{
     width: 30px;
     background-color: #eee;
     height: 30px;
     accent-color: var(--color1);
 }
 
-.form-course .options{
+.options{
     color: var(--white);
     border: 1px solid var(--white);
     outline: none;
@@ -199,24 +199,24 @@ section.admin-panel .container{
     text-overflow: '';
 }
 
-.form-course .options:focus{
+.options:focus{
     border: 1px solid var(--color6);
 }
 
-.form-course .img-preview{
+.img-preview{
     width: 40%;
     max-width: 250px;
 }
 
-.form-course .img-preview img{
+.img-preview img{
     width: 100%;
 }
 
-.form-course #upload-button{
+.upload-button{
     display: none;
 }
 
-.form-course .upload-button-container{
+.upload-button-container{
     background: rgba(10, 10, 10, 1);
     padding: 10px;
     width: 100%;
@@ -226,12 +226,12 @@ section.admin-panel .container{
     transition: all 0.3s ease-in;
 }
 
-.form-course .upload-button-container label{
+.upload-button-container label{
     font-size: 20px;
     cursor: pointer;
 }
 
-.form-course .upload-button-container:hover{
+.upload-button-container:hover{
     background: var(--color4);
     cursor: pointer;
 }

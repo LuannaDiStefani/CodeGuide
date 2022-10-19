@@ -120,18 +120,24 @@ $(document).ready(function () {
   );
 
   //Upload Button
-  let uploadButton = document.getElementById("upload-button");
-  let choosenImg = document.getElementById("choosen-img");
-  let fileName = document.getElementById("file-name");
+  let uploadButtons = document.querySelectorAll(".upload-button");
 
-  $(uploadButton).change(function () {
-    let reader = new FileReader();
-    reader.readAsDataURL(uploadButton.files[0]);
-    console.log(uploadButton.files[0]);
-    reader.onload = () => {
-      choosenImg.setAttribute("src", reader.result);
-    };
-    fileName.textContent = uploadButton.files[0].name;
+  uploadButtons.forEach((item) => {
+    $(item).change(function () {
+      let thisForm = this.parentElement.parentElement;
+
+      let fileName = $(thisForm).children().children(".file-name");
+      let choosenImg = $(thisForm).children().children(".choosen-img");
+      let uploadButton = this;
+
+      let reader = new FileReader();
+      reader.readAsDataURL(uploadButton.files[0]);
+      console.log(uploadButton.files[0]);
+      reader.onload = () => {
+        $(choosenImg).attr("src", reader.result);
+      };
+      $(fileName).text(uploadButton.files[0].name);
+    });
   });
 
   //Target - Edit-field
@@ -139,6 +145,7 @@ $(document).ready(function () {
   $(targetDivs).hide();
   $(targetDivs[0]).show();
   $(".target-edit-field").click(function () {
+    $("form").trigger("reset");
     event.preventDefault();
     $(".edit-field").hide();
     $(".target" + $(this).attr("target")).show();
@@ -167,4 +174,36 @@ $(".thumbTile").click(function () {
   });
 });
 
+//Alert
+function exibirAlerta(n, cor) {
+  let message;
+  let color1 = "rgba(115, 234, 129, 0.8)";
+  let color2 = "rgba(255, 91, 91, 0.8)";
 
+  switch (n) {
+    case 1:
+      $(".alert").css("background", color1);
+      message = "Operação realizada com sucesso!";
+      break;
+    case 2:
+      $(".alert").css("background", color2);
+      message = "Preencha os dados corretamente!";
+      break;
+    case 3:
+      $(".alert").css("background", color1);
+      message = "Atualizado com sucesso!";
+      break;
+    default:
+      if (cor == 1) {
+        $(".alert").css("background", color1);
+      } else {
+        $(".alert").css("background", color2);
+      }
+      message = n;
+  }
+  $(".alert").slideToggle("fast");
+  $(".alert").html(message);
+  setTimeout(function () {
+    $(".alert").fadeOut("fast");
+  }, 1500);
+}
