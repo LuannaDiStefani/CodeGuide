@@ -1,35 +1,6 @@
 $(document).ready(function () {
   $("#cad-curso").submit(function (event) {
     event.preventDefault();
-
-    console.log($(this));
-
-    /* let nomecurso = $('[name="nomecurso"]').val();
-    let descri = $('[name="descri"]').val();
-    let linguagem = $('[name="linguagem"]').val();
-    let pago = $('[name="pago"]:checked').val();
-    let plataforma = $('[name="plataforma"]').val();
-    let linkcurso = $('[name="linkcurso"]').val();
-    let videocurso = $('[name="videocurso"]').val();
-
-    console.log(linguagem);
-
-    $.ajax({
-      method: "POST",
-      url: "enviar.php",
-      data: {
-        nomecurso: nomecurso,
-        descri: descri,
-        linguagem: linguagem,
-        pago: pago,
-        plataforma: plataforma,
-        linkcurso: linkcurso,
-        videocurso: videocurso,
-      },
-    }).done(function (result) {
-      $("#cad-form").trigger("reset");
-      exibirAlerta(1);
-    }); */
   });
 });
 
@@ -37,14 +8,35 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#cad-linguagem").submit(function (event) {
     event.preventDefault();
-    let formData = new FormData();
+
+    let data = new FormData();
+
     let file = $('[name="imglinguagem"]')[0].files[0];
-    formData.append("file", file);
+    let allowedFileTypes = "image.*|application/pdf";
+    let allowedFileSize = 2048;
+
+    if (!file.type.match(allowedFileTypes)) {
+      // Check file type
+      exibirAlerta(
+        "File extension error! Please select the allowed file type only",
+        2
+      );
+    } else if (file.size > allowedFileSize * 1024) {
+      // Check file size (in bytes)
+      exibirAlerta(
+        "File size error! Sorry, the selected file size is larger than the allowed size",
+        2
+      );
+    } else {
+      // Append the uploadable file to FormData object
+      data.append("file", file, file.name);
+    }
 
     $.ajax({
       url: "cadastro2.php",
-      type: "post",
-      data: formData,
+      type: "POST",
+      data: data,
+      contentType: "application/json; charset=utf-8",
       contentType: false,
       processData: false,
       success: function (result) {
