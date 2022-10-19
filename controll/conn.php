@@ -10,7 +10,7 @@ $dbname = "codeguide";
 
 try{
     
-    $conn = mysqli_connect($host, $user, $pass, $dbname);
+    $conexao = mysqli_connect($host, $user, $pass, $dbname);
 
     echo "Conexão com banco de dados realizada com sucesso!";
 

@@ -2,6 +2,10 @@
 
 include_once "conn.php";
 
+    if(isset($_POST)){
+
+    $nome = $_POST['nome'];
+
     // Generate unique file name 
     $fileName = $_FILES["file"]["name"]; 
      
@@ -18,16 +22,21 @@ include_once "conn.php";
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
             // Insert file data into the database if needed 
             //........ 
+            $sql="INSERT INTO linguagem(nome,imagem) 
+            VALUES('$nome','$fileName')";
+
+            $exec = $conexao->query($sql);
  
             // Success response 
             echo $targetFilePath;
+            echo $nome;
         }else{ 
             echo 0;
         } 
     }else{ 
         echo 'type_err'; 
     } 
-     
-    // Render response data in JSON format
 
+
+}
 ?>
