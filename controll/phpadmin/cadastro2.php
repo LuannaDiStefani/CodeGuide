@@ -1,6 +1,6 @@
 <?php
 
-include_once "conn.php";
+include_once "../path/conn.php";
 
     if(isset($_POST)){
 
@@ -10,7 +10,7 @@ include_once "conn.php";
     $fileName = $_FILES["file"]["name"]; 
      
     // File upload path 
-    $targetDir = "../source/imglinguagem/"; 
+    $targetDir = "../../source/imglinguagem/"; 
     $targetFilePath = $targetDir . $fileName; 
      
     // Allow certain file formats 
