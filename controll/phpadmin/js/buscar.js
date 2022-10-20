@@ -1,4 +1,4 @@
-class Busca {
+class Buscar {
   constructor(path) {
     this.path = path;
   }
@@ -39,11 +39,9 @@ class Busca {
   exibirNaTela(id, dados) {
     $(id).text(dados);
   }
-
-  guardarDados(dados) {}
 }
 
-export default Busca;
+export default Buscar;
 
 /*   const busca = new Busca("../buscar.php");
 

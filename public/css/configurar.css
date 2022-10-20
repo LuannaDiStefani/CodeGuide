@@ -437,5 +437,6 @@ section.edit-profile .edit-field-user-submit{
 }
 
 .file-name{
+    font-size: 15px;
     word-wrap: break-word;
 }

@@ -1,4 +1,4 @@
-import Busca from "./busca.js";
+import Buscar from "./buscar.js";
 
 $(document).ready(function () {
   const search = new Busca();
