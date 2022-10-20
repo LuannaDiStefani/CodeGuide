@@ -1,0 +1,209 @@
+/* Página de perfil */
+section.profile{
+    padding-top: 100px;
+    margin-bottom: 50px;
+  }
+
+  section.profile .container{
+    position: relative;
+    padding: 0 2%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  section.profile .profile-box{
+    margin-top: 50px;
+  }
+
+  section.profile .profile-info{
+    position: relative;
+    width: 60%;
+  }
+
+  section.profile .profile-info-top{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: -70px;
+    gap: 20px;
+  }
+
+  section.profile .profile-info-picture img{  
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+
+  section.profile .profile-info-name{
+    min-width: 254px;
+    transition: all 0.4s ease-in;
+  }
+
+  .info-name{
+    font-size: min(1.4rem, 6vw);
+  }
+
+  .info-subtitle{
+    font-size: 1.1rem;
+    color: var(--color1);
+  }
+
+
+  section.profile .info-stacks-icon{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+  section.profile .info-stacks{
+    padding: 15px 0;
+  }
+
+  .info-title{
+    color: var(--color6);
+  }
+
+  section.profile .info-stacks .info-stacks-icon i{
+    font-size: 2.4rem;
+    transition: all 0.4s ease-in-out;
+  }
+
+  section.profile .info-stacks .info-stacks-icon i:hover{
+    color: var(--color1);
+    cursor: pointer;
+  }
+
+  section.profile .info-stacks .model-container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 99vh;
+    width: 99vw;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+    transform: scale(0);
+  }
+
+  section.profile .info-stacks .model{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    max-width: 350px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--color2);
+    backdrop-filter: blur(7px);
+    position: relative;
+  }
+
+  section.profile .info-stacks .model button{
+    height: 35px;
+    width: 120px;
+    background: #333;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+  }
+
+  section.profile .info-stacks .model button:hover{
+    opacity: .9 ;
+  }
+
+  section.profile .info-stacks .model .close-button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+  }
+
+  section.profile .info-stacks .model .close-button:hover{
+    color: var(--color6);
+  }
+
+  section.profile .info-stacks .model #search-stack{
+    margin-top: 15px;
+    color: var(--white);
+    border: 2px solid var(--white);
+    outline: none;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    height: 35px;
+    padding: 20px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+
+  section.profile .info-stacks .model #search-stack:focus{
+    border: 2px solid var(--color6);
+    color: var(--color6);
+  }
+
+  section.profile .info-stacks .model .search-stack-icon i{
+    font-size: 70px;
+  }
+
+  section.profile .profile-box{
+    padding: 10px 30px;
+    background: rgba(18, 18, 18, 0.9);
+  }
+
+  section.profile .profile-posts{
+    padding: 5px 0;
+    width: 40%;
+  }
+
+  section.profile .profile-comments{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  section.profile .comment-block{
+    padding: 10px;
+    font-size: 0.9rem;
+    background: rgba(18, 18, 18, 0.9);
+  }
+
+/* Responsividade Profile */
+@media (max-width: 790px){
+    section.profile .profile-info{
+        width: 100%;
+    }
+    
+    section.profile .profile-posts{
+        width: 100%;
+    }
+}
+
+@media (max-width: 570px){
+    section.profile .profile-info-top{
+        display: block;
+        padding-bottom: 20px;
+    }   
+}
