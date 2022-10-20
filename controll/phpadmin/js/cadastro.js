@@ -50,7 +50,7 @@ $(document).ready(function () {
           contentType: false,
           processData: false,
         }).done(function (result) {
-          $("#cad-form").trigger("reset");
+          $("#cad-curso")[0].reset();
           exibirAlerta(result, 1);
           console.log(result);
         });
@@ -103,9 +103,8 @@ $(document).ready(function () {
         processData: false,
         success: function (result) {
           if (result != 0) {
-            $("#cad-form").trigger("reset");
+            $("#cad-linguagem")[0].reset();
             exibirAlerta(result, 1);
-            console.log(result);
           } else {
             exibirAlerta(2);
           }

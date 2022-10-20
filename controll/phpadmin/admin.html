@@ -126,15 +126,15 @@
                                 <form action="" method="post" id="cad-curso">
                                     <div>
                                         <label for="nomecurso">Nome do Curso</label>
-                                        <input type="text" class="input-course" name="nomecurso">
+                                        <input type="text" class="input-course" name="nomecurso" required>
                                     </div>
                                     <div>
                                         <label for="descricao">Descrição</label>
-                                        <textarea name="descri" id="" cols="100" rows="3"></textarea>
+                                        <textarea name="descri" id="" cols="100" rows="3" required></textarea>
                                     </div>
                                     <div>
                                         <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem">
+                                        <input list="linguagens" class="options" name="linguagem" required>
                                         <datalist id="linguagens">
                                             <option value="0 - JavaScript">
                                             <option value="1 - C#">
@@ -151,7 +151,7 @@
                                     </div>
                                     <div>
                                         <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma">
+                                        <input list="plataformas" class="options" name="plataforma" required>
                                         <datalist id="plataformas">
                                             <option value="Internet Explorer">
                                             <option value="Firefox">
@@ -162,15 +162,15 @@
                                     </div>
                                     <div>
                                         <label for="linkcurso">Link</label>
-                                        <input type="text" name="linkcurso" class="input-course">
+                                        <input type="text" name="linkcurso" class="input-course" required>
                                     </div>
                                     <div>
                                         <label for="videocurso">Video</label>
-                                        <input type="text" name="videocurso" class="input-course">
+                                        <input type="text" name="videocurso" class="input-course" required>
                                     </div>
                                     <div class="upload upload-curso">
                                         <div class="img-preview">
-                                            <img src="../../source/alberto.png" id="choosen-img" class="choosen-img"
+                                            <img src="" id="choosen-img" class="choosen-img"
                                                 alt="Preview">
                                             <span id="file-name" class="file-name">Nome do Arquivo</span>
                                         </div>
@@ -198,7 +198,7 @@
                             <div class="form-course">
                                 <form action="" method="post" id="cad-linguagem" enctype="multipart/form-data">
                                     <div>
-                                        <label for="nomecurso">Nome da linguagem</label>
+                                        <label for="nomelinguagem">Nome da linguagem</label>
                                         <input type="text" class="input-course" name="nomelinguagem">
                                     </div>
                                     <div class="upload-linguagem">
@@ -391,8 +391,8 @@
     </footer>
 
     <!-- Main-JS -->
+    <script src="./js/cadastro3.js"></script>
     <script src="../../public/js/main.js"></script>
-    <script src="./js/main.js"></script>
 
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
