@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Guide - Cadastro</title>
+    <!-- General CSS -->
+    <link rel="stylesheet" href="./css/general.css">
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <!-- JQuery -->
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <!-- swiper-JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- TypeJs -->
+    <script src="./js/t.min.js"></script>
+
+    <script src="./js/cadastro.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+
+            <div class="hd-left">
+                <div id="cg-logo">
+                    <div class="logo-img"></div>
+                </div>
+            </div>
+
+            <div class="container-menu">
+                <button id="menu-dropdown">
+                    Categorias
+                </button>
+                <nav id="menu">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Sobre</a></li>
+                        <li><a href="">Portfolio</a></li>
+                        <li><a href="">Serviços</a></li>
+                        <li><a href="">Contato</a></li>
+                    </ul>
+                </nav> <!-- fim do menu -->
+            </div>
+
+
+            <div class="hd-right">
+                <div class="search-bar">
+                    <input type="text" class="search-box search-active" placeholder="Vamos dominar o mundo!">
+                    <label for="search-box"><i class="fa fa-search"></i></label>
+                </div>
+                <div id="profile">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="container-mobile">
+        <nav class="menu-mobile">
+            <div class="home-mobile">
+                <a href="" class="menu-mobile-button">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </div>
+            <div class="search-mobile">
+                <a href="" id="mobile-search" class="menu-mobile-button mobile-search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search
+                </a>
+            </div>
+            <div class="profile-mobile">
+                <a href="" class="menu-mobile-button">
+                    <i class="fa-solid fa-user-group"></i>
+                    Profile
+                </a>
+            </div>
+            <div class="menu-hamburguer">
+                <a href="" class="menu-mobile-button category-button">
+                    <i class="fa-solid fa-bars"></i>
+                    Menu
+                </a>
+
+            </div>
+        </nav>
+
+        <div class="mobile-category">
+            <h3>Categorias:</h3>
+            <ul>
+                <li><a href="">Link 1</a></li>
+                <li><a href="">Link 2</a></li>
+                <li><a href="">Link 3</a></li>
+                <li><a href="">Link 4</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="background">
+        <video autoplay loop muted poster="../source/fundo_cadastro.mp4" class="bg_video">
+            <source src="../source/fundo_cadastro.mp4" type="video/mp4">
+        </video>
+
+        <main>
+            <section class="cadastro">
+                <div class="cadastro_titulo">
+
+                    <p class="line_um  animacao"> Bem-vindo(a) ao CodeGuide! </p>
+                    <p class="line_dois animacao_dois"> A sua jornada começa aqui... </p>
+
+                    <p class="line_um_responsivo animacao"> Bem-vindo(a) ao CodeGuide! </p>
+                    <p class="line_dois_responsivo animacao_dois"> A sua jornada começa aqui</p>
+
+
+
+                </div>
+
+                <div class="fomulario_cadastro faed_in" id="teste">
+
+                    <form class="formulario" name="cadastro" action="" method="post">
+
+                        <p class="faed_in"> Digite seu nome:<br> <input type="name" name="nome" required
+                                pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ-']+$/"> <br><br></p>
+
+                        Digite seu e-mail:<br> <input type="email" name="email" required><br><br>
+
+                        Digite sua senha:<br> <input type="password" name="senha" required
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
+
+                        Confirme sua senha:<br> <input type="password" name="confirmacao" required
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
+
+                        Digite sua data de nascimento:<br> <input type="date" name="data" id="data" onfocus="cor()"
+                            required>
+
+                        <input type="submit" name="cadastro" value="Continuar" class="enviar">
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div> <!-- background -->
+    <footer>
+        <div class="container">
+            <div class="footer-text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Amet laudantium debitis nulla quod, labore dolor fugit exercitationem ut ipsam nemo fugiat
+                    repudiandae doloremque saepe eos iure. Dolore maxime corrupti nostrum.</p>
+            </div>
+            <div class="footer-social-media">
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-discord"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main-JS -->
+    <script src="./js/main.js"></script>
+
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
