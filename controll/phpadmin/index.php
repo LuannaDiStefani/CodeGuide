@@ -7,14 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Perfil - Code Guide</title>
     <link rel="stylesheet" href="../../public/css/general.css">
-    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- JQuery -->
     <script src="../../public/js/jquery-3.6.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <!-- swiper-JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <!-- TypeJs -->
-    <script src="../../public/js/t.min.js"></script>
 </head>
 
 <body>
