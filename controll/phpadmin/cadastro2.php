@@ -4,7 +4,9 @@ include_once "../path/conn.php";
 
     if(isset($_POST)){
 
-    $nome = $_POST['nome'];
+    $params = array();
+    parse_str($_POST['info'], $params);
+    $nome = $params['nomelinguagem'];
 
     // Generate unique file name 
     $fileName = $_FILES["file"]["name"]; 

@@ -204,8 +204,12 @@ textarea:focus{
 }
 
 .img-preview{
-    width: 40%;
+    width: 50%;
     max-width: 250px;
+}
+
+.img-preview .file-name{
+    font-size: 15px;
 }
 
 .img-preview img{

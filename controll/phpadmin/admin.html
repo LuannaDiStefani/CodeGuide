@@ -126,15 +126,15 @@
                                 <form action="" method="post" id="cad-curso">
                                     <div>
                                         <label for="nomecurso">Nome do Curso</label>
-                                        <input type="text" class="input-course" name="nomecurso">
+                                        <input type="text" class="input-course" name="nomecurso" required>
                                     </div>
                                     <div>
                                         <label for="descricao">Descrição</label>
-                                        <textarea name="descri" id="" cols="100" rows="3"></textarea>
+                                        <textarea name="descri" id="" cols="100" rows="3" required></textarea>
                                     </div>
                                     <div>
                                         <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem">
+                                        <input list="linguagens" class="options" name="linguagem" required>
                                         <datalist id="linguagens">
                                             <option value="0 - JavaScript">
                                             <option value="1 - C#">
@@ -151,7 +151,7 @@
                                     </div>
                                     <div>
                                         <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma">
+                                        <input list="plataformas" class="options" name="plataforma" required>
                                         <datalist id="plataformas">
                                             <option value="Internet Explorer">
                                             <option value="Firefox">
@@ -162,15 +162,15 @@
                                     </div>
                                     <div>
                                         <label for="linkcurso">Link</label>
-                                        <input type="text" name="linkcurso" class="input-course">
+                                        <input type="text" name="linkcurso" class="input-course" required>
                                     </div>
                                     <div>
                                         <label for="videocurso">Video</label>
-                                        <input type="text" name="videocurso" class="input-course">
+                                        <input type="text" name="videocurso" class="input-course" required>
                                     </div>
                                     <div class="upload upload-curso">
                                         <div class="img-preview">
-                                            <img src="../../source/alberto.png" id="choosen-img" class="choosen-img"
+                                            <img src="../../source/no-preview.jpg" id="choosen-img" class="choosen-img"
                                                 alt="Preview">
                                             <span id="file-name" class="file-name">Nome do Arquivo</span>
                                         </div>
@@ -198,12 +198,12 @@
                             <div class="form-course">
                                 <form action="" method="post" id="cad-linguagem" enctype="multipart/form-data">
                                     <div>
-                                        <label for="nomecurso">Nome da linguagem</label>
+                                        <label for="nomelinguagem">Nome da linguagem</label>
                                         <input type="text" class="input-course" name="nomelinguagem">
                                     </div>
                                     <div class="upload-linguagem">
                                         <div class="img-preview">
-                                            <img src="../../source/alberto.png" id="chossen-linguagem" class="choosen-img"
+                                            <img src="../../source/no-preview.jpg" id="chossen-linguagem" class="choosen-img"
                                                 alt="Preview">
                                             <span id="filename-linguagem" class="file-name">Nome do Arquivo</span>
                                         </div>
@@ -223,150 +223,18 @@
                     </div>
                     <div class="edit-field target3">
                         <div class="edit-field-title">
-                            <h2>Página de Cadastro de Cursos</h2>
+                            <h2>Em construção</h2>
                         </div>
                         <div class="edit-field-user">
-                            <div class="form-course">
-                                <form action="" method="post" id="cad-form">
-                                    <div>
-                                        <label for="nomecurso">Nome do Curso</label>
-                                        <input type="text" class="input-course" name="nomecurso">
-                                    </div>
-                                    <div>
-                                        <label for="descricao">Descrição</label>
-                                        <textarea name="descri" id="" cols="100" rows="3"></textarea>
-                                    </div>
-                                    <div>
-                                        <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem">
-                                        <datalist id="linguagens">
-                                            <option value="0 - JavaScript">
-                                            <option value="1 - C#">
-                                            <option value="2 - PHP">
-                                            <option value="3 - Python">
-                                            <option value="4 - HTML">
-                                        </datalist>
-                                    </div>
-                                    <div class="pago">
-                                        <input type="radio" name="pago" value="pago">
-                                        <label for="pago">Pago</label><br>
-                                        <input type="radio" name="pago" value="gratis">
-                                        <label for="gratuito">Gratuito</label><br>
-                                    </div>
-                                    <div>
-                                        <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma">
-                                        <datalist id="plataformas">
-                                            <option value="Internet Explorer">
-                                            <option value="Firefox">
-                                            <option value="Chrome">
-                                            <option value="Opera">
-                                            <option value="Safari">
-                                        </datalist>
-                                    </div>
-                                    <div>
-                                        <label for="linkcurso">Link</label>
-                                        <input type="text" name="linkcurso" class="input-course">
-                                    </div>
-                                    <div>
-                                        <label for="videocurso">Video</label>
-                                        <input type="text" name="videocurso" class="input-course">
-                                    </div>
-                                    <div class="upload">
-                                        <div class="img-preview">
-                                            <img src="../source/alberto.png" id="choosen-img" class="choosen-img"
-                                                alt="Preview">
-                                            <span id="file-name" class="file-name">Nome do Arquivo</span>
-                                        </div>
-                                        <div class="upload-button-container">
-                                            <input type="file" name="imgcurso" id="upload-button" class="upload-button"
-                                                accept="image/*">
-                                            <label for="upload-button"><i class="fa-solid fa-image"></i> Escolha uma
-                                                foto</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="edit-field-user-submit">
-                                        <button class="btn-1">Enviar</button>
-                                    </div>
-
-                                </form>
-                            </div>
+                            ...
                         </div>
                     </div>
                     <div class="edit-field target4">
                         <div class="edit-field-title">
-                            <h2>Página de Teste</h2>
+                            <h2>Em construção</h2>
                         </div>
                         <div class="edit-field-user">
-                            <div class="form-course">
-                                <form action="" method="post" id="cad-form">
-                                    <div>
-                                        <label for="nomecurso">Nome do Curso</label>
-                                        <input type="text" class="input-course" name="nomecurso">
-                                    </div>
-                                    <div>
-                                        <label for="descricao">Descrição</label>
-                                        <textarea name="descri" id="" cols="100" rows="3"></textarea>
-                                    </div>
-                                    <div>
-                                        <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem">
-                                        <datalist id="linguagens">
-                                            <option value="0 - JavaScript">
-                                            <option value="1 - C#">
-                                            <option value="2 - PHP">
-                                            <option value="3 - Python">
-                                            <option value="4 - HTML">
-                                        </datalist>
-                                    </div>
-                                    <div class="pago">
-                                        <input type="radio" name="pago" value="pago">
-                                        <label for="pago">Pago</label><br>
-                                        <input type="radio" name="pago" value="gratis">
-                                        <label for="gratuito">Gratuito</label><br>
-                                    </div>
-                                    <div>
-                                        <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma">
-                                        <datalist id="plataformas">
-                                            <option value="Internet Explorer">
-                                            <option value="Firefox">
-                                            <option value="Chrome">
-                                            <option value="Opera">
-                                            <option value="Safari">
-                                        </datalist>
-                                    </div>
-                                    <div>
-                                        <label for="linkcurso">Link</label>
-                                        <input type="text" name="linkcurso" class="input-course">
-                                    </div>
-                                    <div>
-                                        <label for="videocurso">Video</label>
-                                        <input type="text" name="videocurso" class="input-course">
-                                    </div>
-                                    <div class="upload">
-                                        <div class="img-preview">
-                                            <img src="../../source/alberto.png" id="choosen-img" class="choosen-img"
-                                                alt="Preview">
-                                            <span id="file-name" class="file-name">Nome do Arquivo</span>
-                                        </div>
-                                        <div class="upload-button-container">
-                                            <input type="file" name="imgcurso" id="upload-button" class="upload-button"
-                                                accept="image/*">
-                                            <label for="upload-button"><i class="fa-solid fa-image"></i> Escolha uma
-                                                foto</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="edit-field-user-submit">
-                                        <button class="btn-1">Enviar</button>
-                                    </div>
-
-                                </form>
-                            </div>
+                            ...
                         </div>
                     </div>
                     
@@ -391,8 +259,8 @@
     </footer>
 
     <!-- Main-JS -->
+    <script type="module" src="./js/main.js"></script>
     <script src="../../public/js/main.js"></script>
-    <script src="./js/main.js"></script>
 
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>

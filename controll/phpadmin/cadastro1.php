@@ -7,11 +7,17 @@ if(isset($_POST)){
 
     $params = array();
     parse_str($_POST['info'], $params);
-    $info = $_POST['info'];
-    echo($params['nomecurso']);
+    $nomecurso = $params['nomecurso'];
+    $descri = $params['descri'];
+    $link = $params['linkcurso'];
+    $pago = $params['pago'];
+    $videocurso = $params['videocurso'];
+    $nome = $params['nomecurso'];
+    $linguagem = $params['linguagem'];
+    
 
     // Generate unique file name 
-    $fileName = $_FILES["file"]["name"]; 
+    $fileName = $_FILES["file"]["name"];
      
     // File upload path 
     $targetDir = "../../source/imgcurso/"; 
@@ -26,10 +32,10 @@ if(isset($_POST)){
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
             // Insert file data into the database if needed 
             //........ 
-            /* $sql="INSERT INTO cursos(nomecurso,descri, pago, link, imgcurso, videocurso, idlinguagem) 
-            VALUES('$nome','$fileName')";
+            $sql="INSERT INTO cursos(nomecurso,descri, pago, link, imgcurso, videocurso, idlinguagem) 
+            VALUES('$nomecurso','$descri','$pago','$link','$fileName','$videocurso','$linguagem')";
 
-            $exec = $conexao->query($sql); */
+            $exec = $conexao->query($sql);
  
             // Success response 
             echo $targetFilePath;

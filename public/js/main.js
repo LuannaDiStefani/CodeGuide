@@ -193,6 +193,14 @@ function exibirAlerta(n, cor) {
       $(".alert").css("background", color1);
       message = "Atualizado com sucesso!";
       break;
+    case 4:
+      $(".alert").css("background", color2);
+      message = "Apenas imagens permitidas! Verifique o tipo corretamente.";
+      break;
+    case 5:
+      $(".alert").css("background", color2);
+      message = "Arquivo muito grande! Escolha outra arquivo menor.";
+      break;
     default:
       if (cor == 1) {
         $(".alert").css("background", color1);
