@@ -1,6 +1,8 @@
 class Buscar {
   constructor(path) {
     this.path = path;
+    this.arr = [];
+    this.retorno;
   }
 
   result = {};
@@ -29,11 +31,33 @@ class Buscar {
     return this.ajax(nometabela, query);
   }
 
-  ajax(tabela, sql) {
-    $.post(this.path, { nometabela: tabela, sql: sql }).done((data) => {
-      let dados = JSON.parse(data);
-      return dados;
+  newBuscar(nometabela, campo, nome, option) {
+    this.arr[0] = nometabela;
+    this.arr[1] = campo;
+    this.arr[2] = nome;
+    this.arr[3] = option;
+    /* this.ajax(); */
+    $.when(this.ajax()).done((response) => {
+      /* console.log(response); */
+      this.retorno = JSON.parse(response);
     });
+  }
+
+  ajax() {
+    let dados = JSON.stringify(this.arr);
+    return $.ajax({
+      async: false,
+      url: this.path,
+      method: "POST",
+      data: { info: dados },
+    });
+
+    /*     $.post(this.path, {
+      info: dados,
+    }).done((data) => {
+      /* retorno = JSON.parse(data); 
+      console.log(data);
+    }); */
   }
 
   exibirNaTela(id, dados) {

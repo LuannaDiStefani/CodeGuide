@@ -14,85 +14,7 @@
 
 <body>
 
-    <header>
-        <div class="container">
-
-            <div class="hd-left">
-                <div id="cg-logo">
-                    <div class="logo-img"></div>
-                </div>
-            </div>
-
-            <div class="container-menu">
-                <button id="menu-dropdown">
-                    Categorias
-                </button>
-                <nav id="menu">
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Sobre</a></li>
-                        <li><a href="">Portfolio</a></li>
-                        <li><a href="">Serviços</a></li>
-                        <li><a href="">Contato</a></li>
-                    </ul>
-                </nav> <!-- fim do menu -->
-            </div>
-
-
-            <div class="hd-right">
-                <div class="search-bar">
-                    <input type="text" class="search-box search-active" placeholder="Vamos dominar o mundo!">
-                    <label for="search-box"><i class="fa fa-search"></i></label>
-                </div>
-                <div id="profile">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-            </div>
-
-        </div>
-
-    </header>
-
-    <div class="container-mobile">
-        <nav class="menu-mobile">
-            <div class="home-mobile">
-                <a href="" class="menu-mobile-button">
-                    <i class="fa-solid fa-house"></i>
-                    Home
-                </a>
-            </div>
-            <div class="search-mobile">
-                <a href="" id="mobile-search" class="menu-mobile-button mobile-search-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    Search
-                </a>
-            </div>
-            <div class="profile-mobile">
-                <a href="" class="menu-mobile-button">
-                    <i class="fa-solid fa-user-group"></i>
-                    Profile
-                </a>
-            </div>
-            <div class="menu-hamburguer">
-                <a href="" class="menu-mobile-button category-button">
-                    <i class="fa-solid fa-bars"></i>
-                    Menu
-                </a>
-
-            </div>
-        </nav>
-
-        <div class="mobile-category">
-            <h3>Categorias:</h3>
-            <ul>
-                <li><a href="">Link 1</a></li>
-                <li><a href="">Link 2</a></li>
-                <li><a href="">Link 3</a></li>
-                <li><a href="">Link 4</a></li>
-            </ul>
-
-        </div>
-    </div>
+<?php include '../../public/components/header.php'; ?>
 
     <main>
         <section class="admin-panel">
@@ -129,13 +51,8 @@
                                     </div>
                                     <div>
                                         <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem" required>
+                                        <input list="linguagens" class="options" name="linguagem" autocomplete="off" required>
                                         <datalist id="linguagens">
-                                            <option value="0 - JavaScript">
-                                            <option value="1 - C#">
-                                            <option value="2 - PHP">
-                                            <option value="3 - Python">
-                                            <option value="4 - HTML">
                                         </datalist>
                                     </div>
                                     <div class="pago">
@@ -146,13 +63,8 @@
                                     </div>
                                     <div>
                                         <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma" required>
+                                        <input list="plataformas" class="options" name="plataforma" autocomplete="off" required>
                                         <datalist id="plataformas">
-                                            <option value="Internet Explorer">
-                                            <option value="Firefox">
-                                            <option value="Chrome">
-                                            <option value="Opera">
-                                            <option value="Safari">
                                         </datalist>
                                     </div>
                                     <div>
@@ -238,20 +150,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-text">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>Amet laudantium debitis nulla quod, labore dolor fugit exercitationem ut ipsam nemo fugiat
-                    repudiandae doloremque saepe eos iure. Dolore maxime corrupti nostrum.</p>
-            </div>
-            <div class="footer-social-media">
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-discord"></i>
-            </div>
-        </div>
-    </footer>
+    <?php include '../../public/components/footer.php'; ?>
 
     <!-- Main-JS -->
     <script type="module" src="./js/main.js"></script>
