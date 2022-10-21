@@ -16,7 +16,7 @@ if(isset($_POST)){
     $nome = $params[2];
     $option = $params[3];
 
-    if($campo || $nome == ""){
+    if($campo == "" || $nome == "" || $option == ""){
         $sql = "SELECT * FROM $nometabela";
     }else{
         $query = array(

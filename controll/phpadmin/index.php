@@ -62,10 +62,8 @@
                                         <label for="gratuito">Gratuito</label><br>
                                     </div>
                                     <div>
-                                        <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma" autocomplete="off" required>
-                                        <datalist id="plataformas">
-                                        </datalist>
+                                        <label for="plataforma">Plataforma</label>
+                                        <input type="text" name="plataforma" class="input-course" required>
                                     </div>
                                     <div>
                                         <label for="linkcurso">Link</label>
@@ -106,7 +104,7 @@
                                 <form action="" method="post" id="cad-linguagem" enctype="multipart/form-data">
                                     <div>
                                         <label for="nomelinguagem">Nome da linguagem</label>
-                                        <input type="text" class="input-course" name="nomelinguagem">
+                                        <input type="text" class="input-course" name="nomelinguagem" autocomplete="off">
                                     </div>
                                     <div class="upload-linguagem">
                                         <div class="img-preview">

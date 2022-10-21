@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   async function pegarDados(nometabela, campo, nome, option) {
     //exemplo
-    /*  return buscar.param("linguagem", "", "", "1"); */
+    /* return buscar.param("linguagem", "", "", "1"); */
     return buscar.newBuscar(nometabela, campo, nome, option);
   }
 
@@ -35,14 +35,9 @@ $(document).ready(function () {
   });
 
   //Options DataList
-  let dados;
-
-  function exibir() {
-    dados = guardarDados();
-    insertDataList("linguagens", dados);
-  }
-
-  $.when(pegarDados("linguagem", "", "", "1")).then(exibir());
+  $.when(pegarDados("linguagem", "", "", "")).then(
+    insertDataList("linguagens", buscar.retorno)
+  );
 
   function insertDataList(id, dados) {
     let options = "";
@@ -50,6 +45,6 @@ $(document).ready(function () {
     for (let i = 0; i < dados.length; i++) {
       options += `<option value="${dados[i]["idlinguagem"]} - ${dados[i]["nome"]}" />`;
     }
-    datalist.insertAdjacentHTML("afterbegin", options);
+    datalist.insertAdjacentHTML("beforeend", options);
   }
 });

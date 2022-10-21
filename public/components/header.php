@@ -3,7 +3,8 @@
 
             <div class="hd-left">
                 <div id="cg-logo">
-                    <div class="logo-img"></div>
+                    <div class="logo-img">
+                    </div>
                 </div>
             </div>
 

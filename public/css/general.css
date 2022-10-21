@@ -92,9 +92,18 @@ header #cg-logo{
 }
 
 header .logo-img{
+    cursor: pointer;
+    background: url('../../source/codeguide.png') no-repeat;
+    background-size: contain;
+    background-position: center;
     width: 100px;
     height: 60px;
-    border: 2px solid var(--color2);
+    transition: all 0.3s ease-in;
+}
+
+header .logo-img:hover{
+    opacity: 0.8;
+    
 }
 
 /* Header Menu */
@@ -172,7 +181,7 @@ a.menu-mobile-button:hover{
 .menu-ul{
     padding-top: 10px;
     display: flex;
-    width: 1000px;
+    width: 980px;
     justify-content: center;
 }
 
