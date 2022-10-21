@@ -31,7 +31,12 @@ $(document).ready(function () {
     event.preventDefault();
     let id = "#cad-linguagem";
     let file = $('[name="imglinguagem"]')[0].files[0];
-    cadastrar2.cadastrarCurso(id, file);
+    let filename = file["name"];
+    console.log(filename);
+    let newFileName = filename.replace(/[^A-Z0-9._]+/gi, "_");
+    console.log(newFileName);
+
+    cadastrar2.cadastrarCurso(id, file, newFileName);
   });
 
   //Options DataList

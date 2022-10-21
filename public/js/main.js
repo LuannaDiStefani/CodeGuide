@@ -153,7 +153,15 @@ $(document).ready(function () {
 });
 
 //Highlight Target
-let highlights = document.querySelectorAll(".highlight");
+
+$(".swiper-wrapper")
+  .children()
+  .click((e) => {
+    e.preventDefault();
+    console.log("clicado");
+  });
+
+/* let highlights = document.querySelectorAll(".highlight");
 $(highlights).hide();
 
 $(".thumbTile").click(function () {
@@ -172,7 +180,7 @@ $(".thumbTile").click(function () {
   $(".close-highlight-button").click(function () {
     $(thisHighlight).hide("slow");
   });
-});
+}); */
 
 //Alert
 function exibirAlerta(n, cor) {

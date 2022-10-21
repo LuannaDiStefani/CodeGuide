@@ -15,6 +15,9 @@
     --color7: #1c3166;
     --color8: #240047;
     --color9:#1c0021;
+    --slider-padding: 3rem;
+    --img-gap: .25rem;
+    --images-per-screen: 5;
 }
 
 *{

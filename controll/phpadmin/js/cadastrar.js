@@ -6,12 +6,12 @@ class Cadastrar {
     this.allowedFileSize = 1024;
   }
 
-  cadastrarCurso(id, file) {
-    this.verificaFile(file);
+  cadastrarCurso(id, file, filename) {
+    this.verificaFile(file, filename);
     this.organizarDados(id);
   }
 
-  verificaFile(file) {
+  verificaFile(file, filename) {
     if (!file) {
       exibirAlerta(2);
     } else {
@@ -22,9 +22,7 @@ class Cadastrar {
         // Check file size (in bytes)
         exibirAlerta(5);
       } else {
-        if (this.formatData.append("file", file, file.name)) {
-          console.log("add");
-        }
+        this.formatData.append("file", file, filename);
       }
     }
   }

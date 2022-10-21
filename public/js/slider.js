@@ -1,9 +1,8 @@
-import Buscar from "./buscar.js";
+import Buscar from "../../controll/phpadmin/js/buscar";
 
 $(document).ready(function () {
   const buscar = new Buscar("../../controll/phpadmin/js/buscar.php");
   $(".slider").append('<div class="loading">Carregando...</div>');
-  let x;
 
   async function pegarDados(nometabela, campo, nome, option) {
     //exemplo
@@ -23,10 +22,7 @@ $(document).ready(function () {
       );
     });
 
-    $.when(pegarDados("linguagem", "", "", "")).then(() => {
-      let linguagens = buscar.retorno;
-      allowSlide(infoCursos);
-    });
+    allowSlide(infoCursos);
   }
 
   //Slider

@@ -5,11 +5,470 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
     <script src="../../../public/js/jquery-3.6.1.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root{
+            --slider-padding: 3rem;
+            --img-gap: .25rem;
+            --images-per-screen: 5;
+        }
+
+        .row .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .row .slider{
+            --slider-index: 0;
+            flex-grow: 1;
+            width: calc(100% - 2 * var(--slider-padding));
+            display:flex;
+            margin: var(--img-gap);
+            transform: translateX(calc(var(--slider-index) * -100%));
+            transition: transform 250ms ease-in-out;
+        }
+
+        .row .slider img{
+            flex: 0 0 calc(100% / var(--images-per-screen));
+            max-width: calc(100% / var(--images-per-screen));
+            aspect-ratio: 16 / 9;
+            padding: var(--img-gap);
+            border-radius: 1rem;
+        }
+
+        .row .handle{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 1rem;
+            flex-grow: 0;
+            flex-shrink: 0;
+            z-index: 5;
+            width: var(--slider-padding);
+            background-color: rgba(0, 0, 0, .5);
+            margin: var(--img-gap) 0;
+            padding: 0 var(--img-gap);
+            cursor: pointer;
+            transition: background-color 150ms ease-in-out;
+            
+        }
+        
+        .row .arrow{
+            font-size: 5rem;
+            color: white;
+            transition: transform 150ms ease-in-out;
+        }
+
+        .handle:hover, 
+        .handle:focus{
+            background-color: rgba(0, 0, 0, .8);
+            color: var(--color1);
+        }
+
+        .handle:hover .arrow,
+        .handle:focus .arrow{
+            color: var(--color2);
+            transform: scale(1.2);
+
+        }
+
+        .handle:active .arrow{
+            color: var(--color6);
+        }
+
+        .row .left-handle{
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .row .right-handle{
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .row .slider-title{
+            font-size: 1.8rem;
+            padding: .5rem calc(var(--img-gap) * 2 + var(--slider-padding));
+        }
+
+        @media screen and (max-width: 920px) {
+            :root{
+                --images-per-screen: 4;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            :root{
+                --images-per-screen: 3;
+            }
+        }
+
+        @media screen and (max-width: 547px) {
+            :root{
+                --images-per-screen: 2;
+            }
+        }
+
+
+/* Seção de exibição do curso */
+section.highlight{
+    border-top: 2px solid var(--color2);
+    border-bottom: 2px solid var(--color2);
+    background: black;
+    padding: 30px;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    color: white !important;
+}
+
+section.highlight .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+section.highlight .course-preview{  
+    min-width: 500px;
+    width: 62%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section.highlight .course-preview img{
+    max-width: 100%;
+}
+
+section.highlight .course-preview .course-preview-video{
+    background-image: url(../../../source/imglinguagem/image.png);
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+section.highlight .course-preview .course-preview-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.highlight .close-highlight{
+    position: absolute;
+    padding: 15px;
+    top: 0;
+    right: 0;
+}
+
+section.highlight .close-highlight-button{
+    font-size: 30px;
+    color: var(--color6);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+section.highlight .close-highlight-button:hover{
+    color: var(--color2);
+}
+
+.course-preview-button a{
+    position: relative;
+    padding: 10px 30px;
+    margin: 0 15px;
+    color: var(--color1);
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: 2px;
+    font-size: 20px;
+    transition: 0.5s
+}
+
+.course-preview-button a:hover{
+    color: var(--color6);
+}
+
+.course-preview-button a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid var(--color1);
+    border-left: 2px solid var(--color1);
+    transition: 0.5s;
+}
+
+.course-preview-button a:hover:before{
+    border-top: 2px solid var(--color6);
+    border-left: 2px solid var(--color6);
+    width: 100%;
+    height: 100%;
+}
+
+.course-preview-button a:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--color1);
+    border-right: 2px solid var(--color1);
+    transition: 0.5s;
+}
+
+.course-preview-button a:hover:after{
+    border-bottom: 2px solid var(--color6);
+    border-right: 2px solid var(--color6);
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+section.highlight .course-info{
+    padding: 0 20px;
+    min-width: 35%;
+    max-width: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+section.highlight .course-title{
+    color: var(--color6);
+    font-size: 22px;
+}
+
+section.highlight .course-description{
+    order: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+section.highlight .course-data{
+    order: 1;
+    padding: 15px 0;
+    width: 100%;
+    text-align: left;
+}
+
+section.highlight .course-data p{
+    color: var(--color1);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+section.highlight .course-rate{
+    order: 3;
+    padding: 20px;
+    background: rgb(18,18,18);
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+section.highlight .course-rate .comment-icon{
+    color: white !important;
+    cursor: pointer;
+    font-size: 32px;
+    width: 80px;
+}
+
+section.highlight .course-rate .comment-icon i{
+    transition: 0.5s;
+}
+
+section.highlight .course-rate .comment-icon i:hover{
+    color: var(--color1);
+
+}
+
+section.highlight .course-rate .rate-icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32px;
+    width: 80px;
+}
+
+/* Section HighLight Responsividade */
+@media screen and (max-width: 860px) {
+    section.highlight .container{
+        display: block;
+        width: 100%;    
+    }
+
+    section.highlight .course-preview{
+        min-width: 100%;
+        padding: 30px 0;
+    }
+
+    section.highlight .course-info{
+        min-width: 100%;
+    }
+
+}
+
+    </style>
+
 </head>
 <body>
-    <button>Clique</button>
+
+    <section class="highlight">
+        <div class="container">
+            <div class="close-highlight">
+                <i class="fa-solid fa-xmark close-highlight-button"></i>
+            </div>
+            <div class="course-preview">
+                <div data-highlight="preview-curso" class="course-preview-video">
+                </div>
+                
+                <div class="course-preview-button">
+                    <a href="#">Assistir Agora</a>
+                </div>
+            </div>
+
+            <div class="course-info">
+                <div class="course-title"><h2 data-highlight="nome-curso">Title TItle title title</h2></div>
+                <div class="course-description">
+                    <p data-highlight="descri-curso">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa. 
+                        Quisquam fuga saepe aliquid? Eligendi quibusdam eius velit possimus tempora blanditiis obcaecati placeat ipsum vel tempore illo maiores sunt. 
+                    </p>
+                <div class="course-data">
+                    <p>Pago: <span data-highlight="info-curso"></span></p>
+                </div>
+            
+                </div>
+            
+
+                <div class="course-rate">
+                    <div class="comment-icon">
+                        <i class="fa-regular fa-message course-comment-icon"></i>
+                    </div>
+                    <div class="rate-icon">
+                        <i class="fa-regular fa-thumbs-up"></i>
+                        <i class="fa-regular fa-thumbs-down"></i>
+                    </div>
+                </div>
+                <div class="model-container">
+                    <div class="model">
+                        <div>
+                            <h2>Visualizar Comentários</h2>
+                            <div class="profile-comments">
+                                    <div class="comment-block">
+                                        <div class="comment-block-autor">Anônimo</div>
+                                        <blockquote>
+                                            How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
+                                        </blockquote>
+                                    </div>
+                                    <div class="comment-block">
+                                        <div class="comment-block-autor">Anônimo</div>
+                                        <blockquote>
+                                            How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
+                                        </blockquote>
+                                    </div>
+                                    <div class="comment-block">
+                                        <div class="comment-block-autor">Anônimo</div>
+                                        <blockquote>
+                                            How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
+                                        </blockquote>
+                                    </div>
+                                    <div class="comment-block">
+                                        <div class="comment-block-autor">Anônimo</div>
+                                        <blockquote>
+                                            How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto voluptatum, est quas a eos veniam error harum repudiandae porro doloremque, asperiores totam rerum atque enim debitis aliquam modi, labore fugit?
+                                        </blockquote>
+                                    </div>
+                                    <div class="comment-block">
+                                        <div class="comment-block-autor">Anônimo</div>
+                                        <blockquote>
+                                            How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, sit at modi neque non eligendi, temporibus pariatur incidunt nostrum autem esse ex, in blanditiis eum quo fugiat voluptas eos nisi!
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum aspernatur assumenda ducimus facere, dolor quibusdam itaque ipsa saepe, reprehenderit impedit repellendus voluptates consectetur repellat. Aliquid, eos similique? Quam, dolor sint!
+                                        </blockquote>
+                                    </div> 
+                            </div>
+                        <i class="fa-solid fa-xmark close-button"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
     <div id="teste" class="teste1"></div>
+
+    <div class="row">
+        <div class="slider-title">
+            <h3>Titulo titulo</h3>
+        </div>
+
+        <div class="highlight">
+
+        </div>
+
+        <div class="container">
+            <button class="handle left-handle"><div class="arrow">&#8249;</div></button>
+            <div class="slider">
+               <!--  <img src="https://via.placeholder.com/210/00FF00?text=1" data-curso="001">
+                <img src="https://via.placeholder.com/220/00FF00?text=2" data-curso="002">
+                <img src="https://via.placeholder.com/230/00FF00?text=3" data-curso="003">
+                <img src="https://via.placeholder.com/240/00FF00?text=4">
+                <img src="https://via.placeholder.com/250/00FF00?text=5">
+                <img src="https://via.placeholder.com/260/00FF00?text=6">
+                <img src="https://via.placeholder.com/270/00FF00?text=7">
+                <img src="https://via.placeholder.com/280/00FF00?text=8">
+                <img src="https://via.placeholder.com/250/00FF00?text=9">
+                <img src="https://via.placeholder.com/260/00FF00?text=10">
+                <img src="https://via.placeholder.com/270/00FF00?text=11">
+                <img src="https://via.placeholder.com/280/00FF00?text=12"> -->
+            </div>
+            <button class="handle right-handle"><div class="arrow">&#8250;</div></button>
+        </div>
+
+    </div>
+
+    
     <script type="module" src="./busca2.js"></script>
+
+    <script>
+
+            
+        
+
+    </script>
 </body>
 </html>
