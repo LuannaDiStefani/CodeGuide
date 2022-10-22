@@ -51,13 +51,6 @@ class Buscar {
       method: "POST",
       data: { info: dados },
     });
-
-    /*     $.post(this.path, {
-      info: dados,
-    }).done((data) => {
-      /* retorno = JSON.parse(data); 
-      console.log(data);
-    }); */
   }
 
   exibirNaTela(id, dados) {
@@ -66,14 +59,3 @@ class Buscar {
 }
 
 export default Buscar;
-
-/*   const busca = new Busca("../buscar.php");
-
-  $("button").click(function () {
-    //Exemplo com sql
-    busca.buscarDados("linguagem", "nome", "JavaScript");
-    busca.buscarLike("linguagem", "imagem", "logo");
-    //Exemplo de busca geral
-    busca.buscarDados("cursos");
-    busca.exibirNaTela("#teste", "teste");
-  }); */

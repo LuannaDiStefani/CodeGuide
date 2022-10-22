@@ -3,7 +3,10 @@ import Buscar from "./buscar.js";
 $(document).ready(function () {
   const buscar = new Buscar("../../controll/phpadmin/js/buscar.php");
   $(".slider").append('<div class="loading">Carregando...</div>');
-  let x;
+  let sliderContainer = document.getElementById("slider-container");
+  let highlightContainer = document.getElementById("highlight-container");
+  let highlightTemp = document.getElementById("highlight").content;
+  let sliderRow = document.getElementById("slider-row").content;
 
   async function pegarDados(nometabela, campo, nome, option) {
     //exemplo
@@ -11,28 +14,78 @@ $(document).ready(function () {
     return buscar.newBuscar(nometabela, campo, nome, option);
   }
 
-  $.when(pegarDados("cursos", "", "", "")).then(exibirNoSlide);
+  $.when(pegarDados("cursos", "", "", "full")).then(exibirNoSlide);
 
   function exibirNoSlide() {
     $(".slider").empty();
-    let infoCursos = buscar.retorno;
-    Object.keys(infoCursos).forEach((key) => {
+    let response = buscar.retorno;
+    let totalLinguagens = [];
+
+    allowSlide(response);
+
+    /* totalLinguagens = [...new Set(totalLinguagens)]; */
+
+    /*  Object.keys(infoCursos).forEach((key) => {
+      let linguagens = infoCursos[key].idlinguagem;
+
+      console.log(linguagens.lenght);
+
       /* console.log(infoCursos[key]["imagem"]); */
-      $(".slider").append(
+    /*  $(".slider").append(
         `<img src="../../source/imglinguagem/${infoCursos[key]["imgcurso"]}" class="item-slide" data-curso="${infoCursos[key]["idcurso"]}">`
       );
     });
 
-    $.when(pegarDados("linguagem", "", "", "")).then(() => {
-      let linguagens = buscar.retorno;
-      allowSlide(infoCursos);
-    });
+    allowSlide(infoCursos); */
   }
 
   //Slider
   function allowSlide(infoCursos) {
     let size = parseInt($(".slider").children().length);
+    let totalLinguagens = [];
 
+    console.log(infoCursos);
+
+    for (let i = 0; i < infoCursos.length; i++) {
+      if (infoCursos[i].idlinguagem != "") {
+        totalLinguagens.push(infoCursos[i].idlinguagem);
+      }
+    }
+
+    totalLinguagens = [...new Set(totalLinguagens)];
+    console.log(totalLinguagens);
+
+    for (let i = 0; i < totalLinguagens.length; i++) {
+      criarRow(infoCursos[i]);
+    }
+
+    function criarRow(dados) {
+      //Selecionando elementos
+      const div = document.createElement("div");
+      let highlightHTML = document.importNode(highlightTemp, true);
+      let content = document.importNode(sliderRow, true);
+      //Criando items na slide
+
+      //Loop criar img
+      let img = document.createElement("img");
+      for (let i = 0; i < infoCursos.length; i++) {
+        if (infoCursos[i].nome == dados.nome) {
+          img.setAttribute(
+            "src",
+            `../../source/imglinguagem/${dados.imgcurso}`
+          );
+          img.setAttribute("class", "item-slide");
+          img.setAttribute("data-curso", `${dados.idcurso}`);
+          content.querySelector(".slider").appendChild(img);
+        }
+      }
+      //Adicionando ao template e ao HTML
+      content.querySelector(".slider").appendChild(img);
+      content.querySelector(".slider-title h3").textContent = dados.nome;
+      sliderContainer.appendChild(div).appendChild(content);
+    }
+
+    //Setas
     $(".handle").click(function (e) {
       e.preventDefault();
       let index = parseInt($(".slider").css("--slider-index"));
