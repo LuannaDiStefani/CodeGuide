@@ -11,10 +11,10 @@ if(isset($_POST)){
     $data    = $_POST["info"];
     $params = json_decode("$data", true); 
 
-    $nometabela = $params[0];
-    $campo = $params[1];
-    $nome = $params[2];
-    $option = $params[3];
+    $nometabela = addslashes($params[0]);
+    $campo = addslashes($params[1]);
+    $nome = addslashes($params[2]);
+    $option = addslashes($params[3]);
 
     if($option == ""){
         $sql = "SELECT * FROM $nometabela";

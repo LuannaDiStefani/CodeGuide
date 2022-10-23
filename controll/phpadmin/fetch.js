@@ -1,7 +1,7 @@
 import Buscar from "./js/buscar.js";
 
 $(document).ready(function () {
-  const buscar = new Buscar("../controll/phpadmin/js/buscar.php");
+  const buscar = new Buscar("../controll/phpadmin/js/endpoint.php");
   $(".slider").append('<div class="loading">Carregando...</div>');
   let sliderContainer = document.getElementById("slider-container");
   let highlightTemp = document.getElementById("highlight").content;
@@ -15,7 +15,14 @@ $(document).ready(function () {
     return buscar.newBuscar(nometabela, campo, nome, option);
   }
 
-  $.when(pegarDados("cursos", "", "", "")).then(exibirNoSlide);
+  $("#search-form").submit(function (event) {
+    event.preventDefault();
+    let search = $("#search-box").val();
+  });
+
+  $("#search-box").click(function () {
+    $.when(pegarDados("cursos", "", "", "")).then(exibirNoSlide);
+  });
 
   function exibirNoSlide() {
     $(".slider").empty();
