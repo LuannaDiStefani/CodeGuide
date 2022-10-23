@@ -15,10 +15,10 @@
     <!-- TypeJs -->
     <script src="./js/t.min.js"></script>
     <script src="./js/type.js"></script>
-    <!-- swiper-JS -->
-    <link rel="stylesheet" href="./css/swiper.min.css"/>
-    <script src="./js/swiper.min.js"></script>   
-    <script src="./js/swiper.js"></script>   
+    <!-- Slider-JS -->
+    <link rel="stylesheet" href="./css/slider.css">
+    <script src="./js/main.js" defer></script>
+    <script type="module" src="../controll/phpadmin/fetch.js" defer></script>
 </head>
 <body>
     
@@ -42,36 +42,42 @@
 
     <main>
 
-        <section class="highlight">
-            <div class="container">
+    <template id="highlight">
+        <section class="highlight" style="display: none;">
+            <div class="course-title">
+                <div>
+                    <h2 data-highlight="nome-curso"></h2>
+                </div>
                 <div class="close-highlight">
                     <i class="fa-solid fa-xmark close-highlight-button"></i>
                 </div>
+            </div>
+            <div class="container">
                 <div class="course-preview">
-    
-                <div class="course-preview-video">
-    
+                    <div data-highlight="preview-curso" class="course-preview-video">
+                    </div>
+                    
+                    <div class="course-preview-button">
+                        <a href="#">Assistir Agora</a>
+                    </div>
                 </div>
-                
-                <div class="course-preview-button">
-                    <a href="#">Assistir Agora</a>
-                </div>
-                </div>
-    
+
                 <div class="course-info">
-                    <div class="course-title"><h2>Title TItle title title</h2></div>
+                    
+                    <div class="course-description">
+                        <p data-highlight="descri-curso">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa. 
+                            Quisquam fuga saepe aliquid? Eligendi quibusdam eius velit possimus tempora blanditiis obcaecati placeat ipsum vel tempore illo maiores sunt. 
+                        </p>
                     <div class="course-data">
-                        <p>Duração: </p>
-                        <p>Data: </p>
-                        <p>Pago: </p>
-                    </div>
-                    <div class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa.
-                    Quisquam fuga saepe aliquid? Eligendi quibusdam eius velit possimus tempora blanditiis obcaecati placeat ipsum vel tempore illo maiores sunt. 
+                        <p>Pago: <span data-highlight="info-curso"></span></p>
                     </div>
                 
-    
+                    </div>
+                
+
                     <div class="course-rate">
-                        <div class="comment-icon">
+                        <div class="comment-icon open-model">
                             <i class="fa-regular fa-message course-comment-icon"></i>
                         </div>
                         <div class="rate-icon">
@@ -121,70 +127,34 @@
                             <i class="fa-solid fa-xmark close-button"></i>
                         </div>
                     </div>
-                </div>
                 
             </div>
         </section>
-    
-        <section class="thumbSection" target="0">
-    
-            <div class="gallery-title">
-                <h2 class="thumbTitle">JavaScript</h2>
+    </template>
+
+    <div id="slider-container">
+    </div>
+
+     <template id="slider-row">
+        <div class="row">
+            <div class="slider-title">
+                <h3></h3>
             </div>
-                            
-            <div class="thumbTiles swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <a class="thumbTile" href="#">
-                            <img class="thumbTile__image"
-                                src="https://occ-0-1433-1432.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABUqwomVyMFsby9zeXLLnkfv744mKCzQDWL7rUDhbwg89bpT-V7qYoW-NNfjFaG3nFcDWu-U49vpUFB_L4njc2GFl6l60Efb4oT-_0e3oi3Dh8nwyLZhG2ciBHGUnRMB_J-D2jQk2Qz_WM4n8A_8b8ZqFDpj80B6KJ9T2bXR7rYcl0M8MaDCsR68.jpg?r=93f"
-                                alt="The Queen's Gambit">
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a class="thumbTile" href="#">
-                            <img class="thumbTile__image"
-                                src="https://occ-0-1433-1432.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSEl8LWx4tMJIM9Atm3F1Y49Uq6X01tnDe8gPA6d84-gQ767saz9z7Jxj9sFozuI8bcM2vlxeP9IPq3Aa7jxLlkMu8JGjizRLblNEcmD7g-Z2NeZvkvV5nWF9DmJ.jpg?r=393"
-                                alt="Dark">
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a class="thumbTile" href="#">
-                            <img class="thumbTile__image"
-                                src="https://occ-0-1433-1432.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABRItzLGWEqRojd0SS5lkLN56bRwYGctgeybCwPWq-zs_UwEXKX_4CsXsMlWupAdBB5D7KDN-8RzuCvqzTf5Bvo_HQmI.webp?r=3ad"
-                                alt="Suits">
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a class="thumbTile" href="#">
-                            <img class="thumbTile__image"
-                                src="https://occ-0-1433-1432.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABUjsKDiaKwLmrV662pwmVKEtRmbJI-s8M9ojCqr2QEdnPUJPX86RP-n9IGXxGcaHWkTf-cwz5e4kBLN3jYLM7HuBfYA.webp?r=01d"
-                                alt="Breaking Bad">
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a class="thumbTile" href="#">
-                            <img class="thumbTile__image"
-                                src="https://occ-0-1433-1432.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABdPrypf33QcVWc0DHxX7rDoTSbX7EgHSJd_VDlwIr81A40ua4l2F_esQS1u4zB9SkN5TAGO1Bw0SmoEqTICKfx9vbRu-qdKh9KGWuRLasXOrCIUpEYnMffVoebRS.jpg?r=d3b"
-                                alt="The Crown">
-                        </a>
-                    </div>
+
+            <div class="container">
+                <button class="handle left-handle"><div class="arrow">&#8249;</div></button>
+                <div class="slider">
                 </div>
-    
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <button class="handle right-handle"><div class="arrow">&#8250;</div></button>
             </div>
-        </section>
+
+        </div>
+     </template> 
     
     </main>
 
     <?php include './components/footer.php'; ?>
 
-    <!-- Main-JS -->
-    <script src="./js/main.js"></script> 
 </body>
 
 </html>

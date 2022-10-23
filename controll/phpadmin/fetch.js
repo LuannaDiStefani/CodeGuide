@@ -1,7 +1,7 @@
-import Buscar from "./buscar.js";
+import Buscar from "./js/buscar.js";
 
 $(document).ready(function () {
-  const buscar = new Buscar("../../controll/phpadmin/js/buscar.php");
+  const buscar = new Buscar("../controll/phpadmin/js/buscar.php");
   $(".slider").append('<div class="loading">Carregando...</div>');
   let sliderContainer = document.getElementById("slider-container");
   let highlightTemp = document.getElementById("highlight").content;
@@ -45,10 +45,7 @@ $(document).ready(function () {
       if (idlinguagem != null && idlinguagem != "" && idlinguagem != 0) {
         if (dados.idlinguagem == cursos[key].idlinguagem) {
           let img = document.createElement("img");
-          img.setAttribute(
-            "src",
-            `../../source/imgcurso/${cursos[key].imgcurso}`
-          );
+          img.setAttribute("src", `../source/imgcurso/${cursos[key].imgcurso}`);
           img.setAttribute("class", "item-slide");
           img.setAttribute("data-curso", `${cursos[key].idcurso}`);
           content.querySelector(".slider").appendChild(img);
@@ -127,7 +124,7 @@ $(document).ready(function () {
 
       $(previewCurso).css(
         "background-image",
-        `url('../../source/imgcurso/${cursos[id - 1].imgcurso}')`
+        `url('../source/imgcurso/${cursos[id - 1].imgcurso}')`
       );
 
       $(nomeCurso).text(cursos[id - 1].nomecurso);
@@ -137,7 +134,7 @@ $(document).ready(function () {
       $(slider).find("section.highlight").slideDown("slow");
       $("html, body").animate(
         {
-          scrollTop: $($(slider).find("section.highlight")).offset().top - 70,
+          scrollTop: $($(slider).find("section.highlight")).offset().top - 40,
         },
         500
       );

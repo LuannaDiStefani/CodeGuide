@@ -13,15 +13,13 @@
     <!-- JQuery -->
     <script src="../js/jquery-3.6.1.min.js"></script>
     <script type="module" src="../../controll/phpadmin/js/busca2.js" defer></script>
-    <script src="../js/main.js" defer></script> 
+    <!-- <script src="../js/main.js"></script>  -->
 
 </head>
 <body>
-
-    <?php include './header.php' ?>
-
     <template id="highlight">
-        <section class="highlight">
+        <section class="highlight" style="display: none;">
+            <div class="course-title"><h2 data-highlight="nome-curso"></h2></div>
             <div class="container">
                 <div class="close-highlight">
                     <i class="fa-solid fa-xmark close-highlight-button"></i>
@@ -36,7 +34,7 @@
                 </div>
 
                 <div class="course-info">
-                    <div class="course-title"><h2 data-highlight="nome-curso">Title TItle title title</h2></div>
+                    
                     <div class="course-description">
                         <p data-highlight="descri-curso">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa. 
@@ -50,7 +48,7 @@
                 
 
                     <div class="course-rate">
-                        <div class="comment-icon">
+                        <div class="comment-icon open-model">
                             <i class="fa-regular fa-message course-comment-icon"></i>
                         </div>
                         <div class="rate-icon">

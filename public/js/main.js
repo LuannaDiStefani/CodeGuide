@@ -89,13 +89,6 @@ $(document).ready(function () {
     }, 400);
   });
 
-  $(".course-comment-icon").click(function () {
-    $(".model-container").css("transform", "scale(1)");
-    setTimeout(function () {
-      $(".model-container").css("background", "rgba(0, 0, 0, 0.8)");
-    }, 400);
-  });
-
   $(".close-button").click(function () {
     $(".model-container").css("background", "transparent");
     setTimeout(function () {
@@ -140,86 +133,45 @@ $(document).ready(function () {
     });
   });
 
-  //Target - Edit-field
-  let targetDivs = document.querySelectorAll(".edit-field");
-  $(targetDivs).hide();
-  $(targetDivs[0]).show();
-  $(".target-edit-field").click(function () {
-    $("form").trigger("reset");
-    event.preventDefault();
-    $(".edit-field").hide();
-    $(".target" + $(this).attr("target")).show();
-  });
-});
+  //Alert
+  function exibirAlerta(n, cor) {
+    let message;
+    let color1 = "rgba(115, 234, 129, 0.8)";
+    let color2 = "rgba(255, 91, 91, 0.8)";
 
-//Highlight Target
-
-$(".swiper-wrapper")
-  .children()
-  .click((e) => {
-    e.preventDefault();
-    console.log("clicado");
-  });
-
-/* let highlights = document.querySelectorAll(".highlight");
-$(highlights).hide();
-
-$(".thumbTile").click(function () {
-  event.preventDefault();
-  $(highlights).hide();
-  let target = $(this).parent().parent().parent().parent().attr("target");
-  let thisHighlight = highlights[target];
-  console.log(thisHighlight);
-  $(thisHighlight).slideToggle("slow");
-  $("html, body").animate(
-    {
-      scrollTop: $(thisHighlight).offset().top - 70,
-    },
-    1000
-  );
-  $(".close-highlight-button").click(function () {
-    $(thisHighlight).hide("slow");
-  });
-}); */
-
-//Alert
-function exibirAlerta(n, cor) {
-  let message;
-  let color1 = "rgba(115, 234, 129, 0.8)";
-  let color2 = "rgba(255, 91, 91, 0.8)";
-
-  switch (n) {
-    case 1:
-      $(".alert").css("background", color1);
-      message = "Operação realizada com sucesso!";
-      break;
-    case 2:
-      $(".alert").css("background", color2);
-      message = "Preencha os dados corretamente!";
-      break;
-    case 3:
-      $(".alert").css("background", color1);
-      message = "Atualizado com sucesso!";
-      break;
-    case 4:
-      $(".alert").css("background", color2);
-      message = "Apenas imagens permitidas! Verifique o tipo corretamente.";
-      break;
-    case 5:
-      $(".alert").css("background", color2);
-      message = "Arquivo muito grande! Escolha outra arquivo menor.";
-      break;
-    default:
-      if (cor == 1) {
+    switch (n) {
+      case 1:
         $(".alert").css("background", color1);
-      } else {
+        message = "Operação realizada com sucesso!";
+        break;
+      case 2:
         $(".alert").css("background", color2);
-      }
-      message = n;
+        message = "Preencha os dados corretamente!";
+        break;
+      case 3:
+        $(".alert").css("background", color1);
+        message = "Atualizado com sucesso!";
+        break;
+      case 4:
+        $(".alert").css("background", color2);
+        message = "Apenas imagens permitidas! Verifique o tipo corretamente.";
+        break;
+      case 5:
+        $(".alert").css("background", color2);
+        message = "Arquivo muito grande! Escolha outra arquivo menor.";
+        break;
+      default:
+        if (cor == 1) {
+          $(".alert").css("background", color1);
+        } else {
+          $(".alert").css("background", color2);
+        }
+        message = n;
+    }
+    $(".alert").slideToggle("fast");
+    $(".alert").html(message);
+    setTimeout(function () {
+      $(".alert").fadeOut("fast");
+    }, 1500);
   }
-  $(".alert").slideToggle("fast");
-  $(".alert").html(message);
-  setTimeout(function () {
-    $(".alert").fadeOut("fast");
-  }, 1500);
-}
+}); //Fim Jquery
