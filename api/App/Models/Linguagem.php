@@ -7,7 +7,7 @@ namespace App\Models;
         
         public static function select(int $id){
 
-
+        
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
             $sql = "SELECT * FROM ".self::$table." WHERE idlinguagem = (?)";
             $stmt = $conexao->prepare($sql);

@@ -74,7 +74,7 @@ $(document).ready(function () {
   function allowSearch() {
     const searchBar = document.getElementById("search-box");
     var typingTimer;
-    var doneTypingInterval = 550;
+    var doneTypingInterval = 650;
 
     $(searchBar).keyup(function () {
       clearTimeout(typingTimer);
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
       $("html, body").animate(
         {
-          scrollTop: $("#slider-container").offset().top - 40,
+          scrollTop: $(sliderContainer).offset().top - 70,
         },
         500
       );
@@ -100,7 +100,8 @@ $(document).ready(function () {
   }
 
   function exibirNoSlide(object) {
-    $("#slider-container").empty();
+    $(sliderContainer).empty();
+    $(sliderContainer).fadeOut(100);
 
     Object.entries(object).forEach(([key]) => {
       criarRow(object[key]);
@@ -136,6 +137,7 @@ $(document).ready(function () {
   //Slider
   function allowSlide() {
     let size = parseInt($(".slider").children().length);
+    $(sliderContainer).fadeIn("slow");
 
     //Botão de fechar função
     function highlightRemove() {

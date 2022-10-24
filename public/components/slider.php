@@ -103,7 +103,7 @@
         </section>
     </template>
 
-    <div id="slider-container">
+    <div id="slider-container" style="display:none;">
     </div>
 
      <template id="slider-row">
