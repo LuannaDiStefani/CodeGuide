@@ -197,13 +197,18 @@ $(painelMenu).click(function (e) {
       $(item).fadeIn(300);
     }
   });
-
-  /* const thisTab = e.target.parentElement;
-  const currentTarget = $(thisTab).attr("target");
-  const selectedDiv = $(painelTabs).attr(`[data-target='${currentTarget}']`);
-  $(painelTabs).each(function() {
-
-  });
-
-  console.log(selectedDiv); */
 });
+
+fetch("../../api/public/api/linguagem")
+  .then((response) => response.json())
+  .then((data) => insertDataList("linguagens", data.data));
+
+//Painel Select
+function insertDataList(id, dados) {
+  let options = "";
+  let datalist = document.getElementById(id);
+  for (let i = 0; i < dados.length; i++) {
+    options += `<option value="${dados[i]["idlinguagem"]} - ${dados[i]["nome"]}" />`;
+  }
+  datalist.insertAdjacentHTML("beforeend", options);
+}

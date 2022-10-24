@@ -1,34 +1,24 @@
 $(document).ready(function () {
   const allowedFileTypes = "image.*|application/pdf";
   const allowedFileSize = 1024;
-  let formData = new FormData();
+  let formCursos = new FormData();
+  let formLinguagens = new FormData();
 
   $("#cad-curso").submit(function (event) {
     event.preventDefault();
     const id = "#cad-curso";
     const data = $(id).serialize();
-    formData.append("dados", data);
+    formCursos.append("dados", data);
     let file = $('[name="imgcurso"]')[0].files[0];
     let filename = file["name"];
     let newFileName = filename.replace(/[^A-Z0-9._]+/gi, "_");
 
-    verificaFile(file, newFileName);
+    verificaFile(file, newFileName, formCursos);
 
-    /*    $.ajax({
-      url: "../../../api/public/api/curso/",
-      type: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function (response) {
-        exibirAlerta(`${response.status}: ${response.data}`);
-      },
-    }); */
-
-    doAjax("../../../api/public/api/curso/", formData);
+    doAjax("../../api/public/api/curso/", formCursos);
   });
 
-  function verificaFile(file, filename) {
+  function verificaFile(file, filename, form) {
     if (!file) {
       exibirAlerta(2);
     } else {
@@ -39,7 +29,7 @@ $(document).ready(function () {
         // Check file size (in bytes)
         exibirAlerta(5);
       } else {
-        formData.append("file", file, filename);
+        form.append("file", file, filename);
       }
     }
   }
@@ -52,7 +42,8 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
-        exibirAlerta(`${response.status}: ${response.data}`);
+        console.log(response);
+        exibirAlerta(`${response.status}: ${response.data}`, 1);
       },
     });
   }
@@ -60,27 +51,15 @@ $(document).ready(function () {
   //Cadastro linguagens
   $("#cad-linguagem").submit(function (event) {
     event.preventDefault();
-    let id = "#cad-linguagem";
+    const id = "#cad-linguagem";
+    const data = $(id).serialize();
+    formLinguagens.append("dados", data);
     let file = $('[name="imglinguagem"]')[0].files[0];
     let filename = file["name"];
-    console.log(filename);
     let newFileName = filename.replace(/[^A-Z0-9._]+/gi, "_");
-    console.log(newFileName);
 
-    cadastrar2.cadastrarCurso(id, file, newFileName);
+    verificaFile(file, newFileName, formLinguagens);
+
+    doAjax("../../api/public/api/linguagem/", formLinguagens);
   });
-
-  //Options DataList
-  /* $.when(pegarDados("linguagem", "", "", "")).then(
-    insertDataList("linguagens", buscar.retorno)
-  );
-
-  function insertDataList(id, dados) {
-    let options = "";
-    let datalist = document.getElementById(id);
-    for (let i = 0; i < dados.length; i++) {
-      options += `<option value="${dados[i]["idlinguagem"]} - ${dados[i]["nome"]}" />`;
-    }
-    datalist.insertAdjacentHTML("beforeend", options);
-  } */
 });

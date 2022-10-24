@@ -77,7 +77,7 @@ namespace App\Models;
                         throw new \Exception("Nada encontrado.");
                     }
                 }else{ 
-                    echo 0;
+                    echo "Falha na operação";
                 } 
             }else{ 
                 echo 'Arquivo inválido!'; 

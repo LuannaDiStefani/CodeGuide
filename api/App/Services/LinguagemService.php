@@ -16,7 +16,8 @@
         }
 
         public function post(){
-             
+            $dados = $_POST;
+            return Linguagem::insert($dados);
         }
 
         public function update(){

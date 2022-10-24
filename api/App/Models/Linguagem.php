@@ -42,6 +42,47 @@ namespace App\Models;
             }
 
         }
+
+        public static function insert($data){
+
+            $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+            $sql = 'INSERT INTO '.self::$table.' (nome,imagem) 
+            VALUES(?,?)';
+
+            $params = array();
+            parse_str($data["dados"], $params);
+
+            $fileName = $_FILES["file"]["name"];
+            $targetDir = "../../source/imgcurso/"; 
+            $targetFilePath = $targetDir . $fileName;
+            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+            $allowTypes = array('jpg', 'png', 'jpeg'); 
+
+            if(in_array($fileType, $allowTypes)){ 
+                // Upload file to server 
+                if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
+                    // Insert file data into the database if needed 
+                    //........ 
+                    $stmt = $conexao->prepare($sql);
+                    $stmt->bind_param('ss', $params['nomelinguagem'], $fileName);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $number_of_rows_affected = mysqli_affected_rows($conexao);
+         
+                    // Success response 
+                    if ($number_of_rows_affected > 0){
+                        return 'Linguagem cadastrado com sucesso!';
+                    }else{
+                        throw new \Exception("Nada encontrado.");
+                    }
+                }else{ 
+                    echo "Falha na operação";
+                } 
+            }else{ 
+                echo 'Arquivo inválido!'; 
+            }     
+
+        }
     }
 
 

@@ -18,7 +18,6 @@
 
     <main>
         <section class="admin-panel">
-            <div class="alert alert-danger"></div>
             <div class="container">
                 <div class="admin-menu">
                     <h3>Menu</h3>
@@ -34,24 +33,24 @@
                     </ul>
                 </div>
                 <div class="admin-container">
-                    <div class="edit-field target1">
+                    <div class="edit-field" data-target="1">
                         <div class="edit-field-title">
                             <h2>Página de Cadastro de Cursos</h2>
                         </div>
                         <div class="edit-field-user">
                             <div class="form-course">
-                                <form action="" method="post" id="cad-curso">
+                                <form action="" method="post" id="cad-curso" enctype="multipart/form-data">
                                     <div>
                                         <label for="nomecurso">Nome do Curso</label>
-                                        <input type="text" class="input-course" name="nomecurso" required>
+                                        <input type="text" class="input-course" name="nomecurso">
                                     </div>
                                     <div>
                                         <label for="descricao">Descrição</label>
-                                        <textarea name="descri" id="" cols="100" rows="3" required></textarea>
+                                        <textarea name="descri" id="" cols="100" rows="3"></textarea>
                                     </div>
                                     <div>
                                         <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem" autocomplete="off" required>
+                                        <input list="linguagens" class="options" name="idlinguagem" autocomplete="off">
                                         <datalist id="linguagens">
                                         </datalist>
                                     </div>
@@ -63,15 +62,15 @@
                                     </div>
                                     <div>
                                         <label for="plataforma">Plataforma</label>
-                                        <input type="text" name="plataforma" class="input-course" required>
+                                        <input type="text" name="plataforma" class="input-course">
                                     </div>
                                     <div>
                                         <label for="linkcurso">Link</label>
-                                        <input type="text" name="linkcurso" class="input-course" required>
+                                        <input type="text" name="linkcurso" class="input-course">
                                     </div>
                                     <div>
                                         <label for="videocurso">Video</label>
-                                        <input type="text" name="videocurso" class="input-course" required>
+                                        <input type="text" name="videocurso" class="input-course">
                                     </div>
                                     <div class="upload upload-curso">
                                         <div class="img-preview">
@@ -79,12 +78,12 @@
                                                 alt="Preview">
                                             <span id="file-name" class="file-name">Nome do Arquivo</span>
                                         </div>
-                                        <div class="upload-button-container">
+                                         <div class="upload-button-container">
                                             <input type="file" name="imgcurso" id="upload-button" form="cad-curso" class="upload-button"
                                                 accept="image/*">
                                             <label for="upload-button"><i class="fa-solid fa-image"></i> Escolha uma
                                                 foto</label>
-                                        </div>
+                                        </div> 
                                     </div>
 
                                     <div class="edit-field-submit">
@@ -95,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-field target2">
+                    <div class="edit-field" data-target="2">
                         <div class="edit-field-title">
                             <h2>Página de Cadastro de Linguagem</h2>
                         </div>
@@ -126,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-field target3">
+                    <div class="edit-field" data-target="3">
                         <div class="edit-field-title">
                             <h2>Em construção</h2>
                         </div>
@@ -134,7 +133,7 @@
                             ...
                         </div>
                     </div>
-                    <div class="edit-field target4">
+                    <div class="edit-field" data-target="4">
                         <div class="edit-field-title">
                             <h2>Em construção</h2>
                         </div>
@@ -148,11 +147,11 @@
         </section>
     </main>
 
-    <?php include '../../public/components/footer.php'; ?>
+    <?php include'../../public/components/footer.php' ?>
 
     <!-- Main-JS -->
-    <script type="module" src="./js/main.js"></script>
     <script src="../../public/js/main.js"></script>
+    <script src="./js/insert.js"></script>
 
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
