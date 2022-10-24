@@ -1,56 +1,122 @@
-import Buscar from "./js/buscar.js";
-
 $(document).ready(function () {
-  const buscar = new Buscar("../controll/phpadmin/js/endpoint.php");
   $(".slider").append('<div class="loading">Carregando...</div>');
   let sliderContainer = document.getElementById("slider-container");
   let highlightTemp = document.getElementById("highlight").content;
   let sliderRow = document.getElementById("slider-row").content;
   let cursos;
   let linguagens;
+  let listagemTotal;
 
-  async function pegarDados(nometabela, campo, nome, option) {
-    //exemplo
-    /* return buscar.param("linguagem", "", "", "1"); */
-    return buscar.newBuscar(nometabela, campo, nome, option);
+  //Deep Clone para Objeto
+  const deepClone = (obj) => {
+    // Se não for array ou objeto, retorna null
+    if (typeof obj !== "object" || obj === null) {
+      return obj;
+    }
+
+    let cloned, i;
+
+    // Handle: Date
+    if (obj instanceof Date) {
+      cloned = new Date(obj.getTime());
+      return cloned;
+    }
+
+    // Handle: array
+    if (obj instanceof Array) {
+      let l;
+      cloned = [];
+      for (i = 0, l = obj.length; i < l; i++) {
+        cloned[i] = deepClone(obj[i]);
+      }
+
+      return cloned;
+    }
+
+    // Handle: object
+    cloned = {};
+    for (i in obj)
+      if (obj.hasOwnProperty(i)) {
+        cloned[i] = deepClone(obj[i]);
+      }
+
+    return cloned;
+  };
+  //Fim Deep Clone
+
+  const getApi = async (url) => {
+    const response = await fetch(url);
+    return response.json();
+  };
+
+  const fetchData = async () => {
+    let listagemCursos = await getApi("../api/public/api/curso");
+    let listagemLinguagens = await getApi("../api/public/api/linguagem");
+
+    cursos = listagemCursos.data;
+    linguagens = listagemLinguagens.data;
+
+    listagemTotal = deepClone(listagemLinguagens.data);
+
+    Object.keys(listagemTotal).map(function (i) {
+      Object.keys(cursos).map(function (j) {
+        if (cursos[j].idlinguagem == listagemTotal[i].idlinguagem) {
+          $.extend(listagemTotal[i], cursos[j]);
+        }
+      });
+    });
+
+    exibirNoSlide(linguagens);
+    allowSearch();
+  };
+  fetchData();
+
+  function allowSearch() {
+    const searchBar = document.getElementById("search-box");
+    var typingTimer;
+    var doneTypingInterval = 550;
+
+    $(searchBar).keyup(function () {
+      clearTimeout(typingTimer);
+      if ($(searchBar).val) {
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+      }
+    });
+
+    function doneTyping() {
+      let searchString = $(searchBar).val().toLowerCase();
+      let resultado = listagemTotal.filter((curso) => {
+        return curso.nome.toLowerCase().includes(searchString);
+      });
+
+      $("html, body").animate(
+        {
+          scrollTop: $("#slider-container").offset().top - 40,
+        },
+        500
+      );
+      exibirNoSlide(resultado);
+    }
   }
 
-  $("#search-form").submit(function (event) {
-    event.preventDefault();
-    let search = $("#search-box").val();
-  });
+  function exibirNoSlide(object) {
+    $("#slider-container").empty();
 
-  $("#search-box").click(function () {
-    $.when(pegarDados("cursos", "", "", "")).then(exibirNoSlide);
-  });
-
-  function exibirNoSlide() {
-    $(".slider").empty();
-    cursos = buscar.retorno;
-
-    $.when(pegarDados("linguagem", "", "", "")).then(
-      (linguagens = buscar.retorno)
-    );
-
-    Object.entries(linguagens).forEach(([key, val]) => {
-      criarRow(linguagens[key]);
+    Object.entries(object).forEach(([key]) => {
+      criarRow(object[key]);
     });
 
     allowSlide();
   }
 
-  function criarRow(dados) {
-    //Selecionando elementos
+  function criarRow(linguagemKey) {
+    let linguagem = linguagemKey;
     const div = document.createElement("div");
     let content = document.importNode(sliderRow, true);
-    //Criando items na slide
-
-    //Loop criar img
-
-    Object.entries(cursos).forEach(([key, val]) => {
+    Object.entries(cursos).forEach(([key]) => {
       let idlinguagem = cursos[key].idlinguagem;
       if (idlinguagem != null && idlinguagem != "" && idlinguagem != 0) {
-        if (dados.idlinguagem == cursos[key].idlinguagem) {
+        if (linguagem.idlinguagem == idlinguagem) {
           let img = document.createElement("img");
           img.setAttribute("src", `../source/imgcurso/${cursos[key].imgcurso}`);
           img.setAttribute("class", "item-slide");
@@ -60,11 +126,10 @@ $(document).ready(function () {
       }
     });
 
-    //Adicionando ao template e ao HTML
-    content.querySelector(".slider-title h3").textContent = dados.nome;
+    content.querySelector(".slider-title h3").textContent = linguagem.nome;
     content
       .querySelector(".row")
-      .setAttribute("data-row", `${dados.idlinguagem}`);
+      .setAttribute("data-row", `${linguagem.idlinguagem}`);
     sliderContainer.appendChild(div).appendChild(content);
   }
 

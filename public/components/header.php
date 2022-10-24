@@ -54,10 +54,8 @@
 
             <div class="hd-right">
                 <div class="search-bar">
-                    <form action="" id="search-form" method="post">
                         <input type="text" class="search-box search-active" id="search-box" placeholder="Vamos dominar o mundo!">
                         <label for="search-box"><i class="fa fa-search"></i></label>
-                    </form>
                 </div>
                 <div id="profile">
                     <i class="fa-regular fa-user"></i>

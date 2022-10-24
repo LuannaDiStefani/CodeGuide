@@ -8,14 +8,17 @@ namespace App\Models;
         public static function select(int $id){
 
 
-            $conexao = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
-            $sql = "SELECT * FROM ".self::$table." WHERE idlinguagem = $id";
-            $exec = $conexao->query($sql);
-            $response = $exec->fetch_all(MYSQLI_ASSOC); 
-            $row = mysqli_num_rows($exec);
+            $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+            $sql = "SELECT * FROM ".self::$table." WHERE idlinguagem = (?)";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bind_param('s', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $rows = $result->num_rows;
+            $dados = $result->fetch_assoc();
             
-            if ($row){
-                return $response;
+            if ($rows > 0){
+                return $dados;
             }else{
                 throw new \Exception("Nada encontrado.");
             }
@@ -24,14 +27,16 @@ namespace App\Models;
 
         public static function selectAll(){
 
-            $conexao = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
-            $sql = 'SELECT * FROM '.self::$table;
-            $exec = $conexao->query($sql);
-            $response = $exec->fetch_all(MYSQLI_ASSOC); 
-            $row = mysqli_num_rows($exec);
+            $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+            $sql = "SELECT * FROM ".self::$table;
+            $stmt = $conexao->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $rows = $result->num_rows;
+            $dados = $result->fetch_all(MYSQLI_ASSOC);
             
-            if ($row){
-                return $response;
+            if ($rows > 0){
+                return $dados;
             }else{
                 throw new \Exception("Nada encontrado.");
             }
