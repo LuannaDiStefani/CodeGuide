@@ -1,5 +1,10 @@
 //Menu DropDown
 const btnDropdown = document.getElementById("menu-dropdown");
+//Menu Mobile
+const myMedia = window.matchMedia("(max-width: 595px)");
+let searchButton = document.querySelectorAll(".mobile-search-button");
+const searchBox = document.querySelector(".search-bar input");
+const categoryButton = document.querySelector(".category-button");
 
 function toggleMenu() {
   const menu = document.getElementById("menu");
@@ -7,13 +12,6 @@ function toggleMenu() {
 }
 
 btnDropdown.addEventListener("click", toggleMenu);
-
-//Jquery Starts
-//Menu Mobile
-const myMedia = window.matchMedia("(max-width: 595px)");
-let searchButton = document.querySelectorAll(".mobile-search-button");
-const searchBox = document.querySelector(".search-bar input");
-const categoryButton = document.querySelector(".category-button");
 
 function responsive(media) {
   if (media.matches) {
@@ -42,11 +40,7 @@ function responsive(media) {
   if (media.matches) {
     $(".admin-menu ul li").hover(
       function () {
-        $(this).append(
-          $(
-            "<h4>" + $(this).children("a").children("i").attr("title") + "</h4>"
-          )
-        );
+        $(this).append($("<h4>" + $(this).find("i").attr("title") + "</h4>"));
       },
       function () {
         $(this).find("h4").last().remove();
@@ -199,16 +193,138 @@ $(painelMenu).click(function (e) {
   });
 });
 
-fetch("../../api/public/api/linguagem")
-  .then((response) => response.json())
-  .then((data) => insertDataList("linguagens", data.data));
+//Pagination
+/* $(".profile-comments").append(
+  '<div class="loading">Nenhum comentário no momento</div>'
+); */
 
-//Painel Select
-function insertDataList(id, dados) {
-  let options = "";
-  let datalist = document.getElementById(id);
-  for (let i = 0; i < dados.length; i++) {
-    options += `<option value="${dados[i]["idlinguagem"]} - ${dados[i]["nome"]}" />`;
+const commentContainer = document.querySelector("#comment-block").content;
+
+function paginationList() {
+  const size = 20;
+  const comentarios = new Array();
+  for (let i = 0; i < size; i++) {
+    comentarios.push(`item ${i + 1}`);
   }
-  datalist.insertAdjacentHTML("beforeend", options);
+
+  return comentarios;
 }
+
+const commentList = paginationList();
+
+let perPage = 2;
+const state = {
+  page: 1,
+  totalPages: Math.ceil(commentList.length / perPage),
+  maxButtons: 5,
+};
+
+function update() {
+  list.update();
+  buttons.update();
+}
+
+const controls = {
+  next() {
+    state.page++;
+    if (state.page > state.totalPages) {
+      state.page--;
+    }
+    console.log(state.page);
+  },
+  prev() {
+    state.page--;
+    if (state.page < 1) {
+      state.page++;
+    }
+    console.log(state.page);
+  },
+  goTo(page) {
+    state.page = +page;
+
+    if (page < 1) {
+      state.page = 1;
+    }
+    if (page > state.totalPages) {
+      state.page = state.totalPages;
+    }
+  },
+  createListeners() {
+    $(".first").click(function () {
+      controls.goTo(1);
+      update();
+    });
+    $(".last").click(function () {
+      controls.goTo(state.totalPages);
+      update();
+    });
+    $(".next").click(function () {
+      controls.next();
+      update();
+    });
+    $(".prev").click(function () {
+      controls.prev();
+      update();
+    });
+  },
+};
+
+const list = {
+  update() {
+    $(".profile-comments .comment-block").remove();
+    let page = state.page - 1;
+    let start = page * perPage;
+    let end = start + perPage;
+    const paginatedItems = commentList.slice(start, end);
+    paginatedItems.forEach(list.create);
+  },
+  create(item) {
+    let content = document.importNode(commentContainer, true);
+    content.querySelector("blockquote").textContent = item;
+    $(".profile-comments").append(content);
+  },
+};
+
+const buttons = {
+  create(number) {
+    const active = (e) => {
+      $(e).css("color", "var(--color1)");
+    };
+    const button = document.createElement("div");
+    button.insertAdjacentHTML("afterbegin", number);
+    if (state.page == number) {
+      active(button);
+    }
+    $(".comment-pagination .numbers > div").append(button);
+    button.addEventListener("click", (e) => {
+      let page = e.target.innerText;
+      controls.goTo(page);
+      update();
+    });
+  },
+  update() {
+    const { maxLeft, maxRight } = buttons.calculateMaxVisible();
+    $(".comment-pagination .numbers > div").empty();
+    for (let page = maxLeft; page <= maxRight; page++) {
+      buttons.create(page);
+    }
+  },
+  calculateMaxVisible() {
+    const { maxButtons } = state;
+    let maxLeft = state.page - Math.floor(maxButtons / 2);
+    let maxRight = state.page + Math.floor(maxButtons / 2);
+
+    if (maxLeft < 1) {
+      maxLeft = 1;
+      maxRight = maxButtons;
+    }
+    if (maxRight > state.totalPages) {
+      maxLeft = state.totalPages - (maxButtons - 1);
+      maxRight = state.totalPages;
+    }
+    return { maxLeft, maxRight };
+  },
+};
+
+controls.createListeners();
+update();

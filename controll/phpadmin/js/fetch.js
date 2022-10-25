@@ -3,6 +3,8 @@ $(document).ready(function () {
   let sliderContainer = document.getElementById("slider-container");
   let highlightTemp = document.getElementById("highlight").content;
   let sliderRow = document.getElementById("slider-row").content;
+  const urlCursos = "http://localhost/codeguide/api/public/api/curso";
+  const urlLinguagens = "http://localhost/codeguide/api/public/api/linguagem";
   let cursos;
   let linguagens;
   let listagemTotal;
@@ -50,8 +52,8 @@ $(document).ready(function () {
   };
 
   const fetchData = async () => {
-    let listagemCursos = await getApi("../api/public/api/curso");
-    let listagemLinguagens = await getApi("../api/public/api/linguagem");
+    let listagemCursos = await getApi(urlCursos);
+    let listagemLinguagens = await getApi(urlLinguagens);
 
     cursos = listagemCursos.data;
     linguagens = listagemLinguagens.data;

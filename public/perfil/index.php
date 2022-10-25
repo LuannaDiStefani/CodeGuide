@@ -84,9 +84,36 @@
                 <div class="profile-posts">
                     <h3 class="info-title">Meus comentários:</h3>
                     <div class="profile-comments">
-                        <div class="comment-block">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, officiis exercitationem eos cupiditate similique reprehenderit fugit dolores accusantium sint amet nesciunt repellendus mollitia accusamus animi cumque excepturi quas esse blanditiis.</p>
-                        </div>     
+                        <template id="comment-block">
+                            <div class="comment-block">
+                                <div class="comment-block-autor">Anônimo</div>
+                                    <blockquote>
+                                    </blockquote>
+                            </div>
+                        </template>
+<!--                         <div class="comment-block">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, 
+                                officiis exercitationem eos cupiditate similique reprehenderit 
+                                fugit dolores accusantium sint amet nesciunt repellendus mollitia 
+                                accusamus animi cumque excepturi quas esse blanditiis.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, 
+                                officiis exercitationem eos cupiditate similique reprehenderit 
+                                fugit dolores accusantium sint amet nesciunt repellendus mollitia 
+                                accusamus animi cumque excepturi quas esse blanditiis.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, 
+                                officiis exercitationem eos cupiditate similique reprehenderit 
+                                fugit dolores accusantium sint amet nesciunt repellendus mollitia 
+                                accusamus animi cumque excepturi quas esse blanditiis.</p>
+                        </div>   -->   
+                    </div>
+                    <div class="comment-pagination">
+                        <div class="first">&#171;</div>
+                        <div class="prev">&lt;</div>
+                        <div class="numbers">
+                            <div>1</div>
+                        </div>
+                        <div class="next">&gt;</div>
+                        <div class="last">&#187;</div>
                     </div>
     
                 </div>

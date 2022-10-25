@@ -179,6 +179,7 @@ section.profile{
   section.profile .profile-comments{
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
     width: 100%;
     padding: 20px;
@@ -186,8 +187,49 @@ section.profile{
 
   section.profile .comment-block{
     padding: 10px;
+    overflow-y: auto;
+    max-height: 300px;
     font-size: 0.9rem;
     background: rgba(18, 18, 18, 0.9);
+  }
+
+  .comment-pagination{
+    width: 95%;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    display: flex;
+  }
+
+  .comment-pagination > div:not(:nth-child(3)),
+  .comment-pagination .numbers div > div{
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .comment-pagination > div:hover:not(:nth-child(3)),
+  .comment-pagination .numbers div > div:hover{
+    color: var(--color6);
+    transform: scale(1.1);
+  }
+
+  .comment-pagination .numbers div:first-child{
+    display: flex;
+    }
+
+  .comment-block-autor{
+    border-radius: 8px;
+    background: var(--color3);
+    text-align: left;
+    padding: 5px 10px;
+  }
+
+  .comment-block blockquote{
+    padding: 10px 0;
+    text-align: left;
   }
 
 /* Responsividade Profile */

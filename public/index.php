@@ -18,7 +18,7 @@
     <!-- Slider-JS -->
     <link rel="stylesheet" href="./css/slider.css">
     <script src="./js/main.js" defer></script>
-    <script type="module" src="../controll/phpadmin/fetch.js" defer></script>
+    <script src="../controll/phpadmin/js/fetch.js" defer></script>
 </head>
 <body>
     
