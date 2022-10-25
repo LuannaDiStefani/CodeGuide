@@ -42,7 +42,7 @@
 
                 <div class="fomulario_cadastro faed_in" id="teste">
 
-                    <form class="formulario" name="cadastro" action="" method="post">
+                    <form class="formulario" name="cadastro" action="../../controll/cadastro.php" method="post">
 
                         <p class="faed_in"> Digite seu nome:<br> <input type="name" name="nome" required
                                 pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ-']+$/"> <br><br></p>
@@ -52,7 +52,7 @@
                         Digite sua senha:<br> <input type="password" name="senha" required
                             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
 
-                        Confirme sua senha:<br> <input type="password" name="confirmacao" required
+                        Confirme sua senha:<br> <input type="password" name="conf" required
                             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
 
                         Digite sua data de nascimento:<br> <input type="date" name="data" id="data"
