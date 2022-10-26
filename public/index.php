@@ -17,8 +17,9 @@
     <script src="./js/type.js"></script>
     <!-- Slider-JS -->
     <link rel="stylesheet" href="./css/slider.css">
-    <script src="./js/main.js" defer></script>
-    <script src="../controll/phpadmin/js/fetch.js" defer></script>
+    <script type="module" src="./js/main.js" defer></script>
+    <script type="module" src="./index.js" defer></script>
+    <!-- <script src="../controll/admin/js/fetch.js" defer></script> -->
 </head>
 <body>
     
@@ -124,7 +125,7 @@
                                             </blockquote>
                                         </div> 
                                 </div>
-                            <i class="fa-solid fa-xmark close-button"></i>
+                            <i class="fa-solid fa-xmark close-button close-model"></i>
                         </div>
                     </div>
                 

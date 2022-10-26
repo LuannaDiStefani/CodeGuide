@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="./style.css">
     <!-- JQuery -->
-    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>  
+    <!-- Main-JS -->
+    <script type="module" src="../js/main.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -27,7 +32,7 @@
                     </ul>
                 </div>
                 <div class="admin-container">
-                    <div class="edit-field target1">
+                    <div class="edit-field" data-target="1">
                         <div class="edit-field-title"><h2>Editar Configurações de Usuário</h2></div>
                         <div class="edit-field-user">
                             <div class="edit-user-picture">
@@ -54,9 +59,9 @@
                                     </div>
                                     <div>
                                         <button>Ok</button>
-                                        <button>Cancel</button>
+                                        <button class="close-model">Cancel</button>
                                     </div>
-                                    <i class="fa-solid fa-xmark close-button"></i>
+                                    <i class="fa-solid fa-xmark close-button close-model"></i>
                                 </div>
                             </div>
                             <div class="edit-username">
@@ -68,14 +73,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-field target2">
+                    <div class="edit-field" data-target="2">
                         <div class="edit-field-data">
                             <div class="teste">
                                 1234
                             </div>
                         </div>
                     </div>
-                    <div class="edit-field target3">
+                    <div class="edit-field" data-target="3">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui esse nostrum accusantium aliquid totam tempora ut quod earum recusandae fugit quasi et voluptatum neque, dolorum natus a quis itaque? Veniam?
 
                     </div>
@@ -92,11 +97,6 @@
 
     <?php include '../components/footer.php'; ?>
 
-    <!-- Main-JS -->
-    <script src="../js/main.js"></script>
-
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
     
 </body>
 

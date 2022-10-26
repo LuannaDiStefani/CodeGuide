@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./style.css">
     <!-- JQuery -->
     <script src="../js/jquery-3.6.1.min.js"></script>
+    <!-- Main-JS -->
+    <script type="module" src="../js/main.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -125,11 +130,7 @@
 
     <?php include '../components/footer.php'; ?>
 
-    <!-- Main-JS -->
-    <script src="../js/main.js"></script>
 
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
     
 </body>
 
