@@ -20,6 +20,7 @@
 <?php include '../components/header.php'; ?>
 
     <main>
+
         <section class="admin-panel">
             <div class="container">
                 <div class="admin-menu">
@@ -93,8 +94,9 @@
                 </div>
             </div> <!-- container -->
         </section>
+        
     </main>
-
+    
     <?php include '../components/footer.php'; ?>
 
     

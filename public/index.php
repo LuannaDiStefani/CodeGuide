@@ -16,9 +16,8 @@
     <script src="./js/t.min.js"></script>
     <script src="./js/type.js"></script>
     <!-- Slider-JS -->
-    <link rel="stylesheet" href="./css/slider.css">
     <script type="module" src="./js/main.js" defer></script>
-    <script type="module" src="./index.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
 </head>
 <body>
     
@@ -42,8 +41,10 @@
     
     <main>
 
-    <template id="highlight">
-        <section class="highlight" style="display: none;">
+    <?php include_once './components/slider.php'; ?>
+
+<!--     <template id="highlight">
+        <section class="highlight" data-id="0" style="display: none;">
             <div class="course-title">
                 <div>
                     <h2 data-highlight="nome-curso"></h2>
@@ -135,7 +136,7 @@
     <div id="slider-container">
     </div>
 
-     <template id="slider-row">
+    <template id="slider-row">
         <div class="row">
             <div class="slider-title">
                 <h3></h3>
@@ -149,7 +150,7 @@
             </div>
 
         </div>
-     </template> 
+    </template>  -->
     
     </main>
 

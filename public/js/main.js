@@ -1,3 +1,5 @@
+import { slide, dados, search } from "./slider.js";
+
 const myMedia = window.matchMedia("(max-width: 595px)");
 const searchBox = document.querySelector(".search-bar input");
 
@@ -10,6 +12,19 @@ const menus = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("active");
   }
+
+  const carregarSlides = async () => {
+    await search.getData();
+    search.allowSearch();
+    slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
+  };
+
+  const allowSearch = async () => {
+    await search.getData();
+    search.allowSearch();
+  };
+
+  allowSearch();
 
   btnDropdown.addEventListener("click", toggleMenu);
   $("#profile i").click(function () {
