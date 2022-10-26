@@ -38,7 +38,6 @@ const buscarApi = {
 
 const highlight = {
   allowHighlight() {
-    console.log($(".slider").children());
     let items = $(".slider").children();
     $(items).click(function () {
       highlight.createHighlight(this);

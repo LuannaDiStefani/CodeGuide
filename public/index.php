@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="./css/slider.css">
     <script type="module" src="./js/main.js" defer></script>
     <script type="module" src="./index.js" defer></script>
-    <!-- <script src="../controll/admin/js/fetch.js" defer></script> -->
 </head>
 <body>
     

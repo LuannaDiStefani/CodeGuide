@@ -5,12 +5,16 @@ const menus = () => {
   const categoryMenu = document.querySelector(".mobile-category");
   const btnDropdown = document.getElementById("menu-dropdown");
   const categoryButton = document.querySelector(".category-button");
+  const userOptions = document.querySelector(".user-options");
   function toggleMenu() {
     const menu = document.getElementById("menu");
     menu.classList.toggle("active");
   }
 
   btnDropdown.addEventListener("click", toggleMenu);
+  $("#profile i").click(function () {
+    $(userOptions).slideToggle("slow");
+  });
 
   //Menu Lateral
   $(categoryButton).click(function (e) {
