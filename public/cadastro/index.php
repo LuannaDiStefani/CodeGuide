@@ -42,7 +42,7 @@
 
                 <div class="fomulario_cadastro faed_in" id="teste">
 
-                    <form class="formulario" name="cadastro" action="../../controll/cadastro.php" method="post">
+                <form class="formulario" name="cadastro" action="../../controll/cadastro.php" method="post">
 
                         <p class="faed_in"> Digite seu nome:<br> <input type="name" name="nome" required
                                 pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ-']+$/"> <br><br></p>

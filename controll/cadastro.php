@@ -28,8 +28,8 @@ echo"As senhas estão diferentes";
 
 }else{
 
-    $sql="INSERT INTO usuario (adm,nome,email,senha)
-                    value('$adm','$nome','$email','$senha')";  
+  $sql="INSERT INTO usuario (adm,nome,email,senha)
+  value('$adm','$nome','$email','$senha')"; 
 
   $result_dois= mysqli_query($conexao,$sql);
 
