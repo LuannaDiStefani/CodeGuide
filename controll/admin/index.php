@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Perfil - Code Guide</title>
+    <title>Página de Admin - Code Guide</title>
     <link rel="stylesheet" href="../../public/css/general.css">
     <link rel="stylesheet" href="./css/style.css">
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
     <!-- JQuery -->
     <script src="../../public/js/jquery-3.6.1.min.js"></script>
+    <!-- Main-JS -->
+    <script type="module" src="../../public/js/main.js" defer></script>
+    <script type="module" src="./js/script.js" defer></script>
+    <!-- <script src="./js/insert.js"></script> -->
 </head>
 
 <body>
@@ -148,13 +154,6 @@
     </main>
 
     <?php include'../../public/components/footer.php' ?>
-
-    <!-- Main-JS -->
-    <script src="../../public/js/main.js"></script>
-    <script src="./js/insert.js"></script>
-
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 
 </body>
 

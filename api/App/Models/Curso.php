@@ -47,8 +47,8 @@ namespace App\Models;
         public static function insert($data){
 
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-            $sql = 'INSERT INTO '.self::$table.' (nomecurso,descri, pago, link, imgcurso, videocurso, idlinguagem) 
-            VALUES(?,?,?,?,?,?,?)';
+            $sql = 'INSERT INTO '.self::$table.' (nomecurso,descri, pago, plataforma, link, imgcurso, videocurso, idlinguagem) 
+            VALUES(?,?,?,?,?,?,?,?)';
 
             $params = array();
             parse_str($data["dados"], $params);
@@ -65,7 +65,7 @@ namespace App\Models;
                     // Insert file data into the database if needed 
                     //........ 
                     $stmt = $conexao->prepare($sql);
-                    $stmt->bind_param('ssssssi', $params['nomecurso'], $params['descri'], $params['pago'], $params['linkcurso'], $fileName, $params['videocurso'], $params['idlinguagem']);
+                    $stmt->bind_param('sssssssi', $params['nomecurso'], $params['descri'], $params['pago'], $params['plataforma'], $params['linkcurso'], $fileName, $params['videocurso'], $params['idlinguagem']);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $number_of_rows_affected = mysqli_affected_rows($conexao);
