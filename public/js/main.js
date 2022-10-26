@@ -1,4 +1,7 @@
 import { slide, dados, search } from "./slider.js";
+import { carregarDados } from "./slider.js";
+
+carregarDados.carregarBusca();
 
 const myMedia = window.matchMedia("(max-width: 595px)");
 const searchBox = document.querySelector(".search-bar input");
@@ -12,19 +15,6 @@ const menus = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("active");
   }
-
-  const carregarSlides = async () => {
-    await search.getData();
-    search.allowSearch();
-    slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
-  };
-
-  const allowSearch = async () => {
-    await search.getData();
-    search.allowSearch();
-  };
-
-  allowSearch();
 
   btnDropdown.addEventListener("click", toggleMenu);
   $("#profile i").click(function () {
@@ -57,7 +47,10 @@ function responsive(media) {
         event.preventDefault();
         if ($(searchBox).css("visibility") == "hidden") {
           $(searchBox).removeClass("search-inactive");
-          $(searchBox).addClass("search-active").css("width", "100%");
+          $(searchBox).addClass("search-active").css("width", "100%").focus();
+          setTimeout(function () {
+            $(searchBox).trigger("focus");
+          }, 100);
         } else {
           $(searchBox).removeClass("search-active");
           $(searchBox).addClass("search-inactive").css("width", "20%");

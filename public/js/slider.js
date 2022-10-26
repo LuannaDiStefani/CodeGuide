@@ -13,6 +13,21 @@ export const dados = {
   listagemTotal: [],
 };
 
+export const carregarDados = {
+  async carregarBusca(props) {
+    await search.getData();
+    if (
+      urlAtual[urlAtual.length - 1] == "index.php" &&
+      urlAtual[urlAtual.length - 2] == "public"
+    ) {
+      slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
+    }
+    search.allowSearch();
+  },
+};
+
+let urlAtual = window.location.href.split("/");
+
 export const buscarApi = {
   async retornoApi(url) {
     const response = await fetch(url);
@@ -71,7 +86,9 @@ export const highlight = {
 
       $(previewCurso).css(
         "background-image",
-        `url('../source/imgcurso/${dados.cursos[id - 1].imgcurso}')`
+        `url('http://localhost/codeguide/source/imgcurso/${
+          dados.cursos[id - 1].imgcurso
+        }')`
       );
 
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
@@ -142,7 +159,7 @@ export const slide = {
           let img = document.createElement("img");
           img.setAttribute(
             "src",
-            `../source/imgcurso/${dados.cursos[key].imgcurso}`
+            `http://localhost/codeguide/source/imgcurso/${dados.cursos[key].imgcurso}`
           );
           img.setAttribute("data-curso", dados.cursos[key].idcurso);
           img.setAttribute("class", "item-slide");
@@ -213,6 +230,7 @@ export const search = {
         },
         500
       );
+      $("main").empty();
       slide.allowSlide(resultado);
     }
   },

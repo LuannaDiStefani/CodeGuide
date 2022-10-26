@@ -153,7 +153,11 @@
         </section>
     </main>
 
-    <?php include'../../public/components/footer.php' ?>
+    <section class="search-result-container">
+        <?php include '../../public/components/slider.php'; ?>
+    </section>
+
+    <?php include '../../public/components/footer.php' ?>
 
 </body>
 

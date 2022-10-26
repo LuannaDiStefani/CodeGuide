@@ -552,3 +552,7 @@ footer .footer-social-media i:hover{
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(7px);
 }
+
+section.search-result-container{
+    margin-top: 100px !important;
+}

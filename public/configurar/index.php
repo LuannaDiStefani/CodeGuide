@@ -19,7 +19,8 @@
 
 <?php include '../components/header.php'; ?>
 
-    <main>
+<main>
+    
 
         <section class="admin-panel">
             <div class="container">
@@ -95,9 +96,13 @@
             </div> <!-- container -->
         </section>
         
-    </main>
+</main>
+
+<section class="search-result-container">
+    <?php include '../components/slider.php'; ?>
+</section>
     
-    <?php include '../components/footer.php'; ?>
+<?php include '../components/footer.php'; ?>
 
     
 </body>
