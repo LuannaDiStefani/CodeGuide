@@ -1,6 +1,6 @@
 <?php
 
-include "./path/conn.php";
+include "../api/config.php";
 
 if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha'])){
 $nome = $_POST['nome'];
