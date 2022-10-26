@@ -3,7 +3,8 @@
 
             <div class="hd-left">
                 <div id="cg-logo">
-                    <div class="logo-img"></div>
+                    <a href="http://localhost/codeguide/public/index.php"><div class="logo-img">
+                    </div></a>
                 </div>
             </div>
 
@@ -53,11 +54,11 @@
 
             <div class="hd-right">
                 <div class="search-bar">
-                    <input type="text" class="search-box search-active" placeholder="Vamos dominar o mundo!">
-                    <label for="search-box"><i class="fa fa-search"></i></label>
+                        <input type="text" class="search-box search-active" id="search-box" placeholder="Vamos dominar o mundo!">
+                        <label for="search-box"><i class="fa fa-search"></i></label>
                 </div>
                 <div id="profile">
-                    <i class="fa-regular fa-user"></i>
+                    <a href="http://localhost/codeguide/public/login/"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
             

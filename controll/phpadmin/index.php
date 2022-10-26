@@ -14,89 +14,10 @@
 
 <body>
 
-    <header>
-        <div class="container">
-
-            <div class="hd-left">
-                <div id="cg-logo">
-                    <div class="logo-img"></div>
-                </div>
-            </div>
-
-            <div class="container-menu">
-                <button id="menu-dropdown">
-                    Categorias
-                </button>
-                <nav id="menu">
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Sobre</a></li>
-                        <li><a href="">Portfolio</a></li>
-                        <li><a href="">Serviços</a></li>
-                        <li><a href="">Contato</a></li>
-                    </ul>
-                </nav> <!-- fim do menu -->
-            </div>
-
-
-            <div class="hd-right">
-                <div class="search-bar">
-                    <input type="text" class="search-box search-active" placeholder="Vamos dominar o mundo!">
-                    <label for="search-box"><i class="fa fa-search"></i></label>
-                </div>
-                <div id="profile">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-            </div>
-
-        </div>
-
-    </header>
-
-    <div class="container-mobile">
-        <nav class="menu-mobile">
-            <div class="home-mobile">
-                <a href="" class="menu-mobile-button">
-                    <i class="fa-solid fa-house"></i>
-                    Home
-                </a>
-            </div>
-            <div class="search-mobile">
-                <a href="" id="mobile-search" class="menu-mobile-button mobile-search-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    Search
-                </a>
-            </div>
-            <div class="profile-mobile">
-                <a href="" class="menu-mobile-button">
-                    <i class="fa-solid fa-user-group"></i>
-                    Profile
-                </a>
-            </div>
-            <div class="menu-hamburguer">
-                <a href="" class="menu-mobile-button category-button">
-                    <i class="fa-solid fa-bars"></i>
-                    Menu
-                </a>
-
-            </div>
-        </nav>
-
-        <div class="mobile-category">
-            <h3>Categorias:</h3>
-            <ul>
-                <li><a href="">Link 1</a></li>
-                <li><a href="">Link 2</a></li>
-                <li><a href="">Link 3</a></li>
-                <li><a href="">Link 4</a></li>
-            </ul>
-
-        </div>
-    </div>
+<?php include '../../public/components/header.php'; ?>
 
     <main>
         <section class="admin-panel">
-            <div class="alert alert-danger"></div>
             <div class="container">
                 <div class="admin-menu">
                     <h3>Menu</h3>
@@ -112,30 +33,25 @@
                     </ul>
                 </div>
                 <div class="admin-container">
-                    <div class="edit-field target1">
+                    <div class="edit-field" data-target="1">
                         <div class="edit-field-title">
                             <h2>Página de Cadastro de Cursos</h2>
                         </div>
                         <div class="edit-field-user">
                             <div class="form-course">
-                                <form action="" method="post" id="cad-curso">
+                                <form action="" method="post" id="cad-curso" enctype="multipart/form-data">
                                     <div>
                                         <label for="nomecurso">Nome do Curso</label>
-                                        <input type="text" class="input-course" name="nomecurso" required>
+                                        <input type="text" class="input-course" name="nomecurso">
                                     </div>
                                     <div>
                                         <label for="descricao">Descrição</label>
-                                        <textarea name="descri" id="" cols="100" rows="3" required></textarea>
+                                        <textarea name="descri" id="" cols="100" rows="3"></textarea>
                                     </div>
                                     <div>
                                         <label for="linguagem">Linguagem</label>
-                                        <input list="linguagens" class="options" name="linguagem" required>
+                                        <input list="linguagens" class="options" name="idlinguagem" autocomplete="off">
                                         <datalist id="linguagens">
-                                            <option value="0 - JavaScript">
-                                            <option value="1 - C#">
-                                            <option value="2 - PHP">
-                                            <option value="3 - Python">
-                                            <option value="4 - HTML">
                                         </datalist>
                                     </div>
                                     <div class="pago">
@@ -145,23 +61,16 @@
                                         <label for="gratuito">Gratuito</label><br>
                                     </div>
                                     <div>
-                                        <label for="plataforma">Plataformas:</label>
-                                        <input list="plataformas" class="options" name="plataforma" required>
-                                        <datalist id="plataformas">
-                                            <option value="Internet Explorer">
-                                            <option value="Firefox">
-                                            <option value="Chrome">
-                                            <option value="Opera">
-                                            <option value="Safari">
-                                        </datalist>
+                                        <label for="plataforma">Plataforma</label>
+                                        <input type="text" name="plataforma" class="input-course">
                                     </div>
                                     <div>
                                         <label for="linkcurso">Link</label>
-                                        <input type="text" name="linkcurso" class="input-course" required>
+                                        <input type="text" name="linkcurso" class="input-course">
                                     </div>
                                     <div>
                                         <label for="videocurso">Video</label>
-                                        <input type="text" name="videocurso" class="input-course" required>
+                                        <input type="text" name="videocurso" class="input-course">
                                     </div>
                                     <div class="upload upload-curso">
                                         <div class="img-preview">
@@ -169,12 +78,12 @@
                                                 alt="Preview">
                                             <span id="file-name" class="file-name">Nome do Arquivo</span>
                                         </div>
-                                        <div class="upload-button-container">
+                                         <div class="upload-button-container">
                                             <input type="file" name="imgcurso" id="upload-button" form="cad-curso" class="upload-button"
                                                 accept="image/*">
                                             <label for="upload-button"><i class="fa-solid fa-image"></i> Escolha uma
                                                 foto</label>
-                                        </div>
+                                        </div> 
                                     </div>
 
                                     <div class="edit-field-submit">
@@ -185,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-field target2">
+                    <div class="edit-field" data-target="2">
                         <div class="edit-field-title">
                             <h2>Página de Cadastro de Linguagem</h2>
                         </div>
@@ -194,7 +103,7 @@
                                 <form action="" method="post" id="cad-linguagem" enctype="multipart/form-data">
                                     <div>
                                         <label for="nomelinguagem">Nome da linguagem</label>
-                                        <input type="text" class="input-course" name="nomelinguagem">
+                                        <input type="text" class="input-course" name="nomelinguagem" autocomplete="off">
                                     </div>
                                     <div class="upload-linguagem">
                                         <div class="img-preview">
@@ -216,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-field target3">
+                    <div class="edit-field" data-target="3">
                         <div class="edit-field-title">
                             <h2>Em construção</h2>
                         </div>
@@ -224,7 +133,7 @@
                             ...
                         </div>
                     </div>
-                    <div class="edit-field target4">
+                    <div class="edit-field" data-target="4">
                         <div class="edit-field-title">
                             <h2>Em construção</h2>
                         </div>
@@ -238,24 +147,11 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-text">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>Amet laudantium debitis nulla quod, labore dolor fugit exercitationem ut ipsam nemo fugiat
-                    repudiandae doloremque saepe eos iure. Dolore maxime corrupti nostrum.</p>
-            </div>
-            <div class="footer-social-media">
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-discord"></i>
-            </div>
-        </div>
-    </footer>
+    <?php include'../../public/components/footer.php' ?>
 
     <!-- Main-JS -->
-    <script type="module" src="./js/main.js"></script>
     <script src="../../public/js/main.js"></script>
+    <script src="./js/insert.js"></script>
 
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>

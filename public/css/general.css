@@ -15,6 +15,9 @@
     --color7: #1c3166;
     --color8: #240047;
     --color9:#1c0021;
+    --slider-padding: 3rem;
+    --img-gap: .25rem;
+    --images-per-screen: 5;
 }
 
 *{
@@ -92,9 +95,18 @@ header #cg-logo{
 }
 
 header .logo-img{
+    cursor: pointer;
+    background: url('../../source/codeguide.png') no-repeat;
+    background-size: contain;
+    background-position: center;
     width: 100px;
     height: 60px;
-    border: 2px solid var(--color2);
+    transition: all 0.3s ease-in;
+}
+
+header .logo-img:hover{
+    opacity: 0.8;
+    
 }
 
 /* Header Menu */
@@ -172,7 +184,7 @@ a.menu-mobile-button:hover{
 .menu-ul{
     padding-top: 10px;
     display: flex;
-    width: 1000px;
+    width: 980px;
     justify-content: center;
 }
 
@@ -509,9 +521,6 @@ footer .footer-social-media i:hover{
     top: 70px;
     position: fixed;
     z-index: 2000;
-}
-
-.alert-danger{
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(7px);
 }
