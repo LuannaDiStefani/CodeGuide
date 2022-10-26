@@ -1,11 +1,13 @@
 <?php
 
-include "conexao.php";
+include "./path/conn.php";
 
+if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha'])){
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmacao = $_POST['conf'];
+$adm = 1;
 
  
 $sql = "SELECT * FROM usuario WHERE email = '$email'";
@@ -26,14 +28,15 @@ echo"As senhas estão diferentes";
 
 }else{
 
-    $sql="INSERT INTO usuario (nome,email,senha)
-                    value('$nome','$email','$senha')";  
+    $sql="INSERT INTO usuario (adm,nome,email,senha)
+                    value('$adm','$nome','$email','$senha')";  
 
   $result_dois= mysqli_query($conexao,$sql);
 
+  echo"<script> window.location = '../public/interesses/index.php'; </script>";
+
 }
-
-
+}
 
 
 ?>
