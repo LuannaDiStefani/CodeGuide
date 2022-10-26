@@ -58,7 +58,13 @@
                         <label for="search-box"><i class="fa fa-search"></i></label>
                 </div>
                 <div id="profile">
-                    <a href="http://localhost/codeguide/public/login/"><i class="fa-regular fa-user"></i></a>
+                    <i class="fa-regular fa-user"></i>
+                    <div class="user-options">
+                        <ul>
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Cadastro</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
                 </div>
             </div>
             

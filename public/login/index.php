@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[<!DOCTYPE html>
 
 <html lang="pt-br">
 
@@ -70,5 +70,3 @@
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 
 </body>
-
-</html>

@@ -143,5 +143,4 @@ header("Location:../login/index.php");
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
     
 </body>
-
 </html>
