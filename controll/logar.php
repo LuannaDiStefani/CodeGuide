@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "./path/conn.php";
+include "../api/config.php";
 
 
 
