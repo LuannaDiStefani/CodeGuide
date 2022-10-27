@@ -14,9 +14,8 @@ export const dados = {
 };
 
 let urlAtual = window.location.href.split("/");
-console.log(urlAtual[urlAtual.length - 1]);
 export const carregarDados = {
-  async carregarBusca(props) {
+  async carregarBusca() {
     await search.getData();
     if (
       urlAtual[urlAtual.length - 1] == "index.php" &&

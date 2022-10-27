@@ -11,9 +11,10 @@ body {
 .background video {
 	position: absolute;
 	z-index: -1000;
-	width: 100%;
-	height: 100%;
+	max-width: 100%;
+	min-height: 100%;
 	object-fit: cover;
+	height: auto;
 	background: url(../../source/preview-space.png) no-repeat;
 	background-size: cover;
 }

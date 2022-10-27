@@ -18,7 +18,8 @@
     <script type="module" src="../js/main.js"></script>
     <script type="module" src="./script.js" defer></script>
     <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="./css/fontawesome/all.min.css">
 
 </head>
 
