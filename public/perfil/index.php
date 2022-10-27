@@ -23,8 +23,8 @@ header("Location:../login/index.php");
     <!-- Main-JS -->
     <script type="module" src="../js/main.js"></script>
     <!-- Font-awesome -->
-    <link rel="stylesheet" href="./css/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="./css/fontawesome/all.min.css">
+    <link rel="stylesheet" href="../css/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="../css/fontawesome/all.min.css">
 </head>
 <body>
 
