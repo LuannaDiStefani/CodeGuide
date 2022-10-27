@@ -13,6 +13,7 @@
     <script src="../js/jquery-3.6.1.min.js"></script>
     <!-- Main-JS -->
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="./script.js" defer></script>
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
  
@@ -59,9 +60,9 @@
             </section>
         </main>
 
-<section class="search-result-container">
-    <?php include '../components/slider.php'; ?>
-</section>
+    <section class="search-result-container">
+        <?php include '../components/slider.php'; ?>
+    </section>
 
     </div> <!-- background -->
     

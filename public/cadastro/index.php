@@ -15,7 +15,8 @@
     <!-- JQuery -->
     <script src="../js/jquery-3.6.1.min.js"></script>
     <!-- Main-JS -->
-    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/main.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 
@@ -33,7 +34,7 @@
         <main>
             <section class="cadastro">
                 <div class="cadastro_titulo">
-
+                    
                     <p class="line_um  animacao"> Bem-vindo(a) ao CodeGuide! </p>
                     <p class="line_dois animacao_dois"> A sua jornada começa aqui... </p>
 
@@ -46,7 +47,7 @@
 
                 <div class="fomulario_cadastro faed_in" id="teste">
 
-                    <form class="formulario" name="cadastro" action="../../controll/cadastro.php" method="post">
+                    <form class="formulario" name="cadastro" enctype="multipart/form-data" method="post">
 
                         <p class="faed_in"> Digite seu nome:<br> <input type="name" name="nome" required
                                 pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ-']+$/"> <br><br></p>
@@ -72,12 +73,12 @@
 
         </main>
 
-<section class="search-result-container">
-    <?php include '../components/slider.php'; ?>
-</section>
-
+        
     </div> <!-- background -->
- 
+    
+    <section class="search-result-container">
+        <?php include '../components/slider.php'; ?>
+    </section>
 
     <?php include '../components/footer.php'; ?>
 

@@ -5,7 +5,7 @@ const DBPASS = "";
 const DBNAME = "codeguide";
 
 try{
-    
+     
     $conexao = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
 
 }catch(Exception $err){
