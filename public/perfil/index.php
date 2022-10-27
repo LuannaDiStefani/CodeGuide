@@ -20,6 +20,10 @@ header("Location:../login/index.php");
     <link rel="stylesheet" href="./style.css">
     <!-- JQuery -->
     <script src="../js/jquery-3.6.1.min.js"></script>
+    <!-- Main-JS -->
+    <script type="module" src="../js/main.js"></script>
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -101,21 +105,7 @@ header("Location:../login/index.php");
                                     <blockquote>
                                     </blockquote>
                             </div>
-                        </template>
-<!--                         <div class="comment-block">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, 
-                                officiis exercitationem eos cupiditate similique reprehenderit 
-                                fugit dolores accusantium sint amet nesciunt repellendus mollitia 
-                                accusamus animi cumque excepturi quas esse blanditiis.
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, 
-                                officiis exercitationem eos cupiditate similique reprehenderit 
-                                fugit dolores accusantium sint amet nesciunt repellendus mollitia 
-                                accusamus animi cumque excepturi quas esse blanditiis.
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, 
-                                officiis exercitationem eos cupiditate similique reprehenderit 
-                                fugit dolores accusantium sint amet nesciunt repellendus mollitia 
-                                accusamus animi cumque excepturi quas esse blanditiis.</p>
-                        </div>   -->   
+                        </template> 
                     </div>
                     <div class="comment-pagination">
                         <div class="first">&#171;</div>
@@ -134,13 +124,11 @@ header("Location:../login/index.php");
         </section>
     </main>
 
+<section class="search-result-container">
+    <?php include '../components/slider.php'; ?>
+</section>
+
     <?php include '../components/footer.php'; ?>
 
-    <!-- Main-JS -->
-    <script src="../js/main.js"></script>
-
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
-    
 </body>
 </html>

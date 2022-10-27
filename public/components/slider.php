@@ -29,6 +29,7 @@
                         </p>
                     <div class="course-data">
                         <p>Pago: <span data-highlight="info-curso"></span></p>
+                        <p>Plataforma: <span data-highlight="plataforma-curso"></span></p>
                     </div>
                 
                     </div>

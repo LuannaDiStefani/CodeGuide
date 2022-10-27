@@ -1,7 +1,5 @@
-[<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +11,10 @@
     <link rel="stylesheet" href="./style.css">
     <!-- JQuery -->
     <script src="../js/jquery-3.6.1.min.js"></script>
+    <!-- Main-JS -->
+    <script type="module" src="../js/main.js"></script>
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
  
 </head>
 
@@ -57,16 +59,14 @@
             </section>
         </main>
 
-    </div> <!-- background -->
+<section class="search-result-container">
+    <?php include '../components/slider.php'; ?>
+</section>
 
+    </div> <!-- background -->
     
     <?php include '../components/footer.php'; ?>
 
-
-    <!-- Main-JS -->
-    <script src="../js/main.js"></script>
-
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
-
 </body>
+
+</html>

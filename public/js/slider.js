@@ -81,6 +81,9 @@ export const highlight = {
       const previewCurso = highlightDiv.querySelector(
         `[data-highlight="preview-curso"]`
       );
+      const plataformaCurso = highlightDiv.querySelector(
+        `[data-highlight="plataforma-curso"]`
+      );
       const info = highlightDiv.querySelector(`[data-highlight="info-curso"]`);
       var highlightId = highlightDiv.querySelector("[data-id]");
 
@@ -94,6 +97,7 @@ export const highlight = {
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
       $(descriCurso).text(dados.cursos[id - 1].descri);
       $(info).text(dados.cursos[id - 1].pago);
+      $(plataformaCurso).text(dados.cursos[id - 1].plataforma);
       $(slider).append(highlightDiv).slideDown("slow");
       $(slider).find("section.highlight").slideDown("slow");
       $("html, body").animate(
