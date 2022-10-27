@@ -13,6 +13,7 @@ export const dados = {
   listagemTotal: [],
 };
 
+let urlAtual = window.location.href.split("/");
 export const carregarDados = {
   async carregarBusca(props) {
     await search.getData();
@@ -25,8 +26,6 @@ export const carregarDados = {
     search.allowSearch();
   },
 };
-
-let urlAtual = window.location.href.split("/");
 
 export const buscarApi = {
   async retornoApi(url) {

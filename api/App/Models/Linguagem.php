@@ -53,7 +53,7 @@ namespace App\Models;
             parse_str($data["dados"], $params);
 
             $fileName = $_FILES["file"]["name"];
-            $targetDir = "../../source/imgcurso/"; 
+            $targetDir = "../../source/imglinguagem/"; 
             $targetFilePath = $targetDir . $fileName;
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
             $allowTypes = array('jpg', 'png', 'jpeg'); 

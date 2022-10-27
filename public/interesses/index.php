@@ -16,6 +16,7 @@
     <script src="../js/jquery-3.6.1.min.js"></script>
     <!-- Main-JS -->
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="./script.js" defer></script>
     <!-- Font-awesome -->
     <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 
@@ -26,7 +27,7 @@
 <?php include '../components/header.php'; ?>
 
 <div class="background">
-    <video autoplay loop muted poster="../../source/fundo_cadastro.mp4" class="bg_video">
+    <video autoplay loop muted poster="../../source/preview-space.png" class="bg_video">
       <source src="../../source/fundo_cadastro.mp4" type="video/mp4">
     </video>
     
@@ -42,7 +43,7 @@
   
               <div class="interesses">
   
-                <div class="itens"> </div>
+                <div class="itens"></div>
                 <div class="itens"> </div>
                 <div class="itens"> </div>
                 <div class="itens"> </div>

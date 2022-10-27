@@ -24,7 +24,7 @@
 <?php include '../components/header.php'; ?>
 
     <div class="background">
-        <video autoplay loop muted poster="../../source/fundo_cadastro.mp4" class="bg_video">
+        <video autoplay loop muted poster="../../source/preview-space.png" class="bg_video">
             <source src="../../source/fundo_cadastro.mp4" type="video/mp4">
         </video>
 

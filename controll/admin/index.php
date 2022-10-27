@@ -1,10 +1,10 @@
 <?php
 
-session_start();
+/* session_start();
 
 if(!isset($_SESSION['comum']))
 
-header("Location:../../public/login/index.php");
+header("Location:../../public/login/index.php"); */
 
 ?>
 

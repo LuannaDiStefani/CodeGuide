@@ -9,7 +9,7 @@
     display: block;
 	height: auto; 
 	z-index: -1000;
-	background: url(./source/preview.png) no-repeat;
+	background: url(../../source/preview-earth.png) no-repeat;
 	background-size: cover;
 }
 

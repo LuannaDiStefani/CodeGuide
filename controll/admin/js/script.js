@@ -1,8 +1,5 @@
-import {
-  tabs,
-  uploadButtons,
-  exibirAlerta,
-} from "../../../public/js/modules.js";
+import { tabs, uploadButtons } from "../../../public/js/modules.js";
+import { exibirAlerta } from "../../../public/js/main.js";
 
 let formCursos = new FormData();
 let formLinguagens = new FormData();
