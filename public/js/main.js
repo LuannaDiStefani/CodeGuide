@@ -119,9 +119,10 @@ export const exibirAlerta = (n, cor) => {
     default:
       if (cor == 1) {
         $(".alert").css("background", color1);
-      } else {
+      } else if (cor == 2) {
         $(".alert").css("background", color2);
       }
+
       aviso = n;
   }
 

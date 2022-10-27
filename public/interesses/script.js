@@ -1,9 +1,12 @@
 import { buscarApi, dados } from "../js/slider.js";
+import { exibirAlerta } from "../js/main.js";
 
 const interessesContainer = document.querySelector(".interesses");
+const submit = document.querySelector(".enviar button");
 
 const interesses = {
   linguagens: [],
+  selected: [],
   clean() {
     $(interessesContainer).empty();
   },
@@ -28,10 +31,26 @@ const interesses = {
   },
   select() {
     $(".itens").click(function () {
-      console.log(this);
+      $(this).toggleClass("selected");
+    });
+  },
+  submit() {
+    $(submit).click((e) => {
+      e.preventDefault();
+      const selecionados = document.querySelectorAll(".selected");
+      if (selecionados.length < 3) {
+        exibirAlerta("Selecione pelo menos 3 itens");
+      } else {
+        for (let i = 0; i < selecionados.length; i++) {
+          const id = $(selecionados[i]).attr("data-id");
+          this.selected.push(id);
+        }
+        console.log(this.selected);
+      }
     });
   },
 };
 
 interesses.clean();
 interesses.fetch();
+interesses.submit();

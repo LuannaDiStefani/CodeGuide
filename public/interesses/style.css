@@ -68,6 +68,22 @@
 	opacity: .6;
 }
 
+.selected{
+	position: relative;
+	opacity: 1;
+	background-color: var(--color2);
+	background-blend-mode: overlay;
+}
+
+.selected::after{
+	content: "Selecionado";
+    position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 
 .enviar {
 	width: 60%;
