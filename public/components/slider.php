@@ -22,6 +22,7 @@
 
                 <div class="course-info">
                     
+                    <div class="description-head">Descrição:</div>
                     <div class="course-description">
                         <p data-highlight="descri-curso">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa. 
@@ -50,32 +51,32 @@
                                 <h2>Visualizar Comentários</h2>
                                 <div class="profile-comments">
                                         <div class="comment-block">
-                                            <div class="comment-block-autor">Anônimo</div>
+                                            <div class="autor-title">Anônimo</div>
                                             <blockquote>
                                                 How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
                                             </blockquote>
                                         </div>
                                         <div class="comment-block">
-                                            <div class="comment-block-autor">Anônimo</div>
+                                            <div class="autor-title">Anônimo</div>
                                             <blockquote>
                                                 How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
                                             </blockquote>
                                         </div>
                                         <div class="comment-block">
-                                            <div class="comment-block-autor">Anônimo</div>
+                                            <div class="autor-title">Anônimo</div>
                                             <blockquote>
                                                 How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
                                             </blockquote>
                                         </div>
                                         <div class="comment-block">
-                                            <div class="comment-block-autor">Anônimo</div>
+                                            <div class="autor-title">Anônimo</div>
                                             <blockquote>
                                                 How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
                                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto voluptatum, est quas a eos veniam error harum repudiandae porro doloremque, asperiores totam rerum atque enim debitis aliquam modi, labore fugit?
                                             </blockquote>
                                         </div>
                                         <div class="comment-block">
-                                            <div class="comment-block-autor">Anônimo</div>
+                                            <div class="autor-title">Anônimo</div>
                                             <blockquote>
                                                 How can I keep the audience engaged with this article on quotations? Grammar and a charming personality will only go so far.
                                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, sit at modi neque non eligendi, temporibus pariatur incidunt nostrum autem esse ex, in blanditiis eum quo fugiat voluptas eos nisi!

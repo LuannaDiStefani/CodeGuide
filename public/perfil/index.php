@@ -101,7 +101,7 @@ header("Location:../login/index.php");
                     <div class="profile-comments">
                         <template id="comment-block">
                             <div class="comment-block">
-                                <div class="comment-block-autor">Anônimo</div>
+                                <div class="autor-title">Anônimo</div>
                                     <blockquote>
                                     </blockquote>
                             </div>

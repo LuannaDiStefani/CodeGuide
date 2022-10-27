@@ -14,11 +14,17 @@ export const dados = {
 };
 
 let urlAtual = window.location.href.split("/");
+console.log(urlAtual[urlAtual.length - 1]);
 export const carregarDados = {
   async carregarBusca(props) {
     await search.getData();
     if (
       urlAtual[urlAtual.length - 1] == "index.php" &&
+      urlAtual[urlAtual.length - 2] == "public"
+    ) {
+      slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
+    } else if (
+      urlAtual[urlAtual.length - 1] == "" &&
       urlAtual[urlAtual.length - 2] == "public"
     ) {
       slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);

@@ -81,7 +81,7 @@
     background: rgba(18, 18, 18, 0.9);
   }
 
-  .comment-block-autor{
+  .autor-title{
     border-radius: 8px;
     background: var(--color3);
     text-align: left;
