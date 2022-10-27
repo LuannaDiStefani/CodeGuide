@@ -283,10 +283,11 @@ section.edit-profile .edit-field-user{
     width: 60%;
 }
 
-.edit-username-form{
+.edit-username-form form{
     max-width: 100%;
     padding: 0 2%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 5px;
     align-items: center;
@@ -306,7 +307,7 @@ section.edit-profile .edit-field-user-submit{
     padding: 10px 0;
 }
 
-.edit-username #change-username{
+.edit-username #username{
     width: 60%;
     background: var(--black);
     font-weight: bold;
@@ -321,7 +322,7 @@ section.edit-profile .edit-field-user-submit{
     transition: all 0.5s ease-in-out;
 }
 
-.edit-username #change-username:focus{
+.edit-username #username:focus{
     border: 1px solid var(--color6);
 }
 
@@ -332,7 +333,7 @@ section.edit-profile .edit-field-user-submit{
 
 /* Responsividade Username-Field */
 @media screen and (max-width: 768px) {
-    .edit-username #change-username{
+    .edit-username #username{
         width: 95%;
     }
 }

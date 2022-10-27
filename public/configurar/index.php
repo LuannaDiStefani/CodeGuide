@@ -70,8 +70,10 @@
                             <div class="edit-username">
                                 <p>Nome de usuário:</p>
                                 <div class="edit-username-form">
-                                    <input type="text" name="change-username" id="change-username">
-                                    <input type="submit" id="verify-username" class="btn-1" value="Verificar">
+                                    <form action="" name="verificar" id="mudar-username">
+                                        <input type="text" name="username" id="username" required>
+                                        <input type="submit" id="verificar-username" class="btn-1" value="Verificar">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -87,11 +89,7 @@
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui esse nostrum accusantium aliquid totam tempora ut quod earum recusandae fugit quasi et voluptatum neque, dolorum natus a quis itaque? Veniam?
 
                     </div>
-
-                    <div class="edit-field-submit">
-                        <button class="btn-1">Salvar</button>
-                        <button class="btn-1">Cancelar</button>
-
+                    <div id="save-form-container" class="edit-field-submit">
                     </div>
                 </div>
             </div> <!-- container -->

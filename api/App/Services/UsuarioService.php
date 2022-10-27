@@ -16,14 +16,24 @@
         }
 
         public function post(){
-            if(isset($_POST['cadastrar'])){
-                $dados = $_POST["cadastrar"];
-                return Usuario::insert($dados); 
-            }else if(isset($_POST['logar'])){
-                $dados = $_POST["logar"];
-                return Usuario::logar($dados);
-            }else{
-                throw new \Exception("Requisição Inválida.");
+
+            if(isset($_POST)){
+              $method = $_POST['form_name'];
+              
+                switch($method){
+                    case "cadastro":
+                        return Usuario::insert();
+                        break;
+                    case "logar":
+                        return Usuario::logar();
+                        break;
+                    case "verificar":
+                        return Usuario::verificar();
+                        break;
+                    default:
+                        throw new \Exception("Requisição Inválida.");
+                        break;
+                }
             }
         }
 

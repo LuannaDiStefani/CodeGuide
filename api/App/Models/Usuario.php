@@ -43,7 +43,7 @@ namespace App\Models;
 
         }
 
-        public static function insert($data){
+        public static function insert(){
 
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                        
@@ -85,17 +85,30 @@ namespace App\Models;
             $result = $query->get_result();
             $verificacao = mysqli_num_rows($result);
             if($verificacao > 0){
-                
                 throw new \Exception("Este login já existe");
-                
             }else{
                 return true;
             }
 
         }
 
+        public static function verificar(){
+            $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+            $username = $_POST['username'];
+            $sql = "SELECT * FROM ".self::$table." WHERE nomeuser = (?)";
+            $query = $conexao->prepare($sql);
+            $query->bind_param('s', $username);
+            $query->execute();
+            $result = $query->get_result();
+            $verificacao = mysqli_num_rows($result);
+            if($verificacao > 0){
+                throw new \Exception("Este username já existe");
+            }else{
+                return $username;
+            }
+        }
 
-        public static function logar($data){
+        public static function logar(){
 
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
             $email = $_POST['email'];
@@ -111,8 +124,8 @@ namespace App\Models;
             
             if($num == 1){
                 $adm = $dados[0]['adm'];
-            if($adm == 1){
                 return 'Login feito com sucesso.';
+            if($adm == 1){
                 /* $_SESSION['comum'] = $email;
                 header("Location:../public/perfil/index.php"); */
             }else{

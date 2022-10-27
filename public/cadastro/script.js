@@ -6,14 +6,10 @@ const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";
 $(form).submit(function (e) {
   e.preventDefault();
 
-  let dados = "cadastrar=cadastrar&";
-  dados += $(form).serialize();
-  console.log(dados);
-
   $.ajax({
     method: "POST",
     url: actionUrl,
-    data: dados,
+    data: $(form).serialize() + "&form_name=" + $(form).attr("name"),
   })
     .done((response) => {
       exibirAlerta(`${response.status}: ${response.data}`, 1);
