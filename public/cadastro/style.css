@@ -15,7 +15,7 @@ body {
 	min-height: 100%;
 	object-fit: cover;
 	height: auto;
-	background: url(./source/preview.png) no-repeat;
+	background: url(../../source/preview-space.png) no-repeat;
 	background-size: cover;
 }
 

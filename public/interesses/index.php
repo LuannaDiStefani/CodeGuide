@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="./style.css">
     <!-- JQuery -->
     <script src="../js/jquery-3.6.1.min.js"></script>
+    <!-- Main-JS -->
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="./script.js" defer></script>
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="../css/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="../css/fontawesome/all.min.css">
 
 </head>
 
@@ -22,7 +28,7 @@
 <?php include '../components/header.php'; ?>
 
 <div class="background">
-    <video autoplay loop muted poster="../../source/fundo_cadastro.mp4" class="bg_video">
+    <video autoplay loop muted poster="../../source/preview-space.png" class="bg_video">
       <source src="../../source/fundo_cadastro.mp4" type="video/mp4">
     </video>
     
@@ -38,7 +44,7 @@
   
               <div class="interesses">
   
-                <div class="itens"> </div>
+                <div class="itens"></div>
                 <div class="itens"> </div>
                 <div class="itens"> </div>
                 <div class="itens"> </div>
@@ -82,15 +88,13 @@
         </section>
       </main>
 
+  <section class="search-result-container">
+      <?php include '../components/slider.php'; ?>
+  </section>
+
 </div> <!-- background -->
 
 <?php include '../components/footer.php'; ?>
-
-    <!-- Main-JS -->
-    <script src="../js/main.js"></script>
-
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
 
 </body>
 

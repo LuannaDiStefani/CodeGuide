@@ -15,6 +15,8 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
  $sql = mysqli_query($conexao,"SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'");
 
  $num = mysqli_num_rows($sql);
+ $query = $conexao->query($sql);
+ $userData - $query->fetch_all(MYSQLI_ASSOC);
 
  if( $num == 1){
 

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/index.css">
     <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="./css/fontawesome/all.min.css">
     <!-- JQuery -->
     <script src="./js/jquery-3.6.1.min.js"></script>
     <!-- Index Scripts -->
@@ -24,7 +25,7 @@
     
     <section class="welcome">
         <div class="container">
-            <video autoplay loop muted poster="../source/preview.png" class="bg_video">
+            <video autoplay loop muted poster="../source/preview-earth.png" class="bg_video">
                 <source src="../source/video.mp4" type="video/mp4">
             </video>
             <div class="welcome-title">

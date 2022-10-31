@@ -7,7 +7,6 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmacao = $_POST['conf'];
-$adm = 1;
 
  
 $sql = "SELECT * FROM usuario WHERE email = '$email'";

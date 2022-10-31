@@ -11,7 +11,7 @@
 	min-height: 100%;
 	object-fit: cover;
 	height: auto;
-	background: url(./source/preview.png) no-repeat;
+	background: url(../../source/preview-space.png) no-repeat;
 	background-size: cover;
 }
 
@@ -52,11 +52,37 @@
 }
 
 .itens {
+	cursor: pointer;
+	background-image: url();
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 130px;
 	height: 90px;
-	width: 90px;
-	background-color: rgba(255, 255, 255, 0.304);
+	background-color: rgba(14, 14, 14, 0.8);
 	border-radius: 5px;
+	transition: all .3s ease-in-out;
 }
+
+.itens:hover{
+	opacity: .6;
+}
+
+.selected{
+	position: relative;
+	opacity: 1;
+	background-color: var(--color2);
+	background-blend-mode: overlay;
+}
+
+.selected::after{
+	content: "Selecionado";
+    position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 
 .enviar {
@@ -81,9 +107,5 @@
 @media screen and (max-width: 640px) {
 	.interesses_container{
 		max-width: 80vw;
-	}
-
-	.interesses .itens{
-
 	}
 }

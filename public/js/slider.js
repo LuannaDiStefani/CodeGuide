@@ -13,11 +13,17 @@ export const dados = {
   listagemTotal: [],
 };
 
+let urlAtual = window.location.href.split("/");
 export const carregarDados = {
-  async carregarBusca(props) {
+  async carregarBusca() {
     await search.getData();
     if (
       urlAtual[urlAtual.length - 1] == "index.php" &&
+      urlAtual[urlAtual.length - 2] == "public"
+    ) {
+      slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
+    } else if (
+      urlAtual[urlAtual.length - 1] == "" &&
       urlAtual[urlAtual.length - 2] == "public"
     ) {
       slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
@@ -25,8 +31,6 @@ export const carregarDados = {
     search.allowSearch();
   },
 };
-
-let urlAtual = window.location.href.split("/");
 
 export const buscarApi = {
   async retornoApi(url) {
@@ -81,6 +85,9 @@ export const highlight = {
       const previewCurso = highlightDiv.querySelector(
         `[data-highlight="preview-curso"]`
       );
+      const plataformaCurso = highlightDiv.querySelector(
+        `[data-highlight="plataforma-curso"]`
+      );
       const info = highlightDiv.querySelector(`[data-highlight="info-curso"]`);
       var highlightId = highlightDiv.querySelector("[data-id]");
 
@@ -94,6 +101,7 @@ export const highlight = {
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
       $(descriCurso).text(dados.cursos[id - 1].descri);
       $(info).text(dados.cursos[id - 1].pago);
+      $(plataformaCurso).text(dados.cursos[id - 1].plataforma);
       $(slider).append(highlightDiv).slideDown("slow");
       $(slider).find("section.highlight").slideDown("slow");
       $("html, body").animate(

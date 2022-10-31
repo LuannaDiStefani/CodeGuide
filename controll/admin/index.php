@@ -1,10 +1,10 @@
 <?php
 
-session_start();
+/* session_start();
 
 if(!isset($_SESSION['comum']))
 
-header("Location:../../public/login/index.php");
+header("Location:../../public/login/index.php"); */
 
 ?>
 
@@ -19,7 +19,8 @@ header("Location:../../public/login/index.php");
     <link rel="stylesheet" href="../../public/css/general.css">
     <link rel="stylesheet" href="./css/style.css">
     <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0d7e1ce445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../public/css/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="../../public/css/fontawesome/all.min.css">
     <!-- JQuery -->
     <script src="../../public/js/jquery-3.6.1.min.js"></script>
     <!-- Main-JS -->
