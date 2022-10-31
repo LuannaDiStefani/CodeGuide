@@ -13,25 +13,6 @@ export const dados = {
   listagemTotal: [],
 };
 
-let urlAtual = window.location.href.split("/");
-export const carregarDados = {
-  async carregarBusca() {
-    await search.getData();
-    if (
-      urlAtual[urlAtual.length - 1] == "index.php" &&
-      urlAtual[urlAtual.length - 2] == "public"
-    ) {
-      slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
-    } else if (
-      urlAtual[urlAtual.length - 1] == "" &&
-      urlAtual[urlAtual.length - 2] == "public"
-    ) {
-      slide.allowSlide(dados.linguagens.slice(0, 9), dados.cursos);
-    }
-    search.allowSearch();
-  },
-};
-
 export const buscarApi = {
   async retornoApi(url) {
     const response = await fetch(url);
@@ -214,7 +195,7 @@ export const search = {
     await buscarApi.buscarCurso();
     buscarApi.clonarArray(dados.linguagens, dados.cursos);
   },
-  allowSearch() {
+  async allowSearch() {
     const searchBar = document.getElementById("search-box");
     var typingTimer;
     var doneTypingInterval = 650;
@@ -226,20 +207,30 @@ export const search = {
       }
     });
 
-    function doneTyping() {
+    async function doneTyping() {
+      if (!dados.linguagens.length) {
+        await search.getData().then(doSearch);
+      } else {
+        doSearch();
+      }
+    }
+
+    async function doSearch() {
       let searchString = $(searchBar).val().toLowerCase();
       let resultado = dados.listagemTotal.filter((curso) => {
         return curso.nome.toLowerCase().includes(searchString);
       });
 
-      $("html, body").animate(
-        {
-          scrollTop: $(sliderContainer).offset().top - 70,
-        },
-        500
-      );
-      $("main").empty();
-      slide.allowSlide(resultado);
+      if (resultado) {
+        $("html, body").animate(
+          {
+            scrollTop: $(sliderContainer).offset().top - 70,
+          },
+          500
+        );
+        $("main").empty();
+        slide.allowSlide(resultado);
+      }
     }
   },
 };

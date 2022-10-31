@@ -2,9 +2,22 @@
 
 session_start();
 
-if(!isset($_SESSION['comum']))
+/* if(!isset($_SESSION['comum']))
 
-header("Location:../login/index.php");
+header("Location:../login/index.php"); */
+
+if(isset($_GET['username'])){
+    $url = explode('/', $_GET['username']);
+    $username = $url[0];    
+    $response = file_get_contents('http://localhost/code/api/public/api/usuario/'.$username.'');
+    var_dump($response);
+}else{
+
+    if(!isset($_SESSION['comum'])){
+        header("Location:../login/index.php");
+        }
+
+}
 
 ?>
 
@@ -22,6 +35,7 @@ header("Location:../login/index.php");
     <script src="../js/jquery-3.6.1.min.js"></script>
     <!-- Main-JS -->
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="./script.js"></script>
     <!-- Font-awesome -->
     <link rel="stylesheet" href="../css/fontawesome/fontawesome.min.css">
     <link rel="stylesheet" href="../css/fontawesome/all.min.css">
