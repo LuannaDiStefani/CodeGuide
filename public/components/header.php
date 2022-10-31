@@ -70,7 +70,7 @@
             
         </div>
 
-    </header>
+</header>
 
     <div class="container-mobile">
         <nav class="menu-mobile">

@@ -18,6 +18,7 @@
     <script src="./js/type.js"></script>
     <!-- Slider-JS -->
     <script type="module" src="./js/main.js" defer></script>
+    <script type="module" src="./script.js"></script>
 </head>
 <body>
     
@@ -30,7 +31,7 @@
             </video>
             <div class="welcome-title">
                 
-                <h1><pre id="demo_3">
+                <h1 onselectstart="return false"><pre id="demo_3">
                 </pre></h1>
             </div>
             <div class="welcome-subtitle">

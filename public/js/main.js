@@ -1,6 +1,6 @@
-import { carregarDados } from "./slider.js";
+import { search } from "./slider.js";
 
-carregarDados.carregarBusca();
+search.allowSearch();
 
 const myMedia = window.matchMedia("(max-width: 595px)");
 const searchBox = document.querySelector(".search-bar input");
