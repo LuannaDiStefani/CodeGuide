@@ -12,8 +12,10 @@ const interesses = {
   },
   async fetch() {
     await buscarApi.buscarLinguagem();
-    this.linguagens = dados.linguagens;
-    this.create();
+    if (this.linguagens) {
+      this.linguagens = dados.linguagens;
+      this.create();
+    }
   },
   create() {
     this.linguagens.forEach((item) => {

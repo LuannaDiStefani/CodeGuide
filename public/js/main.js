@@ -7,15 +7,15 @@ const searchBox = document.querySelector(".search-bar input");
 
 const menus = () => {
   const categoryMenu = document.querySelector(".mobile-category");
-  const btnDropdown = document.getElementById("menu-dropdown");
   const categoryButton = document.querySelector(".category-button");
   const userOptions = document.querySelector(".user-options");
-  function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("active");
-  }
+  const dropDownButton = document.getElementById("menu-dropdown");
+  const menu = document.getElementById("wrapper-menu");
 
-  btnDropdown.addEventListener("click", toggleMenu);
+  $(dropDownButton).click(function () {
+    $(menu).slideToggle(400);
+  });
+
   $("#profile i").click(function () {
     $(userOptions).slideToggle("slow");
   });
@@ -36,30 +36,28 @@ menus();
 
 function responsive(media) {
   const effects = {
-    showInput() {
-      let searchButton = document.querySelectorAll(".mobile-search-button");
-      $(".search-bar i").addClass("mobile-search-button");
-      searchButton = document.querySelectorAll(".mobile-search-button");
-      $(searchBox).removeClass("search-active").css("width", "100%");
-      $(searchBox).addClass("search-inactive").css("width", "20%");
-      $(searchButton).click(function () {
-        event.preventDefault();
-        if ($(searchBox).css("visibility") == "hidden") {
-          $(searchBox).removeClass("search-inactive");
-          $(searchBox).addClass("search-active").css("width", "100%").focus();
-          setTimeout(function () {
-            $(searchBox).trigger("focus");
-          }, 100);
-        } else {
-          $(searchBox).removeClass("search-active");
-          $(searchBox).addClass("search-inactive").css("width", "20%");
-        }
-      });
-    },
-    hideInput() {
-      $(".search-bar i").removeClass("mobile-search-button");
-      $(searchBox).removeClass("search-inactive");
-      $(searchBox).addClass("search-active").css("width", "100%");
+    toggleInput(searchBox) {
+      $(searchBox).css("visibility", "hidden").addClass("inactive");
+
+      $(".toggleSearch")
+        .unbind()
+        .click(function (e) {
+          e.preventDefault();
+
+          if ($(searchBox).hasClass("inactive")) {
+            $(searchBox)
+              .css("visibility", "visible")
+              .css("width", "100%")
+              .css("opacity", "1")
+              .removeClass("inactive");
+          } else {
+            $(searchBox)
+              .css("visibility", "hidden")
+              .css("width", "50%")
+              .css("opacity", "0")
+              .addClass("inactive");
+          }
+        });
     },
     menuConfigurar() {
       const itemMenu = $(".admin-menu ul li");
@@ -72,10 +70,12 @@ function responsive(media) {
     },
   };
   if (media.matches) {
-    effects.showInput();
+    const searchBox = document.querySelector(".search-box");
+    effects.toggleInput(searchBox);
     effects.menuConfigurar();
   } else {
-    effects.hideInput();
+    $(".toggleSearch").off("click");
+    $("#search-box").attr("style", "").removeClass("inactive");
     $(".admin-menu ul li").hover(function () {
       $(this).find("h4").last().remove();
     });

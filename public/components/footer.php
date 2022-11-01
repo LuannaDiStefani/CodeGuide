@@ -9,5 +9,8 @@
                 <i class="fa-brands fa-github"></i>
                 <i class="fa-brands fa-discord"></i>
             </div>
+            <div class="footer-text">
+                <p>Todos os direitos reservados. <strong>Code Guide</strong> — 2022</p>
+            </div>
         </div>
     </footer>
