@@ -157,6 +157,7 @@ background-position: center;
 background-repeat: no-repeat;
 width: 100%;
 max-height: 400px;
+border: 1px solid var(--color1);
 }
 
 section.highlight .course-preview .course-preview-button{
@@ -250,10 +251,10 @@ justify-content: center;
 }
 
 section.highlight .course-title{
-    border-bottom: 2px solid var(--color1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 2px solid var(--color1);
 }
 
 section.highlight .course-title h2{
@@ -265,18 +266,21 @@ font-size: 1.4rem;
 
 section.highlight .description-head{
 background: rgb(0, 0, 0);
-border: 2px solid var(--color1);
+border: 1px solid var(--white);
 width: 100%;
 font-size: 18px;
 padding: 10px;
 color: var(--white);
+border: 1px solid var(--color1);
+filter: drop-shadow(0px 0px 0.45rem var(--color1));
 border-radius: 5px;
 }
 
 section.highlight .course-description{
 order: 0;
 background: rgb(0, 0, 0);
-border: 2px solid var(--color1);
+border: 1px solid var(--color1);
+filter: drop-shadow(0px 0px 0.45rem var(--color1));
 width: 100%;
 max-height: 200px;
 overflow-y: auto;
