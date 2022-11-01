@@ -91,23 +91,22 @@ header .hd-right{
 }
 
 header #cg-logo{
-    width: 100px;
-    height: 60px;
+    width: 200px;
+    height: 70px;
 }
 
 header .logo-img{
     cursor: pointer;
     background: url('../../source/codeguide.png') no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in-out;
 }
 
 header .logo-img:hover{
-    opacity: 0.8;
-    
+    opacity: .6;
 }
 
 /* Header Menu */
@@ -146,161 +145,127 @@ a.menu-mobile-button:hover{
 }
 
 #menu-dropdown{
-    display: block;
+    min-width: 130px;
     border-radius: 7px;
-    border: 2px solid var(--color2);
-    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--color1);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 8px;
+    width: 70%;
+    color: var(--color6);
     font-size: 1.1rem;
     position: relative;
-    flex-direction: column;
     cursor: pointer;
-    transition: 0.5s ease;
-    color: var(--white);
+    transition: all 0.2s ease-in-out;
     font-family: 'Courier New', Courier, monospace;
     }
 
 #menu-dropdown:hover{
-    color: var(--color1);
-    border: 2px solid var(--color1);
+    color: white;   
+    filter: drop-shadow(0 0 0.75rem var(--color6));
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color6);
 }
 
-    
-#menu{
-    display: flex; 
-    justify-content: center;
-    background: rgb(0,0,0);
-    background: linear-gradient(135deg, rgba(0,0,0,1) 50%, rgba(0,5,36,1) 100%);
+#wrapper-menu{
     position: absolute;
-    top: 70px;
+    top: 50px;
     left: 0;
-    width: 100%;
-    border-radius: 10px;
-    height: 0;
-    transition: all 0.6s ease-in-out;
-    visibility: hidden;
+    display: none;
+    max-width: 100%;
     overflow: hidden;
 }
 
-.menu-ul{
-    padding: 10px 2%;
-    display: flex;
-    width: 980px;
-    justify-content: center;
-}
+#menu {
+  display: flex;
+  justify-content: space-around;
+  background: rgb(0,0,0);
+  background: linear-gradient(135deg, rgba(0,0,0,1) 50%, rgba(0,5,36,1) 100%);
+  left: 0;
+  height: 200px;
+  width: 100vw;
+  margin-top: 15px;
+  padding: 20px 2%;
+  list-style: none;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}    
 
-#menu ul li a{
-    font-size: 1.1rem;
-    font-family: 'Courier New', Courier, monospace;
-    display: inline-block;
-    padding: 10px;
-    padding-left: 20px;
-    width: 100%;
-    font-weight: 400;
-    color: white;
-    position: relative;
-    transition: all 0.6s ease;
-}
-
-#menu ul li a:hover{
-    color: var(--color6);
-    text-shadow: -3px 0px 11px var(--color7);
+#menu ul h4{
+    color: var(--color1);
+    font-size: 1.2rem;
 }
 
 #menu ul li{
-    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu ul li a{
+    color: white;
+    transition: all 0.2s ease-in;
+}
+
+#menu ul li a:hover{
+    transform: scale(1.1);
+    color: var(--color6);
 }
 
 #menu ul li a::before{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--color6);
-    transition: all 0.8s ease;
-}
-
-#menu ul li::before{
     content: '<';
-    position: absolute;
+    padding: 0 3px;
     color: var(--color6);
-    top: 30%;
-    left: 5px;
-    font-size: 14px;
 }
 
 #menu ul li a::after{
     content: '/>';
+    padding: 0 3px;
     color: var(--color6);
-    font-size: 14px;
-    padding-left: 7px;
-}
-
-#menu ul li a:hover::before{
-    width: 100%;
-}
-
-#menu ul{
-    display: block;
-    width: 100%;
-}
-
-#menu ul li a::before{
-    transition: all 1s ease;
-}
-
-#menu.active{
-    visibility: visible;
-    height: 300px;
-    
-}
-
-#menu ul h4{
-    padding: 10px;
 }
 
 /* Header Barra de pesquisa */
+.search-active{
+    opacity: 1;
+    width: 100%;
+}
+.search-inactive{
+    opacity: 0;
+    width: 50%;
+}
+
 header .search-bar{
     width: 40%;
     position: relative;
 }
 
-.search-inactive{
-    opacity: 0;
-    visibility: hidden;
-}
-
-.search-active{
-    width: 100%;
-    opacity: 1;
-    visibility: visible;
-}
-
 header .search-box{
-    background: var(--black);
-    font-weight: bold;
-    color: var(--white);
-    padding: 10px 20px;
-    outline: none;
-    border: 2px solid var(--white);
+    width: 100%;
     height: 40px;
+    outline: none;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    transition: all 0.6s ease-in-out;
+    font-size: 1.2rem;
+    padding: 5px 20px;
+    border: 2px solid var(--color6);
+    background: black;
+    transition: all 0.2s ease-in-out;
 }
 
 header .search-box:focus{
+    filter: drop-shadow(0 0 0.25rem var(--color6));
     border: 2px solid var(--color6);
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 header .search-box:focus + label{
     color: var(--color6);
 }
 
+header .search-box::placeholder{
+    transition: color 0.3s ease-in-out;
+}
+
 header .search-box:focus::placeholder{
-    color: var(--color6);
+    color: white;
 }
 
 header .search-bar label{
@@ -308,7 +273,7 @@ header .search-bar label{
     color: var(--white);
     position: absolute;
     right: 0%;
-    top: 25%;
+    top: 20%;
     z-index: 10;
     transform: translate(-50%, 0);
     transition: 0.3s ease;
@@ -325,12 +290,14 @@ header #profile{
 
 header #profile i{
     font-size: 28px;
+    color: var(--color2);
     padding: 10px;
     transition: all .5s ease;
 }
 
 header #profile i:hover{
-    color: var(--color1);
+    filter: drop-shadow(0px -5px 0.75rem var(--color1));
+    color: white;
 }
 
 header #profile .user-options{
@@ -397,11 +364,12 @@ header #profile .user-options li:hover a{
     }
 
     header .search-bar{
-        width: 70%;
+        width: 60%;
     }
 
     header .search-box{
         width: 100%;
+        opacity: 1;
     }
 
     header .search-bar i{
@@ -441,6 +409,12 @@ header #profile .user-options li:hover a{
         width: 100%;
     }
 
+    header #search-box{
+        width: 50%;
+        opacity: 0;
+    }
+
+
     header .search-bar i{
         font-size: 20px;
     }
@@ -477,11 +451,12 @@ footer .container{
 footer .footer-text{
     padding: 10px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 footer .footer-text p{
     padding: 5px 0;
+    text-align: center;
 }
 
 footer .footer-social-media{
@@ -499,7 +474,8 @@ footer .footer-social-media i{
 
 footer .footer-social-media i:hover{
     cursor: pointer;
-    color: var(--color1);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 1rem var(--color1));
 }
 
 /* Scroll bar */

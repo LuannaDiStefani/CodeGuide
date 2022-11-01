@@ -12,57 +12,54 @@
                 <button id="menu-dropdown">
                     Categorias
                 </button>
-                <nav id="menu">
-                    <div class="menu-ul">
-                        <ul>
-                            <h4>Categoria 01</h4>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Sobre</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li><a href="">Serviços</a></li>
-                            <li><a href="">Contato</a></li>
-                        </ul>
-                        <ul>
-                            <h4>Categoria 01</h4>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Sobre</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li><a href="">Serviços</a></li>
-                            <li><a href="">Contato</a></li>
-                        </ul>
-                        <ul>
-                            <h4>Categoria 01</h4>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Sobre</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li><a href="">Serviços</a></li>
-                            <li><a href="">Contato</a></li>
-                        </ul>
-                        <ul>
-                            <h4>Categoria 01</h4>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Sobre</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li><a href="">Serviços</a></li>
-                            <li><a href="">Contato</a></li>
-                        </ul>
+                <div id="wrapper-menu">
+                    <nav id="menu">
+                            <ul>
+                                <h4>FrontEnd</h4>
+                                <li><a href="">HTML</a></li>
+                                <li><a href="">CSS</a></li>
+                                <li><a href="">SASS</a></li>
+                                <li><a href="">Bootstrap</a></li>
+                                <li><a href="">JavaScript</a></li>
+                            </ul>
+                            <ul>
+                                <h4>BackEnd</h4>
+                                <li><a href="">PHP</a></li>
+                                <li><a href="">Java</a></li>
+                                <li><a href="">C#</a></li>
+                                <li><a href="">Assembly</a></li>
+                                <li><a href="">C++</a></li>
+                            </ul>
+                            <ul>
+                                <h4>FullStack</h4>
+                                <li><a href="">JavaScript</a></li>
+                                <li><a href="">Python</a></li>
+                                <li><a href="">Node.JS</a></li>
+                                <li><a href="">Git</a></li>
+                            </ul>
+                            <ul>
+                                <h4>FrameWorks</h4>
+                                <li><a href="">React</a></li>
+                                <li><a href="">Angular</a></li>
+                                <li><a href="">Vue</a></li>
+                            </ul>
+                    </nav> <!-- fim do menu -->
+                </div>
 
-                    </div>
-                </nav> <!-- fim do menu -->
             </div>
 
 
             <div class="hd-right">
                 <div class="search-bar">
-                        <input type="text" class="search-box search-active" id="search-box" placeholder="Vamos dominar o mundo!">
-                        <label for="search-box"><i class="fa fa-search"></i></label>
+                        <input type="text" class="search-box" id="search-box" placeholder="Vamos dominar o mundo!">
+                        <label for="search-box" class="searchLabel toggleSearch"><i class="fa fa-search"></i></label>
                 </div>
                 <div id="profile">
                     <i class="fa-regular fa-user"></i>
                     <div class="user-options">
                         <ul>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Cadastro</a></li>
+                            <li><a href="http://localhost/codeguide/public/login/">Login</a></li>
+                            <li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
                 </div>
@@ -81,7 +78,7 @@
                 </a>
             </div>
             <div class="search-mobile">
-                <a href="" id="mobile-search" class="menu-mobile-button mobile-search-button">
+                <a href="" id="mobile-search" class="toggleSearch menu-mobile-button mobile-search-button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     Search
                 </a>
