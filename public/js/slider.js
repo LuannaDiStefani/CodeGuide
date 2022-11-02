@@ -4,8 +4,8 @@ $(".slider").append('<div class="loading">Carregando...</div>');
 const sliderContainer = document.getElementById("slider-container");
 let highlightTemp = document.getElementById("highlight").content;
 let sliderRow = document.getElementById("slider-row").content;
-const urlCursos = "http://localhost/codeguide/api/public/api/curso";
-const urlLinguagens = "http://localhost/codeguide/api/public/api/linguagem";
+const urlCursos = "https://codeguidetec.000webhostapp.com/api/curso";
+const urlLinguagens = "https://codeguidetec.000webhostapp.com/api/linguagem";
 
 export const dados = {
   cursos: [],
