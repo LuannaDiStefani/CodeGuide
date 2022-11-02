@@ -124,14 +124,7 @@ namespace App\Models;
             
             if($num == 1){
                 $adm = $dados[0]['adm'];
-                return 'Login feito com sucesso.';
-            if($adm == 1){
-                /* $_SESSION['comum'] = $email;
-                header("Location:../public/perfil/index.php"); */
-            }else{
-               /*  $_SESSION['adimin'] = $email;  
-                header("Location:phpadmin/index.php"); */
-            }
+                return $dados;
             }else{
                 throw new \Exception("A senha ou e-mail estão incorretos");
             }

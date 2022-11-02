@@ -1,13 +1,3 @@
-<?php
-
-/* session_start();
-
-if(!isset($_SESSION['comum']))
-
-header("Location:../../public/login/index.php"); */
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 

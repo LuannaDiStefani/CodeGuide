@@ -2,6 +2,7 @@ import { exibirAlerta } from "../js/main.js";
 
 const form = $("form[name='logar']");
 const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";
+var dado;
 
 $(form).submit(function (e) {
   e.preventDefault();
@@ -12,6 +13,7 @@ $(form).submit(function (e) {
     data: $(form).serialize() + "&form_name=" + $(form).attr("name"),
   })
     .done((response) => {
+      dado = response;
       exibirAlerta(`${response.status}: ${response.data}`, 1);
     })
     .fail((response) => {
@@ -21,3 +23,10 @@ $(form).submit(function (e) {
 });
 
 function headerLocation() {}
+
+
+function verificar(){
+alert(dado);
+
+
+}
