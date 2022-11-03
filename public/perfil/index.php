@@ -5,7 +5,7 @@ session_start();
 /* if(!isset($_SESSION['comum']))
 
 header("Location:../login/index.php"); */
-
+/* 
 if(isset($_GET['username'])){
     $url = explode('/', $_GET['username']);
     $username = $url[0];    
@@ -17,7 +17,7 @@ if(isset($_GET['username'])){
         header("Location:../login/index.php");
         }
 
-}
+} */
 
 ?>
 
@@ -51,76 +51,57 @@ if(isset($_GET['username'])){
                     <div class="profile-box">
                     <div class="profile-info-top">
                         <div class="profile-info-picture">
-                            <img src="../../source/alberto.png" alt="" srcset="">
                         </div>
                         <div class="profile-info-name">
-                            <p class="info-name">Lorem, ipsum dolor sit</p>
-                            <p class="info-subtitle">@usernameRyu</p>
+                            <p class="info-name">Code Guide Tec</p>
+                            <p class="info-subtitle">@CodeGuideUser!</p>
                         </div>
                     </div>
                     
                         <div class="profile-info-middle">
                             <p class="info-description">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, amet sapiente. Nihil architecto fuga suscipit, quam voluptate vitae officiis numquam. Ipsa quod accusamus labore sed odio odit aperiam ut libero.
+                                Sem bio no momento.
                             </p>
                         </div>
                                           
                         <div class="info-stacks"> 
-                            <h3 class="info-title">Minha Stack:</h3>
+                            <h3 class="info-title">Meus interesses:</h3>
                             <div class="info-stacks-icon">
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-brands fa-html5"></i>
-                                <i class="fa-regular fa-square-plus open-model"></i>
                             </div>
                             <div class="model-container">
                                 <div class="model">
                                     <div>
-                                        <h2>Adicione uma nova habilidade!</h2>
+                                        <h2>Adicione um novo interesse!</h2>
                                         <div class="search-stack-container">
                                             <input list="stacks" id="search-stack">
                                                 <datalist id="stacks">
-                                                <option value="Internet Explorer">
-                                                <option value="Firefox">
-                                                <option value="Chrome">
-                                                <option value="Opera">
-                                                <option value="Safari">
                                                 </datalist> 
                                         </div>
                                     </div>
                                     <div>
                                         <div class="search-stack-icon">
-                                            <i class="fa-brands fa-html5"></i>
                                         </div>
                                     </div>
                                     <div>
                                         <button>Ok</button>
-                                        <button>Cancel</button>
+                                        <button class="close-model">Cancel</button>
                                     </div>
-                                    <i class="fa-solid fa-xmark close-button"></i>
+                                    <i class="fa-solid fa-xmark close-button close-model"></i>
                                 </div>
                             </div>
-                        </div>
-                        <div class="profile-info-bottom">
-                            <h3 class="info-title">Certificados:</h3>
-                            <div class="info-credentials">
-        
-                            </div>
-                        </div>  
+                        </div> 
                         </div>                          
                 </div>
                 <div class="profile-posts">
                     <h3 class="info-title">Meus comentários:</h3>
                     <div class="profile-comments">
                         <template id="comment-block">
-                            <div class="comment-block">
+                            <div class="comment-block" id="comment">
                                 <div class="autor-title">Anônimo</div>
                                     <blockquote>
                                     </blockquote>
-                            </div>
-                        </template> 
+                                </div>
+                            </template> 
                     </div>
                     <div class="comment-pagination">
                         <div class="first">&#171;</div>

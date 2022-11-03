@@ -175,7 +175,7 @@ main {
 }
 
 
-input {
+main input {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	background-color: var(--black);
@@ -188,7 +188,7 @@ input {
 	text-align: center;
 }
 
-input:focus {
+main input:focus {
 	border: 1px solid var(--color6);
 }
 

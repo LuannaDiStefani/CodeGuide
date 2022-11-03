@@ -244,6 +244,7 @@ header .search-box{
     outline: none;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
+    color: white;
     padding: 5px 20px;
     border: 2px solid var(--color1);
     backdrop-filter: drop-shadow(0 0 0.75rem var(--color1));

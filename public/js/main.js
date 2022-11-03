@@ -85,6 +85,10 @@ function responsive(media) {
 myMedia.addEventListener("change", responsive);
 responsive(myMedia);
 
+$(".read-more").click(function () {
+  console.log("clicou");
+});
+
 export const exibirAlerta = (n, cor) => {
   let color1 = "rgba(115, 234, 129, 0.8)";
   let color2 = "rgba(255, 91, 91, 0.8)";

@@ -46,8 +46,8 @@ namespace App\Models;
         public static function insert($data){
 
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-            $sql = 'INSERT INTO '.self::$table.' (nome,imagem) 
-            VALUES(?,?)';
+            $sql = 'INSERT INTO '.self::$table.' (nome,imagem, icon) 
+            VALUES(?,?,?)';
 
             $params = array();
             parse_str($data["dados"], $params);
@@ -64,7 +64,7 @@ namespace App\Models;
                     // Insert file data into the database if needed 
                     //........ 
                     $stmt = $conexao->prepare($sql);
-                    $stmt->bind_param('ss', $params['nomelinguagem'], $fileName);
+                    $stmt->bind_param('sss', $params['nomelinguagem'], $fileName, $params['icon']);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $number_of_rows_affected = mysqli_affected_rows($conexao);

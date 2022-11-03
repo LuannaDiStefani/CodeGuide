@@ -1,4 +1,8 @@
-import { tabs, uploadButtons } from "../../../public/js/modules.js";
+import {
+  tabs,
+  uploadButtons,
+  insertDataList,
+} from "../../../public/js/modules.js";
 import { exibirAlerta } from "../../../public/js/main.js";
 
 let formCursos = new FormData();
@@ -9,18 +13,10 @@ const adminPage = {
   allowedFileSize: 1024,
   urlLinguagens: "http://localhost/codeguide/api/public/api/linguagem",
   urlCursos: "http://localhost/codeguide/api/public/api/curso",
-  insertDataList(id, dados) {
-    let options = "";
-    let datalist = document.getElementById(id);
-    for (let i = 0; i < dados.length; i++) {
-      options += `<option value="${dados[i]["idlinguagem"]} - ${dados[i]["nome"]}" />`;
-    }
-    datalist.insertAdjacentHTML("beforeend", options);
-  },
   fetchApi() {
     fetch(adminPage.urlLinguagens)
       .then((response) => response.json())
-      .then((data) => adminPage.insertDataList("linguagens", data.data));
+      .then((data) => insertDataList("linguagens", data.data));
   },
   cadastrarLinguagem(id) {
     const data = $(id).serialize();

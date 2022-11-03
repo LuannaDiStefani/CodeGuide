@@ -30,12 +30,16 @@ section.profile{
     gap: 20px;
   }
 
-  section.profile .profile-info-picture img{  
-    width: 150px;
+  section.profile .profile-info-picture{  
+    min-width: 150px;
+    max-width: 150px;
     height: 150px;
+    border: 1px solid var(--color1);
     border-radius: 100%;
+    background: url('../../source/codeguide.png');
+    background-color: black;
     background-position: center;
-    background-size: cover !important;
+    background-size: contain !important;
     background-repeat: no-repeat !important;
   }
 
@@ -53,6 +57,10 @@ section.profile{
     color: var(--color1);
   }
 
+  .info-description{
+    padding-top: 15px;
+  }
+
 
   section.profile .info-stacks-icon{
     display: flex;
@@ -67,6 +75,10 @@ section.profile{
 
   .info-title{
     color: var(--color6);
+  }
+
+  section.profile .info-stacks .info-stacks-icon{
+    display: flex;
   }
 
   section.profile .info-stacks .info-stacks-icon i{
@@ -162,8 +174,12 @@ section.profile{
     color: var(--color6);
   }
 
-  section.profile .info-stacks .model .search-stack-icon i{
-    font-size: 70px;
+  section.profile .info-stacks .model .search-stack-icon{
+    max-width: 130px;
+  }
+
+  section.profile .info-stacks .model .search-stack-icon img{
+    width: 100%;
   }
 
   section.profile .profile-box{
@@ -179,10 +195,10 @@ section.profile{
   section.profile .profile-comments{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 10px 20px;
   }
 
   section.profile .comment-block{
@@ -247,5 +263,9 @@ section.profile{
     section.profile .profile-info-top{
         display: block;
         padding-bottom: 20px;
-    }   
+    }
+
+    .info-description{
+      padding-top: 0px;
+    }
 }

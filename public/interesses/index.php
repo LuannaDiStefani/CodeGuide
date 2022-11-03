@@ -45,35 +45,6 @@
               <div class="interesses">
   
                 <div class="itens"></div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
-                <div class="itens"> </div>
   
   
               </div>

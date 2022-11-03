@@ -121,6 +121,8 @@ header("Location:../../public/login/index.php"); */
                                     <div>
                                         <label for="nomelinguagem">Nome da linguagem</label>
                                         <input type="text" class="input-course" name="nomelinguagem" autocomplete="off">
+                                        <label for="nomelinguagem">Icon</label>
+                                        <input type="text" class="input-course" name="icon" autocomplete="off">
                                     </div>
                                     <div class="upload-linguagem">
                                         <div class="img-preview">

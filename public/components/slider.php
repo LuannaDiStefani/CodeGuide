@@ -28,13 +28,13 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa. 
                             Quisquam fuga saepe aliquid? Eligendi quibusdam eius velit possimus tempora blanditiis obcaecati placeat ipsum vel tempore illo maiores sunt. 
                         </p>
+                    </div>
+                    <button class="read-more">Leia mais</button>
                     <div class="course-data">
                         <p>Pago: <span data-highlight="info-curso"></span></p>
                         <p>Plataforma: <span data-highlight="plataforma-curso"></span></p>
                     </div>
-                
-                    </div>
-                
+                    
 
                     <div class="course-rate">
                         <div class="comment-icon open-model">

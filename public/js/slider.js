@@ -4,8 +4,8 @@ $(".slider").append('<div class="loading">Carregando...</div>');
 const sliderContainer = document.getElementById("slider-container");
 let highlightTemp = document.getElementById("highlight").content;
 let sliderRow = document.getElementById("slider-row").content;
-const urlCursos = "https://codeguidetec.000webhostapp.com/api/curso";
-const urlLinguagens = "https://codeguidetec.000webhostapp.com/api/linguagem";
+const urlCursos = "http://localhost/codeguide/api/public/api/curso";
+const urlLinguagens = "http://localhost/codeguide/api/public/api/linguagem";
 
 export const dados = {
   cursos: [],
@@ -92,6 +92,17 @@ export const highlight = {
         500
       );
       model();
+      if (
+        !(
+          $(".course-description p").prop("scrollHeight") >
+          $(".course-description").height()
+        )
+      ) {
+        $(".read-more").hide();
+      }
+      $(".read-more").click(() => {
+        $(".course-description").toggleClass("showContent");
+      });
       $(".close-highlight").click(function () {
         highlight.highlightRemove();
         $("html, body").animate(
@@ -198,7 +209,7 @@ export const search = {
   async allowSearch() {
     const searchBar = document.getElementById("search-box");
     var typingTimer;
-    var doneTypingInterval = 650;
+    const doneTypingInterval = 650;
 
     $(searchBar).keyup(function () {
       clearTimeout(typingTimer);
@@ -208,16 +219,16 @@ export const search = {
     });
 
     async function doneTyping() {
-      if (!dados.linguagens.length) {
-        await search.getData().then(doSearch);
-      } else {
-        doSearch();
-      }
+      const searchString = $(searchBar).val().toLowerCase();
+      doSearch(searchString);
     }
 
-    async function doSearch() {
-      let searchString = $(searchBar).val().toLowerCase();
-      let resultado = dados.listagemTotal.filter((curso) => {
+    async function doSearch(searchString) {
+      if (!dados.linguagens.length) {
+        await search.getData();
+      }
+
+      const resultado = dados.listagemTotal.filter((curso) => {
         return curso.nome.toLowerCase().includes(searchString);
       });
 

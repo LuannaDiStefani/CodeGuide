@@ -49,6 +49,15 @@ export const deepClone = (obj) => {
   return cloned;
 };
 
+export const insertDataList = (id, dados) => {
+  let options = "";
+  let datalist = document.getElementById(id);
+  for (let i = 0; i < dados.length; i++) {
+    options += `<option value="${dados[i]["idlinguagem"]} - ${dados[i]["nome"]}" />`;
+  }
+  datalist.insertAdjacentHTML("beforeend", options);
+};
+
 export const uploadButtons = () => {
   const uploadButtons = document.querySelectorAll(".upload-button");
 
@@ -105,138 +114,3 @@ export const pictureHoverEffect = () => {
     }
   );
 };
-
-export const paginationProfile = () => {
-  const commentContainer = document.querySelector("#comment-block").content;
-  const loadingDiv = document.querySelector(".loading");
-
-  function paginationList() {
-    const size = 20;
-    const comentarios = new Array();
-    for (let i = 0; i < size; i++) {
-      comentarios.push(`item ${i + 1}`);
-    }
-
-    return comentarios;
-  }
-
-  const commentList = paginationList();
-  $(loadingDiv).remove();
-
-  let perPage = 2;
-  const state = {
-    page: 1,
-    totalPages: Math.ceil(commentList.length / perPage),
-    maxButtons: 5,
-  };
-
-  function update() {
-    list.update();
-    buttons.update();
-  }
-
-  const controls = {
-    next() {
-      state.page++;
-      if (state.page > state.totalPages) {
-        state.page--;
-      }
-    },
-    prev() {
-      state.page--;
-      if (state.page < 1) {
-        state.page++;
-      }
-    },
-    goTo(page) {
-      state.page = +page;
-
-      if (page < 1) {
-        state.page = 1;
-      }
-      if (page > state.totalPages) {
-        state.page = state.totalPages;
-      }
-    },
-    createListeners() {
-      $(".first").click(function () {
-        controls.goTo(1);
-        update();
-      });
-      $(".last").click(function () {
-        controls.goTo(state.totalPages);
-        update();
-      });
-      $(".next").click(function () {
-        controls.next();
-        update();
-      });
-      $(".prev").click(function () {
-        controls.prev();
-        update();
-      });
-    },
-  };
-
-  const list = {
-    update() {
-      $(".profile-comments .comment-block").remove();
-      let page = state.page - 1;
-      let start = page * perPage;
-      let end = start + perPage;
-      const paginatedItems = commentList.slice(start, end);
-      paginatedItems.forEach(list.create);
-    },
-    create(item) {
-      let content = document.importNode(commentContainer, true);
-      content.querySelector("blockquote").textContent = item;
-      $(".profile-comments").append(content);
-    },
-  };
-
-  const buttons = {
-    create(number) {
-      const active = (e) => {
-        $(e).css("color", "var(--color1)");
-      };
-      const button = document.createElement("div");
-      button.insertAdjacentHTML("afterbegin", number);
-      if (state.page == number) {
-        active(button);
-      }
-      $(".comment-pagination .numbers > div").append(button);
-      button.addEventListener("click", (e) => {
-        let page = e.target.innerText;
-        controls.goTo(page);
-        update();
-      });
-    },
-    update() {
-      const { maxLeft, maxRight } = buttons.calculateMaxVisible();
-      $(".comment-pagination .numbers > div").empty();
-      for (let page = maxLeft; page <= maxRight; page++) {
-        buttons.create(page);
-      }
-    },
-    calculateMaxVisible() {
-      const { maxButtons } = state;
-      let maxLeft = state.page - Math.floor(maxButtons / 2);
-      let maxRight = state.page + Math.floor(maxButtons / 2);
-
-      if (maxLeft < 1) {
-        maxLeft = 1;
-        maxRight = maxButtons;
-      }
-      if (maxRight > state.totalPages) {
-        maxLeft = state.totalPages - (maxButtons - 1);
-        maxRight = state.totalPages;
-      }
-      return { maxLeft, maxRight };
-    },
-  };
-
-  controls.createListeners();
-  update();
-};
-
-
