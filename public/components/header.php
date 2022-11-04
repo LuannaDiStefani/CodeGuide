@@ -72,7 +72,7 @@
     <div class="container-mobile">
         <nav class="menu-mobile">
             <div class="home-mobile">
-                <a href="" class="menu-mobile-button">
+                <a href="http://localhost/codeguide/public/" class="menu-mobile-button">
                     <i class="fa-solid fa-house"></i>
                     Home
                 </a>
@@ -84,10 +84,17 @@
                 </a>
             </div>
             <div class="profile-mobile">
-                <a href="" class="menu-mobile-button">
+                <a href="" class="menu-mobile-button profile-mobile">
                     <i class="fa-solid fa-user-group"></i>
                     Profile
                 </a>
+                <div class="mobile-profile-options">
+                    <ul>
+                        <li><a href="http://localhost/codeguide/public/login/">Login</a></li>
+                        <li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="menu-hamburguer">
                 <a href="" class="menu-mobile-button category-button">

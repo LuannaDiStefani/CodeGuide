@@ -10,6 +10,12 @@ const menus = () => {
   const userOptions = document.querySelector(".user-options");
   const dropDownButton = document.getElementById("menu-dropdown");
   const menu = document.getElementById("wrapper-menu");
+  const mobileProfile = document.querySelector(".profile-mobile");
+
+  $(mobileProfile).click(function (e) {
+    e.preventDefault();
+    $(".mobile-profile-options").slideToggle(300);
+  });
 
   $(dropDownButton).click(function () {
     $(menu).slideToggle(400);
@@ -75,6 +81,10 @@ function responsive(media) {
               .css("width", "100%")
               .css("opacity", "1")
               .removeClass("inactive");
+
+            setTimeout(function () {
+              $(searchBox).focus();
+            }, 170);
           } else {
             $(searchBox)
               .css("visibility", "hidden")

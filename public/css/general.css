@@ -334,6 +334,49 @@ header #profile .user-options li:hover a{
     color: var(--color1);
 }
 
+.mobile-profile-options{
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 2px;
+    border: 1px solid var(--color6);
+    z-index: 998;
+}
+
+.mobile-profile-options ul li{
+    padding: 10px 15px;
+    position: relative;
+    
+}
+
+.mobile-profile-options ul li::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color6);
+    transition: all 0.8s ease;
+}
+
+.mobile-profile-options ul li:hover::before{
+    width: 100%;
+}
+
+.mobile-profile-options ul li a{
+    font-size: 1.4rem;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-profile-options ul li:hover a{
+    color: var(--color6);
+}
+
 /* Header Mobile Menu */
 .mobile-category{
     display: none;
