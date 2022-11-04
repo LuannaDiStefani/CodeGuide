@@ -60,6 +60,9 @@ export const highlight = {
       const nomeCurso = highlightDiv.querySelector(
         `[data-highlight="nome-curso"]`
       );
+      const linkCurso = highlightDiv.querySelector(
+        `[data-highlight="link-curso"]`
+      );
       const descriCurso = highlightDiv.querySelector(
         `[data-highlight="descri-curso"`
       );
@@ -80,9 +83,16 @@ export const highlight = {
       );
 
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
+      $(linkCurso).attr("href", dados.cursos[id - 1].link);
       $(descriCurso).text(dados.cursos[id - 1].descri);
-      $(info).text(dados.cursos[id - 1].pago);
-      $(plataformaCurso).text(dados.cursos[id - 1].plataforma);
+      $(info).text(
+        dados.cursos[id - 1].pago.charAt(0).toUpperCase() +
+          dados.cursos[id - 1].pago.slice(1)
+      );
+      $(plataformaCurso).text(
+        dados.cursos[id - 1].plataforma.charAt(0).toUpperCase() +
+          dados.cursos[id - 1].plataforma.slice(1)
+      );
       $(slider).append(highlightDiv).slideDown("slow");
       $(slider).find("section.highlight").slideDown("slow");
       $("html, body").animate(
@@ -100,9 +110,22 @@ export const highlight = {
       ) {
         $(".read-more").hide();
       }
-      $(".read-more").click(() => {
+      $(".read-more").click((el) => {
         $(".course-description").toggleClass("showContent");
+        let buttonText = el.currentTarget;
+        if (buttonText.innerText == "Leia mais") {
+          buttonText.innerText = "Fechar";
+        } else {
+          $("html, body").animate(
+            {
+              scrollTop: $(highlightId).offset().top - 50,
+            },
+            500
+          );
+          buttonText.innerText = "Leia mais";
+        }
       });
+
       $(".close-highlight").click(function () {
         highlight.highlightRemove();
         $("html, body").animate(
@@ -149,7 +172,9 @@ export const slide = {
     content
       .querySelector(".row")
       .setAttribute("data-row", `${linguagem.idlinguagem}`);
-    sliderContainer.appendChild(div).appendChild(content);
+    if (content.querySelector(".slider").childElementCount > 0) {
+      sliderContainer.appendChild(div).appendChild(content);
+    }
   },
   createItem(linguagem, div) {
     Object.entries(dados.cursos).forEach(([key]) => {
@@ -216,32 +241,32 @@ export const search = {
       if ($(searchBar).val) {
         typingTimer = setTimeout(doneTyping, doneTypingInterval);
       }
+      function doneTyping() {
+        doSearch($(searchBar).val());
+      }
     });
-
-    async function doneTyping() {
-      const searchString = $(searchBar).val().toLowerCase();
-      doSearch(searchString);
-    }
-
-    async function doSearch(searchString) {
-      if (!dados.linguagens.length) {
-        await search.getData();
-      }
-
-      const resultado = dados.listagemTotal.filter((curso) => {
-        return curso.nome.toLowerCase().includes(searchString);
-      });
-
-      if (resultado) {
-        $("html, body").animate(
-          {
-            scrollTop: $(sliderContainer).offset().top - 70,
-          },
-          500
-        );
-        $("main").empty();
-        slide.allowSlide(resultado);
-      }
-    }
   },
+};
+
+export const doSearch = async (param) => {
+  const searchString = param.toLowerCase();
+  if (!dados.linguagens.length) {
+    await search.getData();
+  }
+
+  const resultado = dados.listagemTotal.filter((curso) => {
+    return curso.nome.toLowerCase().includes(searchString);
+  });
+
+  console.log(searchString, resultado);
+  if (resultado) {
+    $("html, body").animate(
+      {
+        scrollTop: $(sliderContainer).offset().top - 70,
+      },
+      500
+    );
+    $("main").empty();
+    slide.allowSlide(resultado);
+  }
 };

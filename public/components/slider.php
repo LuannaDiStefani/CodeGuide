@@ -16,7 +16,7 @@
                     </div>
                     
                     <div class="course-preview-button">
-                        <a href="#">Assistir Agora</a>
+                        <a data-highlight="link-curso" href="#" target="_blank">Assistir Agora</a>
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
                             Quisquam fuga saepe aliquid? Eligendi quibusdam eius velit possimus tempora blanditiis obcaecati placeat ipsum vel tempore illo maiores sunt. 
                         </p>
                     </div>
-                    <button class="read-more">Leia mais</button>
+                    <button class="read-more btn-1">Leia mais</button>
                     <div class="course-data">
                         <p>Pago: <span data-highlight="info-curso"></span></p>
                         <p>Plataforma: <span data-highlight="plataforma-curso"></span></p>

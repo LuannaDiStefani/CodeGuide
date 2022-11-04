@@ -69,7 +69,7 @@
                                 <p>Nome de usuário:</p>
                                 <div class="edit-username-form">
                                     <form action="" name="verificar" id="mudar-username">
-                                        <input type="text" name="username" id="username" required>
+                                        <input type="text" name="username" class="default-input" id="username" required>
                                         <input type="submit" id="verificar-username" class="btn-1" value="Verificar">
                                     </form>
                                 </div>
@@ -77,15 +77,48 @@
                         </div>
                     </div>
                     <div class="edit-field" data-target="2">
-                        <div class="edit-field-data">
-                            <div class="teste">
-                                1234
+                    <div class="edit-field-title"><h2>Alterar Senha</h2></div>
+                        <div class="edit-field-user">
+                            <div class="edit-username edit-pass">
+                                <div class="edit-password-form">
+                                    <form action="" name="alterar-senha" id="alterar-senha">
+                                        <label for="senha-antiga">Senha antiga:</label>
+                                        <input type="text" name="senha-antiga" class="default-input" id="senha-antiga" required>
+                                        <label for="nova-senha">Nova senha:</label>
+                                        <input type="text" name="nova-senha" class="default-input" required>
+                                        <label for="confirmar-senha">Confirmar senha:</label>
+                                        <input type="text" name="confirmar-senha" class="default-input" required>
+                                        <input type="submit" id="alterar-senha" class="btn-1" value="Verificar">
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="edit-field" data-target="3">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui esse nostrum accusantium aliquid totam tempora ut quod earum recusandae fugit quasi et voluptatum neque, dolorum natus a quis itaque? Veniam?
-
+                    <div class="edit-field-title"><h2>Em Construção</h2></div>
+                        <div class="edit-field-user">
+                        <div class="model-container">
+                                <div class="model">
+                                    <div>
+                                        <h2>Adicione um novo interesse!</h2>
+                                        <div class="search-stack-container">
+                                            <input list="stacks" id="search-stack">
+                                                <datalist id="stacks">
+                                                </datalist> 
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="search-stack-icon">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button>Ok</button>
+                                        <button class="close-model">Cancel</button>
+                                    </div>
+                                    <i class="fa-solid fa-xmark close-button close-model"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id="save-form-container" class="edit-field-submit">
                     </div>

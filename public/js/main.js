@@ -1,4 +1,4 @@
-import { search } from "./slider.js";
+import { search, doSearch } from "./slider.js";
 
 search.allowSearch();
 
@@ -85,8 +85,10 @@ function responsive(media) {
 myMedia.addEventListener("change", responsive);
 responsive(myMedia);
 
-$(".read-more").click(function () {
-  console.log("clicou");
+$("#menu a").click(function (el) {
+  el.preventDefault();
+  const param = el.target.innerText;
+  doSearch(param);
 });
 
 export const exibirAlerta = (n, cor) => {

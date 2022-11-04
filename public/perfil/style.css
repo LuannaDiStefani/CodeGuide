@@ -198,6 +198,7 @@ section.profile{
     gap: 5px;
     align-items: center;
     width: 100%;
+    overflow-y: hidden;
     padding: 10px 20px;
   }
 

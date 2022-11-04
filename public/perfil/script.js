@@ -3,7 +3,6 @@ import { buscarApi, dados } from "../js/slider.js";
 
 const getLanguagens = async () => {
   await buscarApi.buscarLinguagem();
-  console.log("teste");
   insertDataList("stacks", dados.linguagens);
   allowInput();
   getUser();
@@ -36,7 +35,6 @@ function allowInput() {
 }
 
 function getUser() {
-  console.log("entrou");
   dados.linguagens.forEach((item) => {
     $(".info-stacks-icon").append(`<i class="${item.icon}"></i>`);
   });
@@ -44,13 +42,13 @@ function getUser() {
   $(".info-stacks-icon").append(
     `<i class="fa-regular fa-square-plus open-model"></i>`
   );
+  model();
 }
 
 //Pagination
 $(".profile-comments").append(
   '<div class="loading">Nenhum comentário no momento</div>'
 );
-model();
 
 const paginationProfile = () => {
   const commentContainer = document.querySelector("#comment-block").content;
@@ -58,6 +56,7 @@ const paginationProfile = () => {
 
   function paginationList() {
     const size = 20;
+    console.log(dados.linguagens);
     const comentarios = new Array();
     for (let i = 0; i < size; i++) {
       comentarios.push(`

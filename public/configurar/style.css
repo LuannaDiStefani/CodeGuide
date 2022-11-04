@@ -307,7 +307,7 @@ section.edit-profile .edit-field-user-submit{
     padding: 10px 0;
 }
 
-.edit-username #username{
+.edit-username .default-input{
     width: 60%;
     background: var(--black);
     font-weight: bold;
@@ -322,7 +322,7 @@ section.edit-profile .edit-field-user-submit{
     transition: all 0.5s ease-in-out;
 }
 
-.edit-username #username:focus{
+.edit-username .default-input:focus{
     border: 1px solid var(--color6);
 }
 
@@ -331,10 +331,33 @@ section.edit-profile .edit-field-user-submit{
     display: none;
 }
 
+.edit-pass{
+    width: 50%;
+}
+
+.edit-password-form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edit-password-form form input[type="text"]{
+    min-width: 100%;
+}
+
+.edit-password-form form input[type="submit"]{
+    margin-top: 10px;
+}
+
 /* Responsividade Username-Field */
 @media screen and (max-width: 768px) {
-    .edit-username #username{
+    .edit-username .default-input{
         width: 95%;
+    }
+
+    .edit-pass{
+        width: 80%;
     }
 }
 
@@ -441,3 +464,4 @@ section.edit-profile .edit-field-user-submit{
     font-size: 15px;
     word-wrap: break-word;
 }
+
