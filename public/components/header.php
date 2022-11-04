@@ -99,13 +99,36 @@
         </nav>
 
         <div class="mobile-category">
-            <h3>Categorias:</h3>
-            <ul>
-                <li><a href="">Link 1</a></li>
-                <li><a href="">Link 2</a></li>
-                <li><a href="">Link 3</a></li>
-                <li><a href="">Link 4</a></li>
-            </ul>
-
+            <nav>
+                <h4 menu-trigger>FrontEnd</h4>
+                <ul menu-target="frontend">
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">SASS</a></li>
+                <li><a href="">Bootstrap</a></li>
+                <li><a href="">JavaScript</a></li>
+                </ul>
+                <h4 menu-trigger>BackEnd</h4>
+                <ul menu-target="backend">
+                <li><a href="">PHP</a></li>
+                <li><a href="">Java</a></li>
+                <li><a href="">C#</a></li>
+                <li><a href="">Assembly</a></li>
+                <li><a href="">C++</a></li>
+                </ul>
+                <h4 menu-trigger>FullStack</h4>
+                <ul menu-target="fullstack">
+                <li><a href="">JavaScript</a></li>
+                <li><a href="">Python</a></li>
+                <li><a href="">Node.JS</a></li>
+                <li><a href="">Git</a></li>
+                </ul>
+                <h4 menu-trigger>FrameWorks</h4>
+                <ul menu-target="frameworks">
+                <li><a href="">React</a></li>
+                <li><a href="">Angular</a></li>
+                <li><a href="">Vue</a></li>
+                </ul>
+            </nav>
         </div>
     </div>

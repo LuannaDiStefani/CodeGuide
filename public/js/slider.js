@@ -258,7 +258,6 @@ export const doSearch = async (param) => {
     return curso.nome.toLowerCase().includes(searchString);
   });
 
-  console.log(searchString, resultado);
   if (resultado) {
     $("html, body").animate(
       {

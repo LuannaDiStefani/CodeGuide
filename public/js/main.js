@@ -3,7 +3,6 @@ import { search, doSearch } from "./slider.js";
 search.allowSearch();
 
 const myMedia = window.matchMedia("(max-width: 595px)");
-const searchBox = document.querySelector(".search-bar input");
 
 const menus = () => {
   const categoryMenu = document.querySelector(".mobile-category");
@@ -23,12 +22,38 @@ const menus = () => {
   //Menu Lateral
   $(categoryButton).click(function (e) {
     e.preventDefault();
+    toggleCategoryMobile();
+  });
 
+  function toggleCategoryMobile() {
+    $(document.body).toggleClass("off");
     if ($(categoryMenu).is(":visible")) {
       $(categoryMenu).css("opacity", "0").hide("slide");
     } else {
       $(categoryMenu).css("opacity", "1").show("slide");
     }
+  }
+
+  const menuTrigger = document.querySelectorAll(`[menu-trigger]`);
+  const menuOptions = document.querySelectorAll(`[menu-target]`);
+
+  menuOptions.forEach((el) => {
+    $(el).hide();
+    $(el)
+      .children()
+      .click(function (e) {
+        e.preventDefault();
+        const param = e.target.innerText.toLowerCase();
+        doSearch(param);
+        toggleCategoryMobile();
+      });
+  });
+
+  menuTrigger.forEach((el) => {
+    $(el).click(function () {
+      const param = el.innerText.toLowerCase();
+      $(`[menu-target="${param}"]`).slideToggle("fast");
+    });
   });
 };
 

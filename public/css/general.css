@@ -28,9 +28,6 @@
     text-decoration: none;
 }
 
-/* Neon */
-
-
 
 body{
     font-family: 'Open Sans', sans-serif;
@@ -38,6 +35,10 @@ body{
     height: 100%;
     color: var(--white);
     background-color: var(--black);
+}
+
+.off{
+    overflow: hidden !important;
 }
 
 .welcome-title h1{
@@ -342,6 +343,7 @@ header #profile .user-options li:hover a{
     position: fixed;
     top: 0;
     right: 0;
+    overflow-y: auto;
     height: calc(100vh - 61px);
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(7px);
@@ -349,14 +351,61 @@ header #profile .user-options li:hover a{
     padding: 10px;
 }
 
-.mobile-category ul li{
-    padding: 8px 0;
-    border-bottom: 1px solid var(--white);
+.mobile-category nav{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+.mobile-category h4{
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.mobile-category h4:hover{
+    color: var(--color1);
+}
+
+.mobile-category ul li{
+    padding: 8px 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+
 .mobile-category ul li a{
-    font-size: 1.1rem;
     color: white;
+    font-size: 1.3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-category ul li:first-child{
+    border-top: 1px solid var(--color6);
+}
+
+.mobile-category ul li:last-child{
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--color6);
+}
+
+.mobile-category ul li a:hover{
+    color: var(--color6);
+    transform: scale(1.1) !important;
+}
+
+.mobile-category ul li a::before{
+    content: '<';
+    padding: 0 3px;
+    color: var(--color6);
+}
+
+.mobile-category ul li a::after{
+    content: '/>';
+    padding: 0 3px;
+    color: var(--color6);
 }
 
 /* Header Responsividade */
