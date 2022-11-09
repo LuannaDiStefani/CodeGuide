@@ -63,12 +63,23 @@ export const uploadButtons = () => {
 
   uploadButtons.forEach((item) => {
     $(item).change(function () {
-      let thisForm = this.parentElement.parentElement;
+      let thisForm = this.getAttribute("form");
+      const formElements = document.querySelectorAll(`[form="${thisForm}"]`);
 
-      let fileName = $(thisForm).children().children(".file-name");
-      let choosenImg = $(thisForm).children().children(".choosen-img");
+      let fileName;
+      let choosenImg;
+      formElements.forEach((item) => {
+        switch (item.className) {
+          case "file-name":
+            fileName = item;
+            break;
+          case "choosen-img":
+            choosenImg = item;
+            break;
+        }
+      });
+
       let uploadButton = this;
-
       let reader = new FileReader();
       reader.readAsDataURL(uploadButton.files[0]);
       reader.onload = () => {
@@ -96,6 +107,22 @@ export const tabs = () => {
       }
     });
   });
+};
+
+export const verificaFile = (file, filename, form) => {
+  if (!file) {
+    exibirAlerta(2);
+  } else {
+    if (!file.type.match(allowedFileTypes)) {
+      // Check file type
+      exibirAlerta(4);
+    } else if (file.size > allowedFileSize * 1024) {
+      // Check file size (in bytes)
+      exibirAlerta(5);
+    } else {
+      form.append("file", file, filename);
+    }
+  }
 };
 
 export const pictureHoverEffect = () => {

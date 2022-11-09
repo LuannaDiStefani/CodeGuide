@@ -97,7 +97,7 @@ export const highlight = {
       $(slider).find("section.highlight").slideDown("slow");
       $("html, body").animate(
         {
-          scrollTop: $(highlightId).offset().top - 30,
+          scrollTop: $(highlightId).offset().top - 50,
         },
         500
       );
@@ -254,7 +254,7 @@ export const doSearch = async (param) => {
     await search.getData();
   }
 
-  const resultado = dados.listagemTotal.filter((curso) => {
+  let resultado = dados.listagemTotal.filter((curso) => {
     return curso.nome.toLowerCase().includes(searchString);
   });
 

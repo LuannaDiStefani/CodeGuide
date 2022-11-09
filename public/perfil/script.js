@@ -1,48 +1,17 @@
-import { model, insertDataList } from "../js/modules.js";
 import { buscarApi, dados } from "../js/slider.js";
 
 const getLanguagens = async () => {
   await buscarApi.buscarLinguagem();
-  insertDataList("stacks", dados.linguagens);
-  allowInput();
   getUser();
   paginationProfile();
 };
 
 getLanguagens();
 
-function allowInput() {
-  $("#search-stack").on("blur", function () {
-    let selected = this.value.charAt(0);
-
-    if (selected != "") {
-      if (!isNaN(selected)) {
-        $(".search-stack-icon")
-          .empty()
-          .append(
-            `<img src="../../source/imglinguagem/${
-              dados.linguagens[selected - 1].imagem
-            }">`
-          );
-      }
-    }
-  });
-
-  $(".close-model").click(function () {
-    $(".search-stack-icon").empty();
-    $("#search-stack").val("");
-  });
-}
-
 function getUser() {
   dados.linguagens.forEach((item) => {
     $(".info-stacks-icon").append(`<i class="${item.icon}"></i>`);
   });
-
-  $(".info-stacks-icon").append(
-    `<i class="fa-regular fa-square-plus open-model"></i>`
-  );
-  model();
 }
 
 //Pagination
@@ -56,7 +25,6 @@ const paginationProfile = () => {
 
   function paginationList() {
     const size = 20;
-    console.log(dados.linguagens);
     const comentarios = new Array();
     for (let i = 0; i < size; i++) {
       comentarios.push(`

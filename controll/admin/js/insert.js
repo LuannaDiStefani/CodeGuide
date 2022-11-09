@@ -1,3 +1,5 @@
+import { verificaFile } from "../../../public/js/modules";
+
 $(document).ready(function () {
   const allowedFileTypes = "image.*|application/pdf";
   const allowedFileSize = 1024;
@@ -17,7 +19,7 @@ $(document).ready(function () {
 
     doAjax("../../api/public/api/curso/", formCursos);
   });
-
+  /* 
   function verificaFile(file, filename, form) {
     if (!file) {
       exibirAlerta(2);
@@ -32,7 +34,7 @@ $(document).ready(function () {
         form.append("file", file, filename);
       }
     }
-  }
+  } */
 
   function doAjax(url, data) {
     $.ajax({

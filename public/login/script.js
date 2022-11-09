@@ -1,7 +1,7 @@
 import { exibirAlerta } from "../js/main.js";
 
 const form = $("form[name='logar']");
-const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";
+const actionUrl = "http://localhost/codeguide/login/logar.php";
 
 $(form).submit(function (e) {
   e.preventDefault();
@@ -12,11 +12,9 @@ $(form).submit(function (e) {
     data: $(form).serialize() + "&form_name=" + $(form).attr("name"),
   })
     .done((response) => {
-      exibirAlerta(`${response.status}: ${response.data}`, 1);
-    })
-    .fail((response) => {
-      let resposta = response.responseJSON;
-      exibirAlerta(`${resposta.status}: ${resposta.data}`, 2);
+      console.log(response);
+    }).fail((err) => {
+      exibirAlerta("Erro ao logar, verifique seus dados corretamente", 2);
     });
 });
 

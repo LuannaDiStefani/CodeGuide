@@ -1,6 +1,9 @@
 <?php 
 
 namespace App\Models;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 
     class Usuario{
         private static $table = 'usuario';
@@ -108,33 +111,30 @@ namespace App\Models;
             }
         }
 
-        public static function logar(){
+        public static function alterarSenha(){
 
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
-            $sql = "SELECT * FROM ".self::$table." WHERE email = (?) AND senha = (?)";
-            $query = $conexao->prepare($sql);
-            $query->bind_param('ss', $email, $senha);
-            $query->execute();
-            $result = $query->get_result();
-            $num = mysqli_num_rows($result);
-            $dados = $result->fetch_all(MYSQLI_ASSOC); // Mesma coisa que o fetch array porém puxando só os associativos.
-            
-            
-            if($num == 1){
-                $adm = $dados[0]['adm'];
-                return 'Login feito com sucesso.';
-            if($adm == 1){
-                /* $_SESSION['comum'] = $email;
-                header("Location:../public/perfil/index.php"); */
+
+            if(isset($_POST['id']) and isset($_POST['senha'])){
+                $id = $_POST['id'];
+                $senha = $_POST['senha'];
+                $sql = "UPDATE ".self::$table." SET senha = (?) WHERE iduser = (?)";
+                $query = $conexao->prepare($sql);
+                $query->bind_param('si', $senha, $id);
+                $query->execute();
+                $result_dois= $query->get_result();
+                $number_of_rows_affected = mysqli_affected_rows($conexao);
+                // Conseguiu cadastrar 
+                if ($number_of_rows_affected > 0){
+                    return 'Senha alterada com sucesso.';
+                }else{
+                    throw new \Exception("Falha ao alterar dados.");
+                } 
             }else{
-               /*  $_SESSION['adimin'] = $email;  
-                header("Location:phpadmin/index.php"); */
+                throw new \Exception("Requisição inválida.");
             }
-            }else{
-                throw new \Exception("A senha ou e-mail estão incorretos");
-            }
+
+
         }
 
     }

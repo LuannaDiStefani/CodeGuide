@@ -24,11 +24,11 @@
                     case "cadastro":
                         return Usuario::insert();
                         break;
-                    case "logar":
-                        return Usuario::logar();
-                        break;
                     case "verificar":
                         return Usuario::verificar();
+                        break;
+                    case "alterar-senha":
+                        return Usuario::alterarSenha();
                         break;
                     default:
                         throw new \Exception("Requisição Inválida.");

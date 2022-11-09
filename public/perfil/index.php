@@ -68,27 +68,6 @@ if(isset($_GET['username'])){
                             <h3 class="info-title">Meus interesses:</h3>
                             <div class="info-stacks-icon">
                             </div>
-                            <div class="model-container">
-                                <div class="model">
-                                    <div>
-                                        <h2>Adicione um novo interesse!</h2>
-                                        <div class="search-stack-container">
-                                            <input list="stacks" id="search-stack">
-                                                <datalist id="stacks">
-                                                </datalist> 
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="search-stack-icon">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button>Ok</button>
-                                        <button class="close-model">Cancel</button>
-                                    </div>
-                                    <i class="fa-solid fa-xmark close-button close-model"></i>
-                                </div>
-                            </div>
                         </div> 
                         </div>                          
                 </div>

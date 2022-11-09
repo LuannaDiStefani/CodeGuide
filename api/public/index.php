@@ -5,6 +5,7 @@ header("Access-Control-Allow-Origin: *");
 
 require_once "../vendor/autoload.php";
 
+
 if($_GET['url']){
     $url = explode('/', $_GET['url']);
     if($url[0] === 'api'){

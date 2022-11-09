@@ -91,9 +91,9 @@ header("Location:../../public/login/index.php"); */
                                     </div>
                                     <div class="upload upload-curso">
                                         <div class="img-preview">
-                                            <img src="../../source/no-preview.jpg" id="choosen-img" class="choosen-img"
+                                            <img src="../../source/no-preview.jpg" form="cad-curso" id="choosen-img" class="choosen-img"
                                                 alt="Preview">
-                                            <span id="file-name" class="file-name">Nome do Arquivo</span>
+                                            <span id="file-name" form="cad-curso" class="file-name">Nome do Arquivo</span>
                                         </div>
                                          <div class="upload-button-container">
                                             <input type="file" name="imgcurso" id="upload-button" form="cad-curso" class="upload-button"
@@ -126,12 +126,14 @@ header("Location:../../public/login/index.php"); */
                                     </div>
                                     <div class="upload-linguagem">
                                         <div class="img-preview">
-                                            <img src="../../source/no-preview.jpg" id="chossen-linguagem" class="choosen-img"
+                                            <img src="../../source/no-preview.jpg" form="cad-linguagem" id="chossen-linguagem" class="choosen-img"
                                                 alt="Preview">
-                                            <span id="filename-linguagem" class="file-name">Nome do Arquivo</span>
+                                            <span id="filename-linguagem" form="cad-linguagem" class="file-name">Nome do Arquivo</span>
                                         </div>
                                         <div class="upload-button-container">
-                                            <input type="file" name="imglinguagem" id="upload-linguagem" class="upload-button"
+                                            <input type="file" name="imglinguagem" 
+                                            form="cad-linguagem"
+                                            id="upload-linguagem" class="upload-button"
                                                 accept="image/*">
                                             <label for="upload-linguagem"><i class="fa-solid fa-image"></i> Escolha uma
                                                 foto</label>

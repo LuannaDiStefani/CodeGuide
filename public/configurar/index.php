@@ -23,18 +23,27 @@
 <main>
         <section class="admin-panel">
             <div class="container">
+                <!-- Menu -->
                 <div class="admin-menu">
                     <h3>Menu</h3>
                     <ul>
                         <li><a class="target-edit-field" target="1" href=""><i class="fa-solid fa-user" title="Usuário"></i><span>Usuário</span></a></li>
                         <li><a class="target-edit-field" target="2" href=""><i class="fa-solid fa-key" title="Alterar senha"></i><span>Alterar senha</span></a></li>
-                        <li><a class="target-edit-field" target="3" href=""><i class="fa-solid fa-sliders" title="Alterar dados"></i><span>Alterar dados</span></a></li>
-                        <li><a class="target-edit-field" target="1" href=""><i class="fa-solid fa-comments" title="Comentários"></i><span>Comentários</span></a></li>
+                        <li><a class="target-edit-field" target="3" href=""><i class="fa-solid fa-heart" title="favoritos"></i><span>Favoritos</span></a></li>
+                        <li><a class="target-edit-field" target="4" href=""><i class="fa-solid fa-comments" title="Comentários"></i><span>Comentários</span></a></li>
                     </ul>
                 </div>
+                <!-- Menu -->
+
                 <div class="admin-container">
+
                     <div class="edit-field" data-target="1">
-                        <div class="edit-field-title"><h2>Editar Configurações de Usuário</h2></div>
+                        <!-- Titulo -->
+                        <div class="edit-field-title">
+                            <h2>Editar Configurações de Usuário</h2>
+                        </div>
+                        <!-- Titulo -->
+
                         <div class="edit-field-user">
                             <div class="edit-user-picture">
                                 <img src="../../source/alberto.png">
@@ -43,28 +52,38 @@
                                     <p><kbd>Escolha uma foto</kbd></p>
                                 </span>
                             </div>
+                            <!-- Upload de foto -->
                             <div class="model-container">
                                 <div class="model">
                                     <div>
                                         <h2>Alterar Foto de perfil</h2>
                                         <div class="upload">
                                             <div class="img-preview">
-                                                <img src="../../source/alberto.png" id="choosen-img" class="choosen-img" alt="Preview">
-                                                <span id="file-name" class="file-name">Nome do Arquivo</span>
+                                                <img src="../../source/alberto.png" id="choosen-img" form="send-picture" class="choosen-img" alt="Preview">
+                                                <span id="file-name" form="send-picture" class="file-name">Nome do Arquivo</span>
                                             </div>
                                             <div class="upload-button-container">
-                                                <input type="file" name="imgcurso" id="upload-button" class="upload-button" accept="image/*">
-                                                <label for="upload-button"><i class="fa-solid fa-image"></i> Escolha uma foto</label>
+                                                <form method='post' id="send-picture" enctype="multipart/form-data">
+                                                    <input type="file" 
+                                                    name="userpicture" 
+                                                    id="upload-button" 
+                                                    class="upload-button" 
+                                                    form="send-picture"
+                                                    accept="image/*">
+                                                    <label for="upload-button"><i class="fa-solid fa-image"></i> Escolha uma foto</label>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                     <div>
-                                        <button>Ok</button>
+                                        <button form="send-picture">Ok</button>
                                         <button class="close-model">Cancel</button>
                                     </div>
                                     <i class="fa-solid fa-xmark close-button close-model"></i>
                                 </div>
                             </div>
+                            <!-- Upload de foto -->
+
                             <div class="edit-username">
                                 <p>Nome de usuário:</p>
                                 <div class="edit-username-form">
@@ -88,16 +107,62 @@
                                         <input type="text" name="nova-senha" class="default-input" required>
                                         <label for="confirmar-senha">Confirmar senha:</label>
                                         <input type="text" name="confirmar-senha" class="default-input" required>
-                                        <input type="submit" id="alterar-senha" class="btn-1" value="Verificar">
+                                        <input type="submit" class="btn-1" value="Enviar">
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="edit-field" data-target="3">
-                    <div class="edit-field-title"><h2>Em Construção</h2></div>
+                        <div class="edit-field-title"><h2>Favoritos</h2></div>
+                        <!-- Campo de favoritos -->
+                        <div class="edit-field-fav">
+                                <!-- Wrapper -->
+                                <div class="wrapper">
+                                <div class="remove-fav">Remover<i class="fa-regular fa-rectangle-xmark"></i></div>
+                                    <div class="container-fav">
+                                        <div class="favoritos-img">
+                                        </div>
+                                        <div class="favoritos-info">
+                                            <h3>Titulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo curso</h3>
+                                            <p>Plataforma: <span>Plataforma aqui</span></p>
+                                            <p>Pago: <span>Gratis</span></p>
+                                            <a href="#">Assistir agora <i class="fa-solid fa-arrow-up-right-from-square"></i></a>       
+                                        </div>
+                                    </div>
+                                </div> <!-- wrapper -->
+
+                                <!-- Wrapper -->
+                                <div class="wrapper">
+                                <div class="remove-fav">Remover<i class="fa-regular fa-rectangle-xmark"></i></div>
+                                    <div class="container-fav">
+                                        <div class="favoritos-img">
+                                        </div>
+                                        <div class="favoritos-info">
+                                            <h3>Titulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo curso</h3>
+                                            <p>Plataforma: <span>Plataforma aqui</span></p>
+                                            <p>Pago: <span>Gratis</span></p>
+                                            <a href="#">Assistir agora <i class="fa-solid fa-arrow-up-right-from-square"></i></a>       
+                                        </div>
+                                    </div>
+                                </div> <!-- wrapper -->
+                            
+                                    
+                                </div>
+                        </div>
+                        <!-- campo de favoritos -->
+                    <div class="edit-field" data-target="4">
+                        <!-- Titulo -->
+                        <div class="edit-field-title">
+                            <h2>Seus interesses</h2>
+                        </div>
+                        <!-- Titulo -->
+
                         <div class="edit-field-user">
-                        <div class="model-container">
+                        <div class="info-stacks"> 
+                            <div class="info-stacks-icon">
+                            </div>
+                            <div class="model-container">
                                 <div class="model">
                                     <div>
                                         <h2>Adicione um novo interesse!</h2>
@@ -118,13 +183,15 @@
                                     <i class="fa-solid fa-xmark close-button close-model"></i>
                                 </div>
                             </div>
+                        </div> 
+
+
+
                         </div>
                     </div>
-                    <div id="save-form-container" class="edit-field-submit">
-                    </div>
-                </div>
             </div> <!-- container -->
-        </section>
+            
+        </section> <!-- admin-panel -->
         
 </main>
 
