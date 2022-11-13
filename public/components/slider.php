@@ -41,7 +41,7 @@
                             <i class="fa-regular fa-message course-comment-icon"></i>
                         </div>
                         <div class="rate-icon">
-                            <i class="fa-regular fa-thumbs-up"></i>
+                            <a class="fav-link" data-highlight="fav-link" href="http://localhost/codeguide/public/login/"><i class="fa-regular fa-heart" data-highlight="fav-icon"></i></a>
                             <i class="fa-regular fa-thumbs-down"></i>
                         </div>
                     </div>

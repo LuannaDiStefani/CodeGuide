@@ -41,6 +41,12 @@ body{
     overflow: hidden !important;
 }
 
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: var(--color1) !important;
+  }
+
 .welcome-title h1{
     padding: 5px;
     border-radius: 10px;

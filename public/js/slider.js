@@ -72,6 +72,7 @@ export const highlight = {
       const plataformaCurso = highlightDiv.querySelector(
         `[data-highlight="plataforma-curso"]`
       );
+      const favLink = highlightDiv.querySelector(`[data-highlight="fav-link"]`);
       const info = highlightDiv.querySelector(`[data-highlight="info-curso"]`);
       var highlightId = highlightDiv.querySelector("[data-id]");
 
@@ -81,6 +82,11 @@ export const highlight = {
           dados.cursos[id - 1].imgcurso
         }')`
       );
+
+      if (localStorage.getItem("session") === null) {
+        console.log("session");
+        console.log(favLink);
+      }
 
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
       $(linkCurso).attr("href", dados.cursos[id - 1].link);

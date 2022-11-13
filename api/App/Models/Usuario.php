@@ -1,8 +1,6 @@
 <?php 
 
 namespace App\Models;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 
 
     class Usuario{
