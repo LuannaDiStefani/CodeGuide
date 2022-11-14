@@ -1,7 +1,7 @@
 import { search, doSearch } from "./slider.js";
 import { verificarAuth } from "./modules.js";
 
-const session = verificarAuth();
+verificarAuth();
 
 search.allowSearch();
 
@@ -17,31 +17,32 @@ const menus = () => {
   const menuProfileHeader = document.querySelector(`[data-menu="header-menu"]`);
   const menuProfileMobile = document.querySelector(`[data-menu="mobile-menu"]`);
 
+  const opcoesMenu = {
+    deslogado: {
+      login: `<li><a href="http://localhost/codeguide/public/login/">Login</a></li>`,
+      cadastro: `<li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>`,
+    },
+    logado: {
+      perfil: `<li><a href="http://localhost/codeguide/public/perfil/">Perfil</a></li>`,
+      logout: `<li><a href="#">Logout</a></li>`,
+    },
+    admin: {
+      painel: `<li><a href="#">Painel</a></li>`,
+    },
+  };
+
   function createMenuProfile() {
-    const options = {
-      deslogado: {
-        login: `<li><a href="http://localhost/codeguide/public/login/">Login</a></li>`,
-        cadastro: `<li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>`,
-      },
-      logado: {
-        logout: `<li><a href="#">Logout</a></li>`,
-        perfil: `<li><a href="http://localhost/codeguide/public/perfil/">Perfil</a></li>`,
-      },
-      admin: {
-        painel: `<li><a href="#">Painel</a></li>`,
-      },
-    };
-    if (session) {
-      const logado = options.logado;
+    if (sessionStorage.getItem("dados")) {
+      const logado = opcoesMenu.logado;
       for (const opcao in logado) {
-        menuProfileHeader.insertAdjacentHTML("afterbegin", logado[opcao]);
-        menuProfileMobile.insertAdjacentHTML("afterbegin", logado[opcao]);
+        menuProfileHeader.insertAdjacentHTML("beforeend", logado[opcao]);
+        menuProfileMobile.insertAdjacentHTML("beforeend", logado[opcao]);
       }
     } else {
-      const deslogado = options.deslogado;
+      const deslogado = opcoesMenu.deslogado;
       for (const opcao in deslogado) {
-        menuProfileHeader.insertAdjacentHTML("afterbegin", deslogado[opcao]);
-        menuProfileMobile.insertAdjacentHTML("afterbegin", deslogado[opcao]);
+        menuProfileHeader.insertAdjacentHTML("beforeend", deslogado[opcao]);
+        menuProfileMobile.insertAdjacentHTML("beforeend", deslogado[opcao]);
       }
     }
   }

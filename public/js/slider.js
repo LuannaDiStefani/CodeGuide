@@ -1,4 +1,9 @@
-import { deepClone, model, verificarAuth } from "./modules.js";
+import {
+  deepClone,
+  model,
+  verificarAuth,
+  firstLetterCamelCase,
+} from "./modules.js";
 
 const session = verificarAuth();
 
@@ -93,13 +98,9 @@ export const highlight = {
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
       $(linkCurso).attr("href", dados.cursos[id - 1].link);
       $(descriCurso).text(dados.cursos[id - 1].descri);
-      $(info).text(
-        dados.cursos[id - 1].pago.charAt(0).toUpperCase() +
-          dados.cursos[id - 1].pago.slice(1)
-      );
+      $(info).text(firstLetterCamelCase(dados.cursos[id - 1].pago));
       $(plataformaCurso).text(
-        dados.cursos[id - 1].plataforma.charAt(0).toUpperCase() +
-          dados.cursos[id - 1].plataforma.slice(1)
+        firstLetterCamelCase(dados.cursos[id - 1].plataforma)
       );
       $(slider).append(highlightDiv).slideDown("slow");
       $(slider).find("section.highlight").slideDown("slow");

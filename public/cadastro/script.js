@@ -1,7 +1,31 @@
 import { exibirAlerta } from "../js/main.js";
+import { firstLetterCamelCase } from "../js/modules.js";
 
 const form = $("form[name='cadastro']");
 const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";
+
+$(`[name="nome"]`).blur(function () {
+  this.value = firstLetterCamelCase(this.value);
+});
+
+$(`[name="nomeuser"`).blur(function () {
+  const input = this;
+  if (!input.value == "") {
+    $.ajax({
+      method: "POST",
+      url: actionUrl,
+      data: "username=" + $(input).val() + "&form_name=verificar",
+    })
+      .done(() => {
+        $(input).css("border", "1px solid forestgreen");
+      })
+      .fail((response) => {
+        let err = response.responseJSON.data;
+        exibirAlerta(err, 2);
+        input.value = "";
+      });
+  }
+});
 
 $(form).submit(function (e) {
   e.preventDefault();
@@ -16,7 +40,7 @@ $(form).submit(function (e) {
     })
     .fail((response) => {
       let resposta = response.responseJSON;
-      exibirAlerta(`${resposta.status}: ${resposta.data}`, 2);
+      exibirAlerta(`Error: ${resposta.data}`, 2);
     });
 });
 

@@ -684,3 +684,7 @@ section.edit-profile .edit-field-user-submit{
   .info-stacks .model .search-stack-icon img{
     width: 100%;
   }
+
+  #save-form-container{
+    padding: 30px;
+  }

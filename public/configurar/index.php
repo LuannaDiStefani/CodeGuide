@@ -92,6 +92,8 @@
                                         <input type="submit" id="verificar-username" class="btn-1" value="Verificar">
                                     </form>
                                 </div>
+
+                                <div id="save-form-container"></div>
                             </div>
                         </div>
                     </div>
@@ -184,9 +186,6 @@
                                 </div>
                             </div>
                         </div> 
-
-
-
                         </div>
                     </div>
             </div> <!-- container -->

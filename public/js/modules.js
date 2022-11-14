@@ -142,23 +142,33 @@ export const pictureHoverEffect = () => {
   );
 };
 
-export const verificarAuth = () => {
+export const verificarAuth = async () => {
   const url = "http://localhost/CodeGuide/login/auth.php";
+
   if (sessionStorage.getItem("session")) {
-    return $.ajax({
+    $.ajax({
       method: "POST",
       url: url,
       data: { dado: sessionStorage.getItem("session") },
     })
       .done(function (result) {
-        sessionStorage.setItem("dados", JSON.stringify(result));
-        const dados = sessionStorage.getItem("dados");
-        return JSON.parse(dados);
+        if (!sessionStorage.getItem("dados")) {
+          sessionStorage.setItem("dados", JSON.stringify(result.dados));
+        }
       })
       .fail(function () {
+        sessionStorage.clear();
         return false;
       });
   } else {
+    sessionStorage.clear();
     return false;
   }
 };
+
+//Recebe uma palavra e dexa a primeira letra maiuscula
+export function firstLetterCamelCase(string) {
+  const newString =
+    string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
+  return newString;
+}

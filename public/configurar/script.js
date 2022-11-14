@@ -68,14 +68,14 @@ const changePicture = document.getElementById("send-picture");
 
 //Botão de Save na aba de username
 function createSaveButton(name) {
-  return `<form action="" id="#${name}">
+  return `<form action="" id="${name}">
     <button class="btn-1">Salvar</button>
   </form>`;
 }
 
 //Quando digitar, remove botão de save.
 $(input).keyup(function () {
-  if ("#cad-username") {
+  if ("cad-username") {
     removeSave();
   }
 });
@@ -96,7 +96,7 @@ $(formUsername).submit(function (e) {
   e.preventDefault();
 
   //Selecionar username
-  const cadUsername = document.getElementById("#cad-username");
+  const cadUsername = document.getElementById("cad-username");
 
   //Checar se username já existe, caso encontre pede para o usuário digitar outro nome.
   if (!cadUsername) {

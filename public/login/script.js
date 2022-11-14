@@ -1,8 +1,7 @@
 import { exibirAlerta } from "../js/main.js";
 import { verificarAuth } from "../js/modules.js";
 
-const session = verificarAuth();
-if (session) {
+if (sessionStorage.getItem("dados")) {
   window.location = "http://localhost/codeguide/public/";
 }
 
@@ -19,12 +18,19 @@ $(form).submit(function (e) {
   })
     .done((response) => {
       sessionStorage.setItem("session", response);
-      const session = verificarAuth();
-      if (session) {
-        window.location = "http://localhost/codeguide/public/";
-      }
+      verificarDados();
     })
     .fail((err) => {
       exibirAlerta("Erro ao logar, verifique seus dados corretamente", 2);
     });
 });
+
+const verificarDados = async () => {
+  await verificarAuth();
+
+  setTimeout(() => {
+    if (sessionStorage.getItem("dados")) {
+      window.location = "http://localhost/CodeGuide/public/";
+    }
+  }, "200");
+};

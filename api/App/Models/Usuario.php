@@ -51,17 +51,18 @@ namespace App\Models;
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];
+            $nomeuser = $_POST['nomeuser'];
             $confirmacao = $_POST['conf'];
             if(Usuario::verificarEmail($email)){
                 if ($senha != $confirmacao){
                     throw new \Exception("As senhas estão diferentes");
 
                 }else{
-                    $sql="INSERT INTO ".self::$table." (nome,email,senha)
-                                        value(?, ?, ?)";
+                    $sql="INSERT INTO ".self::$table." (nome,email,nomeuser, senha)
+                                        value(?, ?, ?, ?)";
                     
                     $query = $conexao->prepare($sql);
-                    $query->bind_param('sss', $nome, $email, $senha);
+                    $query->bind_param('ssss', $nome, $email, $nomeuser, $senha);
                     $query->execute();
                     $result_dois= $query->get_result();
                     $number_of_rows_affected = mysqli_affected_rows($conexao);

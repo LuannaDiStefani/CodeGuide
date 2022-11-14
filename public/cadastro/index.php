@@ -48,21 +48,20 @@
 
                 <div class="fomulario_cadastro faed_in" id="teste">
 
-                    <form class="formulario" name="cadastro" enctype="multipart/form-data" method="post">
+                    <form class="formulario" autocomplete="off" name="cadastro" enctype="multipart/form-data" method="post">
 
                         <p class="faed_in"> Digite seu nome:<br> <input type="name" name="nome" required
                                 pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ-']+$/"> <br><br></p>
 
+                        Escolha um nome de usuario: <br> <input type="text" name="nomeuser" required><br><br>
+                        
                         Digite seu e-mail:<br> <input type="email" name="email" required><br><br>
 
-                        Digite sua senha:<br> <input type="password" name="senha" required
+                        Digite sua senha:<br> <input type="password" name="senha" autocomplete="new-password" required
                             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
 
-                        Confirme sua senha:<br> <input type="password" name="conf" required
+                        Confirme sua senha:<br> <input type="password" autocomplete="new-password" name="conf" required
                             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$"> <br><br>
-
-                        Digite sua data de nascimento:<br> <input type="date" name="data" id="data"
-                            required>
 
                         <input type="submit" name="cadastro" value="Continuar" class="enviar">
 

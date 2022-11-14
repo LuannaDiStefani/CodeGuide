@@ -31,7 +31,7 @@
     $id = $dados['iduser'];
     
   $payload = [
-    "exp" => time() + 10,
+    "exp" => time() + 3600,
     "iat" => time(), 
     "email" => $email,
      "dados" => $dados,

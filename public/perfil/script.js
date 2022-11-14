@@ -1,10 +1,10 @@
 import { buscarApi, dados } from "../js/slider.js";
-import { verificarAuth } from "../js/modules.js";
 
-const session = verificarAuth();
-if (!session) {
-  window.location = "http://localhost/codeguide/public/login";
+if (!sessionStorage.getItem("dados")) {
+  window.location = "http://localhost/codeguide/public/login/";
 }
+
+let userData = JSON.parse(sessionStorage.getItem("dados"));
 
 const getLanguagens = async () => {
   await buscarApi.buscarLinguagem();
@@ -15,6 +15,11 @@ const getLanguagens = async () => {
 getLanguagens();
 
 function getUser() {
+  $(`[data-user="name"]`).text(userData.nome);
+  if (userData.nomeuser != "") {
+    $(`[data-user="name"]`).text(userData.nomeuser);
+  }
+
   dados.linguagens.forEach((item) => {
     $(".info-stacks-icon").append(`<i class="${item.icon}"></i>`);
   });

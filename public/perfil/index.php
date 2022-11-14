@@ -1,27 +1,3 @@
-<?php
-
-session_start();
-
-/* if(!isset($_SESSION['comum']))
-
-header("Location:../login/index.php"); */
-/* 
-if(isset($_GET['username'])){
-    $url = explode('/', $_GET['username']);
-    $username = $url[0];    
-    $response = file_get_contents('http://localhost/code/api/public/api/usuario/'.$username.'');
-    var_dump($response);
-}else{
-
-    if(!isset($_SESSION['comum'])){
-        header("Location:../login/index.php");
-        }
-
-} */
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -50,23 +26,23 @@ if(isset($_GET['username'])){
                 <div class="profile-info">
                     <div class="profile-box">
                     <div class="profile-info-top">
-                        <div class="profile-info-picture">
+                        <div class="profile-info-picture" data-user="picture">
                         </div>
                         <div class="profile-info-name">
-                            <p class="info-name">Code Guide Tec</p>
-                            <p class="info-subtitle">@CodeGuideUser!</p>
+                            <p class="info-name" data-user="name">Code Guide Tec</p>
+                            <p class="info-subtitle" data-user="username">@CodeGuideUser!</p>
                         </div>
                     </div>
                     
                         <div class="profile-info-middle">
-                            <p class="info-description">
+                            <p class="info-description" data-user="descri">
                                 Sem bio no momento.
                             </p>
                         </div>
                                           
                         <div class="info-stacks"> 
                             <h3 class="info-title">Meus interesses:</h3>
-                            <div class="info-stacks-icon">
+                            <div class="info-stacks-icon" data-user="interesses">
                             </div>
                         </div> 
                         </div>                          
