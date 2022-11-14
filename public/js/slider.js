@@ -1,4 +1,6 @@
-import { deepClone, model } from "./modules.js";
+import { deepClone, model, verificarAuth } from "./modules.js";
+
+const session = verificarAuth();
 
 $(".slider").append('<div class="loading">Carregando...</div>');
 const sliderContainer = document.getElementById("slider-container");

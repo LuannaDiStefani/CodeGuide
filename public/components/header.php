@@ -57,10 +57,7 @@
                 <div id="profile">
                     <i class="fa-regular fa-user"></i>
                     <div class="user-options">
-                        <ul>
-                            <li><a href="http://localhost/codeguide/public/login/">Login</a></li>
-                            <li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>
-                            <li><a href="#">Logout</a></li>
+                        <ul data-menu="header-menu">
                         </ul>
                 </div>
             </div>
@@ -89,10 +86,7 @@
                     Profile
                 </a>
                 <div class="mobile-profile-options">
-                    <ul>
-                        <li><a href="http://localhost/codeguide/public/login/">Login</a></li>
-                        <li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>
-                        <li><a href="#">Logout</a></li>
+                    <ul data-menu="mobile-menu">    
                     </ul>
                 </div>
             </div>

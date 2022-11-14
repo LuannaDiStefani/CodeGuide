@@ -196,6 +196,8 @@ transition: 0.5s
 
 .course-preview-button a:hover{
 color: var(--color6);
+background: rgba(0, 0, 0, 0.1);
+filter: drop-shadow(0 0 0.75rem var(--color6));
 }
 
 .course-preview-button a:before{

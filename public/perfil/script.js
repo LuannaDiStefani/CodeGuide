@@ -1,4 +1,10 @@
 import { buscarApi, dados } from "../js/slider.js";
+import { verificarAuth } from "../js/modules.js";
+
+const session = verificarAuth();
+if (!session) {
+  window.location = "http://localhost/codeguide/public/login";
+}
 
 const getLanguagens = async () => {
   await buscarApi.buscarLinguagem();

@@ -1,7 +1,13 @@
 import { exibirAlerta } from "../js/main.js";
+import { verificarAuth } from "../js/modules.js";
+
+const session = verificarAuth();
+if (session) {
+  window.location = "http://localhost/codeguide/public/";
+}
 
 const form = $("form[name='logar']");
-const actionUrl = "http://localhost/codeguide/login/logar.php";
+const actionUrl = "http://localhost/CodeGuide/login/logar.php";
 
 $(form).submit(function (e) {
   e.preventDefault();
@@ -12,10 +18,13 @@ $(form).submit(function (e) {
     data: $(form).serialize() + "&form_name=" + $(form).attr("name"),
   })
     .done((response) => {
-      console.log(response);
-    }).fail((err) => {
+      sessionStorage.setItem("session", response);
+      const session = verificarAuth();
+      if (session) {
+        window.location = "http://localhost/codeguide/public/";
+      }
+    })
+    .fail((err) => {
       exibirAlerta("Erro ao logar, verifique seus dados corretamente", 2);
     });
 });
-
-function headerLocation() {}

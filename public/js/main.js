@@ -1,4 +1,7 @@
 import { search, doSearch } from "./slider.js";
+import { verificarAuth } from "./modules.js";
+
+const session = verificarAuth();
 
 search.allowSearch();
 
@@ -11,6 +14,38 @@ const menus = () => {
   const dropDownButton = document.getElementById("menu-dropdown");
   const menu = document.getElementById("wrapper-menu");
   const mobileProfile = document.querySelector(".profile-mobile");
+  const menuProfileHeader = document.querySelector(`[data-menu="header-menu"]`);
+  const menuProfileMobile = document.querySelector(`[data-menu="mobile-menu"]`);
+
+  function createMenuProfile() {
+    const options = {
+      deslogado: {
+        login: `<li><a href="http://localhost/codeguide/public/login/">Login</a></li>`,
+        cadastro: `<li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>`,
+      },
+      logado: {
+        logout: `<li><a href="#">Logout</a></li>`,
+        perfil: `<li><a href="http://localhost/codeguide/public/perfil/">Perfil</a></li>`,
+      },
+      admin: {
+        painel: `<li><a href="#">Painel</a></li>`,
+      },
+    };
+    if (session) {
+      const logado = options.logado;
+      for (const opcao in logado) {
+        menuProfileHeader.insertAdjacentHTML("afterbegin", logado[opcao]);
+        menuProfileMobile.insertAdjacentHTML("afterbegin", logado[opcao]);
+      }
+    } else {
+      const deslogado = options.deslogado;
+      for (const opcao in deslogado) {
+        menuProfileHeader.insertAdjacentHTML("afterbegin", deslogado[opcao]);
+        menuProfileMobile.insertAdjacentHTML("afterbegin", deslogado[opcao]);
+      }
+    }
+  }
+  createMenuProfile();
 
   $(mobileProfile).click(function (e) {
     e.preventDefault();

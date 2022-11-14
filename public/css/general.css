@@ -290,7 +290,8 @@ header .search-bar label{
 }
 
 /* Header Avatar Icon */
-header #profile{ 
+header #profile{
+    position: relative;
     order: 4;
     width: 100px;
     height: 60px;
@@ -312,7 +313,7 @@ header #profile i:hover{
 
 header #profile .user-options{
     position: absolute;
-    right: 1%;
+    right: 0;
     top: 70px;
     z-index: 99;
     display: none;

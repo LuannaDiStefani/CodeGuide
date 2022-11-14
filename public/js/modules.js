@@ -141,3 +141,24 @@ export const pictureHoverEffect = () => {
     }
   );
 };
+
+export const verificarAuth = () => {
+  const url = "http://localhost/CodeGuide/login/auth.php";
+  if (sessionStorage.getItem("session")) {
+    return $.ajax({
+      method: "POST",
+      url: url,
+      data: { dado: sessionStorage.getItem("session") },
+    })
+      .done(function (result) {
+        sessionStorage.setItem("dados", JSON.stringify(result));
+        const dados = sessionStorage.getItem("dados");
+        return JSON.parse(dados);
+      })
+      .fail(function () {
+        return false;
+      });
+  } else {
+    return false;
+  }
+};

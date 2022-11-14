@@ -34,8 +34,7 @@
     "exp" => time() + 10,
     "iat" => time(), 
     "email" => $email,
-     "id" => $id,
-    "admin" => $adm,
+     "dados" => $dados,
     
    ];
  
