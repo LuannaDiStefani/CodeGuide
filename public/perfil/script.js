@@ -19,6 +19,15 @@ function getUser() {
   if (userData.nomeuser != "") {
     $(`[data-user="name"]`).text(userData.nomeuser);
   }
+  if (userData.fotoperfil != "") {
+    $(`[data-user="picture"]`).css(
+      "background-image",
+      `url(${userData.fotoperfil})`
+    );
+  }
+  if (userData.descriuser !== "") {
+    `[data-user="descri"]`.text(userData.descriuser);
+  }
 
   dados.linguagens.forEach((item) => {
     $(".info-stacks-icon").append(`<i class="${item.icon}"></i>`);

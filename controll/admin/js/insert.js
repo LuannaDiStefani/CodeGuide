@@ -1,8 +1,6 @@
-import { verificaFile } from "../../../public/js/modules";
+import { verificaFile, doAjax } from "../../../public/js/modules";
 
 $(document).ready(function () {
-  const allowedFileTypes = "image.*|application/pdf";
-  const allowedFileSize = 1024;
   let formCursos = new FormData();
   let formLinguagens = new FormData();
 
@@ -15,40 +13,12 @@ $(document).ready(function () {
     let filename = file["name"];
     let newFileName = filename.replace(/[^A-Z0-9._]+/gi, "_");
 
-    verificaFile(file, newFileName, formCursos);
-
-    doAjax("../../api/public/api/curso/", formCursos);
-  });
-  /* 
-  function verificaFile(file, filename, form) {
-    if (!file) {
-      exibirAlerta(2);
-    } else {
-      if (!file.type.match(allowedFileTypes)) {
-        // Check file type
-        exibirAlerta(4);
-      } else if (file.size > allowedFileSize * 1024) {
-        // Check file size (in bytes)
-        exibirAlerta(5);
-      } else {
-        form.append("file", file, filename);
-      }
+    const verified = verificaFile(file);
+    if (verified) {
+      formCursos.append("file", file, newFileName);
+      doAjax("../../api/public/api/curso/", formCursos);
     }
-  } */
-
-  function doAjax(url, data) {
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: data,
-      contentType: false,
-      processData: false,
-      success: function (response) {
-        $("form").trigger("reset");
-        exibirAlerta(`${response.status}: ${response.data}`, 1);
-      },
-    });
-  }
+  });
 
   //Cadastro linguagens
   $("#cad-linguagem").submit(function (event) {
@@ -60,8 +30,10 @@ $(document).ready(function () {
     let filename = file["name"];
     let newFileName = filename.replace(/[^A-Z0-9._]+/gi, "_");
 
-    verificaFile(file, newFileName, formLinguagens);
-
-    doAjax("../../api/public/api/linguagem/", formLinguagens);
+    const verified = verificaFile(file);
+    if (verified) {
+      formLinguagens.append("file", file, newFileName);
+      doAjax("../../api/public/api/linguagem/", formLinguagens);
+    }
   });
 });

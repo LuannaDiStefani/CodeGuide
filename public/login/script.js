@@ -1,5 +1,4 @@
-import { exibirAlerta } from "../js/main.js";
-import { verificarAuth } from "../js/modules.js";
+import { verificarAuth, exibirAlerta } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
   window.location = "http://localhost/codeguide/public/";

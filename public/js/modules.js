@@ -1,18 +1,77 @@
 export function model() {
+  const methods = {
+    open() {
+      $(".model-container").css("transform", "scale(1)");
+      setTimeout(function () {
+        $(".model-container").css("background", "rgba(0, 0, 0, 0.8)");
+      }, 400);
+    },
+    close() {
+      $(".model-container").css("background", "transparent");
+      setTimeout(function () {
+        $(".model-container").css("transform", "scale(0)");
+      }, 200);
+    },
+  };
+
   $(".open-model").click(function () {
-    $(".model-container").css("transform", "scale(1)");
-    setTimeout(function () {
-      $(".model-container").css("background", "rgba(0, 0, 0, 0.8)");
-    }, 400);
+    methods.open();
   });
 
   $(".close-model").click(function () {
-    $(".model-container").css("background", "transparent");
-    setTimeout(function () {
-      $(".model-container").css("transform", "scale(0)");
-    }, 200);
+    methods.close();
   });
 }
+
+export const exibirAlerta = (n, cor) => {
+  let color1 = "rgba(115, 234, 129, 0.8)";
+  let color2 = "rgba(255, 91, 91, 0.8)";
+  let divAlert = `<div class="alert"></div>`;
+  let aviso;
+
+  document
+    .querySelector(".container-mobile")
+    .insertAdjacentHTML("beforebegin", divAlert);
+
+  switch (+n) {
+    case 1:
+      $(".alert").css("background", color1);
+      aviso = "Operação realizada com sucesso!";
+      break;
+    case 2:
+      $(".alert").css("background", color2);
+      aviso = "Preencha os dados corretamente!";
+      break;
+    case 3:
+      $(".alert").css("background", color1);
+      aviso = "Atualizado com sucesso!";
+      break;
+    case 4:
+      $(".alert").css("background", color2);
+      aviso = "Apenas imagens permitidas! Verifique o tipo corretamente.";
+      break;
+    case 5:
+      $(".alert").css("background", color2);
+      aviso = "Arquivo muito grande! Escolha outra arquivo menor.";
+      break;
+    default:
+      if (cor == 1) {
+        $(".alert").css("background", color1);
+      } else if (cor == 2) {
+        $(".alert").css("background", color2);
+      }
+
+      aviso = n;
+  }
+
+  $(".alert").text(aviso);
+
+  $(".alert").slideToggle("fast");
+  setTimeout(function () {
+    $(".alert").fadeOut("fast");
+    $(".alert").remove();
+  }, 1500);
+};
 
 export const deepClone = (obj) => {
   // Se não for array ou objeto, retorna null
@@ -109,18 +168,38 @@ export const tabs = () => {
   });
 };
 
-export const verificaFile = (file, filename, form) => {
+export function doAjax(url, dados) {
+  console.log(dados);
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: dados,
+    contentType: false,
+    processData: false,
+    success: function (response) {
+      console.log(response);
+      $("form").trigger("reset");
+      exibirAlerta(`${response.status}: ${response.data}`, 1);
+    },
+  });
+}
+
+export const verificaFile = (file) => {
+  const allowedFileTypes = "image.*|application/pdf";
+  const allowedFileSize = 1024;
   if (!file) {
     exibirAlerta(2);
   } else {
     if (!file.type.match(allowedFileTypes)) {
       // Check file type
       exibirAlerta(4);
+      return false;
     } else if (file.size > allowedFileSize * 1024) {
       // Check file size (in bytes)
       exibirAlerta(5);
+      return false;
     } else {
-      form.append("file", file, filename);
+      return true;
     }
   }
 };
@@ -142,6 +221,29 @@ export const pictureHoverEffect = () => {
   );
 };
 
+export const getNewToken = (pass) => {
+  let userData = JSON.parse(sessionStorage.getItem("dados"));
+  const actionUrl = "http://localhost/CodeGuide/login/logar.php";
+
+  if (pass) {
+    userData.senha = pass;
+  }
+
+  $.ajax({
+    method: "POST",
+    url: actionUrl,
+    data: `email=${userData.email}&senha=${userData.senha}&form_name=logar`,
+  })
+    .done((response) => {
+      console.log(response);
+      sessionStorage.setItem("session", response);
+      verificarAuth();
+    })
+    .fail((err) => {
+      exibirAlerta("Sessão expirou", 2);
+    });
+};
+
 export const verificarAuth = async () => {
   const url = "http://localhost/CodeGuide/login/auth.php";
 
@@ -152,9 +254,7 @@ export const verificarAuth = async () => {
       data: { dado: sessionStorage.getItem("session") },
     })
       .done(function (result) {
-        if (!sessionStorage.getItem("dados")) {
-          sessionStorage.setItem("dados", JSON.stringify(result.dados));
-        }
+        sessionStorage.setItem("dados", JSON.stringify(result.dados));
       })
       .fail(function () {
         sessionStorage.clear();

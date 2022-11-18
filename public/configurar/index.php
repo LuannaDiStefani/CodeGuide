@@ -46,7 +46,7 @@
 
                         <div class="edit-field-user">
                             <div class="edit-user-picture">
-                                <img src="../../source/alberto.png">
+                                <img src="../../source/codeguide.png">
                                 <span class="open-model">
                                     <i class="fa-solid fa-image"></i>
                                     <p><kbd>Escolha uma foto</kbd></p>
@@ -59,7 +59,7 @@
                                         <h2>Alterar Foto de perfil</h2>
                                         <div class="upload">
                                             <div class="img-preview">
-                                                <img src="../../source/alberto.png" id="choosen-img" form="send-picture" class="choosen-img" alt="Preview">
+                                                <img src="../../source/codeguide.png" id="choosen-img" form="send-picture" class="choosen-img" alt="Preview">
                                                 <span id="file-name" form="send-picture" class="file-name">Nome do Arquivo</span>
                                             </div>
                                             <div class="upload-button-container">
@@ -103,8 +103,6 @@
                             <div class="edit-username edit-pass">
                                 <div class="edit-password-form">
                                     <form action="" name="alterar-senha" id="alterar-senha">
-                                        <label for="senha-antiga">Senha antiga:</label>
-                                        <input type="text" name="senha-antiga" class="default-input" id="senha-antiga" required>
                                         <label for="nova-senha">Nova senha:</label>
                                         <input type="text" name="nova-senha" class="default-input" required>
                                         <label for="confirmar-senha">Confirmar senha:</label>

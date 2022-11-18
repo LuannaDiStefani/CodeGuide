@@ -2,8 +2,12 @@ import {
   tabs,
   uploadButtons,
   insertDataList,
+  exibirAlerta,
 } from "../../../public/js/modules.js";
-import { exibirAlerta } from "../../../public/js/main.js";
+
+if (!sessionStorage.getItem("dados")) {
+  window.location = "http://localhost/codeguide/public/login/";
+}
 
 let formCursos = new FormData();
 let formLinguagens = new FormData();

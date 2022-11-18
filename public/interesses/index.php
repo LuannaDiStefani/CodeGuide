@@ -51,7 +51,7 @@
   
               <div class="enviar">
   
-                  <button class="botao"> Continuar</button>
+                  <button id="send" class="botao"> Continuar</button>
   
               </div>    
 

@@ -1,5 +1,8 @@
-import { exibirAlerta } from "../js/main.js";
-import { firstLetterCamelCase } from "../js/modules.js";
+import { firstLetterCamelCase, exibirAlerta } from "../js/modules.js";
+
+if (sessionStorage.getItem("dados")) {
+  window.location = "http://localhost/codeguide/public/";
+}
 
 const form = $("form[name='cadastro']");
 const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";

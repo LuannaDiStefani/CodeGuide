@@ -24,6 +24,7 @@ const menus = () => {
     },
     logado: {
       perfil: `<li><a href="http://localhost/codeguide/public/perfil/">Perfil</a></li>`,
+      configuracoes: `<li><a href="http://localhost/codeguide/public/configurar/">Configurar</a></li>`,
       logout: `<li><a href="#">Logout</a></li>`,
     },
     admin: {
@@ -161,53 +162,3 @@ $("#menu a").click(function (el) {
   const param = el.target.innerText;
   doSearch(param);
 });
-
-export const exibirAlerta = (n, cor) => {
-  let color1 = "rgba(115, 234, 129, 0.8)";
-  let color2 = "rgba(255, 91, 91, 0.8)";
-  let divAlert = `<div class="alert"></div>`;
-  let aviso;
-
-  document
-    .querySelector(".container-mobile")
-    .insertAdjacentHTML("beforebegin", divAlert);
-
-  switch (+n) {
-    case 1:
-      $(".alert").css("background", color1);
-      aviso = "Operação realizada com sucesso!";
-      break;
-    case 2:
-      $(".alert").css("background", color2);
-      aviso = "Preencha os dados corretamente!";
-      break;
-    case 3:
-      $(".alert").css("background", color1);
-      aviso = "Atualizado com sucesso!";
-      break;
-    case 4:
-      $(".alert").css("background", color2);
-      aviso = "Apenas imagens permitidas! Verifique o tipo corretamente.";
-      break;
-    case 5:
-      $(".alert").css("background", color2);
-      aviso = "Arquivo muito grande! Escolha outra arquivo menor.";
-      break;
-    default:
-      if (cor == 1) {
-        $(".alert").css("background", color1);
-      } else if (cor == 2) {
-        $(".alert").css("background", color2);
-      }
-
-      aviso = n;
-  }
-
-  $(".alert").text(aviso);
-
-  $(".alert").slideToggle("fast");
-  setTimeout(function () {
-    $(".alert").fadeOut("fast");
-    $(".alert").remove();
-  }, 1500);
-};

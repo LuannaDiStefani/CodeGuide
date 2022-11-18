@@ -1,5 +1,9 @@
 import { buscarApi, dados } from "../js/slider.js";
-import { exibirAlerta } from "../js/main.js";
+import { exibirAlerta } from "../js/modules.js";
+
+if (!sessionStorage.getItem("dados")) {
+  window.location = "http://localhost/codeguide/public/";
+}
 
 const interessesContainer = document.querySelector(".interesses");
 const submit = document.querySelector(".enviar button");
@@ -39,6 +43,7 @@ const interesses = {
   submit() {
     $(submit).click((e) => {
       e.preventDefault();
+      this.selected = [];
       const selecionados = document.querySelectorAll(".selected");
       if (selecionados.length < 3) {
         exibirAlerta("Selecione pelo menos 3 itens");

@@ -53,11 +53,13 @@ namespace App\Models;
             $senha = $_POST['senha'];
             $nomeuser = $_POST['nomeuser'];
             $confirmacao = $_POST['conf'];
+        
             if(Usuario::verificarEmail($email)){
                 if ($senha != $confirmacao){
                     throw new \Exception("As senhas estão diferentes");
 
                 }else{
+                    $senha = password_hash($senha, PASSWORD_DEFAULT);
                     $sql="INSERT INTO ".self::$table." (nome,email,nomeuser, senha)
                                         value(?, ?, ?, ?)";
                     
@@ -76,6 +78,31 @@ namespace App\Models;
                 }
             }
 
+        }
+
+        public static function updateUsername(){
+
+            $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+
+            if(isset($_POST['id']) and isset($_POST['username'])){
+                $id = $_POST['id'];
+                $username = $_POST['username'];
+                $sql = "UPDATE ".self::$table." SET nomeuser = (?) WHERE iduser = (?)";
+                $query = $conexao->prepare($sql);
+                $query->bind_param('si', $username, $id);
+                $query->execute();
+                $result_dois= $query->get_result();
+                $number_of_rows_affected = mysqli_affected_rows($conexao);
+                // Conseguiu cadastrar 
+                if ($number_of_rows_affected > 0){
+                    return 'Dados alterados com sucesso.';
+                }else{
+                    throw new \Exception("Falha ao alterar dados.");
+                } 
+            }else{
+                throw new \Exception("Requisição inválida.");
+            }
+            
         }
 
         public static function verificarEmail($email){
@@ -117,23 +144,50 @@ namespace App\Models;
             if(isset($_POST['id']) and isset($_POST['senha'])){
                 $id = $_POST['id'];
                 $senha = $_POST['senha'];
+                $senha_db = password_hash($senha, PASSWORD_DEFAULT);
                 $sql = "UPDATE ".self::$table." SET senha = (?) WHERE iduser = (?)";
                 $query = $conexao->prepare($sql);
-                $query->bind_param('si', $senha, $id);
+                $query->bind_param('si', $senha_db, $id);
                 $query->execute();
-                $result_dois= $query->get_result();
-                $number_of_rows_affected = mysqli_affected_rows($conexao);
                 // Conseguiu cadastrar 
-                if ($number_of_rows_affected > 0){
-                    return 'Senha alterada com sucesso.';
+                return 'Senha alterada com sucesso.';
+
                 }else{
-                    throw new \Exception("Falha ao alterar dados.");
+                    throw new \Exception("Requisição inválida.");
+                }
+
+
+        }
+
+        public static function updatePicture(){
+            $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+            $sql = "UPDATE ".self::$table." SET fotoperfil = (?) WHERE iduser = (?)";
+            $id = $_POST['id'];
+            $fileName = $_FILES["file"]["name"];
+            $targetDir = "../../source/imguser/"; 
+            $targetFilePath = $targetDir . $fileName;
+            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+            $allowTypes = array('jpg', 'png', 'jpeg'); 
+            if(in_array($fileType, $allowTypes)){ 
+                // Upload file to server 
+                if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
+                    // Insert file data into the database if needed 
+                    //........ 
+                    $stmt = $conexao->prepare($sql);
+                    $stmt->bind_param('si', $fileName, $id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $number_of_rows_affected = mysqli_affected_rows($conexao);
+         
+                    // Success response 
+                    return "Foto atualizada com sucesso";
+
+                }else{ 
+                    return "Falha na operação";
                 } 
-            }else{
-                throw new \Exception("Requisição inválida.");
-            }
-
-
+            }else{ 
+                return 'Arquivo inválido!'; 
+            }     
         }
 
     }

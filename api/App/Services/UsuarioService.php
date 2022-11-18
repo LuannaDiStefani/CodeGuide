@@ -6,18 +6,11 @@
 
     class UsuarioService{
 
-        public function get($id = null)
-        {
-            if ($id){
-                return Usuario::select($id);
-            } else{
-                return Usuario::selectAll();
-            }
-        }
+        public function get(){}
 
         public function post(){
 
-            if(isset($_POST)){
+             if(isset($_POST)){
               $method = $_POST['form_name'];
               
                 switch($method){
@@ -29,6 +22,12 @@
                         break;
                     case "alterar-senha":
                         return Usuario::alterarSenha();
+                        break;
+                    case "cad-username":
+                        return Usuario::updateUsername();
+                        break;
+                    case "update-picture":
+                        return Usuario::updatePicture();
                         break;
                     default:
                         throw new \Exception("Requisição Inválida.");
