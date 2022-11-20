@@ -30,7 +30,7 @@
                         <li><a class="target-edit-field" target="1" href=""><i class="fa-solid fa-user" title="Usuário"></i><span>Usuário</span></a></li>
                         <li><a class="target-edit-field" target="2" href=""><i class="fa-solid fa-key" title="Alterar senha"></i><span>Alterar senha</span></a></li>
                         <li><a class="target-edit-field" target="3" href=""><i class="fa-solid fa-heart" title="favoritos"></i><span>Favoritos</span></a></li>
-                        <li><a class="target-edit-field" target="4" href=""><i class="fa-solid fa-comments" title="Comentários"></i><span>Comentários</span></a></li>
+                        <li><a class="target-edit-field" target="4" href=""><i class="fa-solid fa-code" title="Interesses"></i><span>Interesses</span></a></li>
                     </ul>
                 </div>
                 <!-- Menu -->
@@ -177,7 +177,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button>Ok</button>
+                                        <button data-function="send-interest">Ok</button>
                                         <button class="close-model">Cancel</button>
                                     </div>
                                     <i class="fa-solid fa-xmark close-button close-model"></i>

@@ -16,22 +16,30 @@ getLanguagens();
 
 function getUser() {
   $(`[data-user="name"]`).text(userData.nome);
-  if (userData.nomeuser != "") {
-    $(`[data-user="name"]`).text(userData.nomeuser);
-  }
+  $(`[data-user="username"]`).text(`@${userData.nomeuser}`);
   if (userData.fotoperfil != "") {
     $(`[data-user="picture"]`).css(
       "background-image",
-      `url(${userData.fotoperfil})`
+      `url('../../source/imguser/${userData.fotoperfil}')`
     );
   }
   if (userData.descriuser !== "") {
     `[data-user="descri"]`.text(userData.descriuser);
   }
 
-  dados.linguagens.forEach((item) => {
-    $(".info-stacks-icon").append(`<i class="${item.icon}"></i>`);
-  });
+  const getInterestsIcon = () => {
+    const interesses = JSON.parse(sessionStorage.getItem("interesses"));
+
+    interesses.map((item) => {
+      dados.linguagens.map((index) => {
+        if (item.idlinguagem == index.idlinguagem) {
+          $(".info-stacks-icon").append(`<i class="${index.icon}"></i>`);
+        }
+      });
+    });
+  };
+
+  getInterestsIcon();
 }
 
 //Pagination

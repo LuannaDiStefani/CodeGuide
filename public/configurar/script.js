@@ -48,8 +48,45 @@ if (sessionStorage.getItem("dados")) {
   }
 
   function getUser() {
-    dados.linguagens.forEach((item) => {
-      $(".info-stacks-icon").append(`<i class="${item.icon}"></i>`);
+    const getInterestsIcon = () => {
+      const interesses = JSON.parse(sessionStorage.getItem("interesses"));
+
+      interesses.map((item) => {
+        dados.linguagens.map((index) => {
+          if (item.idlinguagem == index.idlinguagem) {
+            $(".info-stacks-icon").append(
+              `<i class="${index.icon}"></i>
+              <span><i data-function="delete-interest" data-id=${index.idlinguagem} class="fa-solid fa-xmark"></i></span>`
+            );
+          }
+        });
+      });
+    };
+
+    getInterestsIcon();
+
+    $(`[data-function="delete-interest"]`).click(function () {
+      let idlinguagem = $(this).attr("data-id");
+      let confirmacao = confirm("Deseja excluir interesse?");
+      if (confirmacao) {
+        $.ajax({
+          method: "POST",
+          url: actionUrl,
+          data: `iduser=${
+            userData.iduser
+          }&idlinguagem=${idlinguagem}&form_name=${"del-interesse"}`,
+        })
+          .done((response) => {
+            exibirAlerta(`${response.status}: ${response.data}`, 1);
+            getNewToken();
+            setTimeout(function () {
+              location.reload();
+            }, 500);
+          })
+          .fail((response) => {
+            exibirAlerta(`${response.status}: ${response.data}`, 2);
+          });
+      }
     });
 
     $(".info-stacks-icon").append(
@@ -219,8 +256,27 @@ if (sessionStorage.getItem("dados")) {
         location.reload();
       }, 400);
     }
+  });
 
-    //Enviar para o php
+  $(`[data-function="send-interest"]`).click(function () {
+    const idlinguagem = $("#search-stack").val()[0];
+    $.ajax({
+      method: "POST",
+      url: actionUrl,
+      data: `iduser=${
+        userData.iduser
+      }&idlinguagem=${idlinguagem}&form_name=${"cad-interesse"}`,
+    })
+      .done((response) => {
+        exibirAlerta(`${response.status}: ${response.data}`, 1);
+        getNewToken();
+        setTimeout(function () {
+          location.reload();
+        }, 500);
+      })
+      .fail((response) => {
+        exibirAlerta(`${response.status}: ${response.data}`, 2);
+      });
   });
 } else {
   window.location = "http://localhost/codeguide/public/login/";

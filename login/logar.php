@@ -29,15 +29,20 @@
  
    if(password_verify($senha, $senha_db) == true){
     if ($num == 1){
-      $adm = $dados['adm'];
+
       $id = $dados['iduser'];
+      $sql = "SELECT idlinguagem FROM userinteresse WHERE iduser = (?)";
+      $query = $conexao->prepare($sql);
+      $query->bind_param('i', $id);
+      $query->execute();
+      $result = $query->get_result();
+      $interesses = $result->fetch_all(MYSQLI_ASSOC);
       
-    $payload = [
+      $payload = [
       "exp" => time() + 3600,
       "iat" => time(), 
-      "email" => $email,
       "dados" => $dados,
-      
+      "interesses" => $interesses,
      ];
    
     $encode = JWT::encode($payload,$_ENV['KEY'],'HS256');

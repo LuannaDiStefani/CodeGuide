@@ -11,7 +11,7 @@ namespace App\Models;
             $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
             $sql = "SELECT * FROM ".self::$table." WHERE iduser = (?)";
             $query = $conexao->prepare($sql);
-            $query->bind_param('s', $id);
+            $query->bind_param('i', $id);
             $query->execute();
             $result = $query->get_result();
             $rows = $result->num_rows;
@@ -188,6 +188,65 @@ namespace App\Models;
             }else{ 
                 return 'Arquivo inválido!'; 
             }     
+        }
+
+        public static function cadInteresse(){
+            if(isset($_POST['idlinguagem']) and isset($_POST['iduser'])){
+                $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                $iduser = $_POST['iduser'];
+                $idlinguagem = $_POST['idlinguagem'];
+                $searchSql = "SELECT * FROM userinteresse WHERE iduser = (?) AND idlinguagem = (?)";       
+                $query = $conexao->prepare($searchSql);
+                $query->bind_param('ii', $iduser, $idlinguagem);
+                $query->execute();
+                $result = $query->get_result();
+                $number_of_rows_affected = mysqli_affected_rows($conexao);
+
+                if($number_of_rows_affected > 0){  
+                    return "Linguagem já cadastrada";
+                }else{
+                   $sql="INSERT INTO userinteresse (iduser,idlinguagem)
+                                                value(?, ?)";
+                    $query = $conexao->prepare($sql);
+                    $query->bind_param('ii', $iduser, $idlinguagem);
+                    $query->execute();
+                    $result = $query->get_result();
+                    $number_of_rows_affected = mysqli_affected_rows($conexao);
+                    if($number_of_rows_affected > 0){
+                        return "Linguagem adicionada com sucesso.";
+                    }else{
+                        throw new \Exception("Falha na operação.");
+                    }
+                }
+
+
+            }else{
+                throw new \Exception("Requisição inválida.");
+            }
+
+        }
+
+        public static function delInteresse(){
+            if(isset($_POST['idlinguagem']) and isset($_POST['iduser'])){
+                $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                $iduser = $_POST['iduser'];
+                $idlinguagem = $_POST['idlinguagem'];
+                $sql = "DELETE FROM userinteresse WHERE iduser = (?) AND idlinguagem = (?)";       
+                $query = $conexao->prepare($sql);
+                $query->bind_param('ii', $iduser, $idlinguagem);
+                $query->execute();
+                $result = $query->get_result();
+                $number_of_rows_affected = mysqli_affected_rows($conexao);
+
+                if($number_of_rows_affected > 0){  
+                    return "Linguagem removida com sucesso";
+                }else{
+                    throw new \Exception("Falha na operação.");
+                }
+            }else{
+                throw new \Exception("Requisição inválida.");
+            }
+
         }
 
     }

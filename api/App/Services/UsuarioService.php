@@ -28,7 +28,13 @@
                         break;
                     case "update-picture":
                         return Usuario::updatePicture();
+                        beak;
+                    case "cad-interesse":
+                        return Usuario::cadInteresse();
                         break;
+                    case "del-interesse":
+                        return Usuario::delInteresse();
+                        break;    
                     default:
                         throw new \Exception("Requisição Inválida.");
                         break;

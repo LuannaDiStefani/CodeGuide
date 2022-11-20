@@ -1,5 +1,5 @@
 import { search, doSearch } from "./slider.js";
-import { verificarAuth } from "./modules.js";
+import { exibirAlerta, verificarAuth } from "./modules.js";
 
 verificarAuth();
 
@@ -25,7 +25,7 @@ const menus = () => {
     logado: {
       perfil: `<li><a href="http://localhost/codeguide/public/perfil/">Perfil</a></li>`,
       configuracoes: `<li><a href="http://localhost/codeguide/public/configurar/">Configurar</a></li>`,
-      logout: `<li><a href="#">Logout</a></li>`,
+      logout: `<li data-function="logout"><a href="#">Logout</a></li>`,
     },
     admin: {
       painel: `<li><a href="#">Painel</a></li>`,
@@ -39,6 +39,7 @@ const menus = () => {
         menuProfileHeader.insertAdjacentHTML("beforeend", logado[opcao]);
         menuProfileMobile.insertAdjacentHTML("beforeend", logado[opcao]);
       }
+      allowLogout();
     } else {
       const deslogado = opcoesMenu.deslogado;
       for (const opcao in deslogado) {
@@ -48,6 +49,22 @@ const menus = () => {
     }
   }
   createMenuProfile();
+  function allowLogout() {
+    const logout = document.querySelectorAll(`[data-function="logout"]`);
+
+    logout.forEach((logout) => {
+      logout.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (sessionStorage.getItem("dados")) {
+          sessionStorage.clear();
+          exibirAlerta("Deslogado com sucesso");
+          setTimeout(function () {
+            window.location = "http://localhost/codeguide/public/";
+          }, 500);
+        }
+      });
+    });
+  }
 
   $(mobileProfile).click(function (e) {
     e.preventDefault();

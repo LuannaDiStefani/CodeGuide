@@ -221,21 +221,18 @@ export const pictureHoverEffect = () => {
   );
 };
 
-export const getNewToken = (pass) => {
+export const getNewToken = () => {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
   const actionUrl = "http://localhost/CodeGuide/login/logar.php";
-
-  if (pass) {
-    userData.senha = pass;
-  }
 
   $.ajax({
     method: "POST",
     url: actionUrl,
-    data: `email=${userData.email}&senha=${userData.senha}&form_name=logar`,
+    data: `email=${userData.email}&senha=${sessionStorage.getItem(
+      "pass"
+    )}&form_name=logar`,
   })
     .done((response) => {
-      console.log(response);
       sessionStorage.setItem("session", response);
       verificarAuth();
     })
@@ -255,6 +252,7 @@ export const verificarAuth = async () => {
     })
       .done(function (result) {
         sessionStorage.setItem("dados", JSON.stringify(result.dados));
+        sessionStorage.setItem("interesses", JSON.stringify(result.interesses));
       })
       .fail(function () {
         sessionStorage.clear();

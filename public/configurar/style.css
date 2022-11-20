@@ -589,6 +589,11 @@ section.edit-profile .edit-field-user-submit{
     transition: all 0.4s ease-in-out;
   }
 
+  .info-stacks .info-stacks-icon span i{
+    font-size: 16px;
+    margin-left: -10px;
+  }
+
   .info-stacks .info-stacks-icon i:hover{
     color: var(--color1);
     cursor: pointer;

@@ -28,8 +28,9 @@ const verificarDados = async () => {
   await verificarAuth();
 
   setTimeout(() => {
-    if (sessionStorage.getItem("dados")) {
+    if (sessionStorage.getItem("dados") !== undefined) {
+      sessionStorage.setItem("pass", $('[name="senha"]').val());
       window.location = "http://localhost/CodeGuide/public/";
     }
-  }, "200");
+  }, "300");
 };

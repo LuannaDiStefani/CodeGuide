@@ -42,7 +42,7 @@
 
                     <div class="fomulario_login">
 
-                        <form class="formulario" name="logar" action="../../controll/logar.php" method="post">
+                        <form class="formulario" name="logar">
 
                             Digite seu e-mail:<br> <input type="email" name="email"><br><br>
 
