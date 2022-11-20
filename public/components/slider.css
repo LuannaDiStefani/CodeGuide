@@ -349,9 +349,10 @@ color: var(--color1);
 section.highlight .course-rate .rate-icon{
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: flex-end;
 font-size: 32px;
 width: 80px;
+transition: all 0.3s ease-in;
 }
 
 /* Section HighLight Responsividade */
@@ -467,4 +468,9 @@ padding: 0px !important;
   .comment-block blockquote{
     padding: 5px 0;
     text-align: left;
+  }
+
+  .active-rate{
+    color: var(--color1);
+    filter: drop-shadow(0 0 0.75rem var(--color6));
   }

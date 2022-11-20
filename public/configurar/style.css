@@ -484,12 +484,10 @@ section.edit-profile .edit-field-user-submit{
     word-wrap: break-word;
 }
 
-.favoritos-img{
-    background: url('../../source/alberto.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.favoritos-img img{
     min-width: 200px;
+    max-width: 240px;
+    max-height: 200px;
     border-radius: 20px;
     aspect-ratio: 16 / 9;
 }
@@ -554,12 +552,7 @@ section.edit-profile .edit-field-user-submit{
 
 @media screen and (max-width: 595px) {
     .container-fav{
-        flex-wrap: nowrap;
         gap: 10px;
-    }
-
-    .favoritos-img{
-        min-width: 150px;
     }
 
 }

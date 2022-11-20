@@ -29,7 +29,7 @@
  
    if(password_verify($senha, $senha_db) == true){
     if ($num == 1){
-
+      //Pegar interesses
       $id = $dados['iduser'];
       $sql = "SELECT idlinguagem FROM userinteresse WHERE iduser = (?)";
       $query = $conexao->prepare($sql);
@@ -37,12 +37,21 @@
       $query->execute();
       $result = $query->get_result();
       $interesses = $result->fetch_all(MYSQLI_ASSOC);
+
+      //Pegar favoritos
+      $sql = "SELECT idcurso FROM favoritos WHERE iduser = (?)";
+      $query = $conexao->prepare($sql);
+      $query->bind_param('i', $id);
+      $query->execute();
+      $result = $query->get_result();
+      $favoritos = $result->fetch_all(MYSQLI_ASSOC);
       
       $payload = [
       "exp" => time() + 3600,
       "iat" => time(), 
       "dados" => $dados,
       "interesses" => $interesses,
+      "favoritos" => $favoritos,
      ];
    
     $encode = JWT::encode($payload,$_ENV['KEY'],'HS256');

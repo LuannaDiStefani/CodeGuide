@@ -117,38 +117,6 @@
                         <div class="edit-field-title"><h2>Favoritos</h2></div>
                         <!-- Campo de favoritos -->
                         <div class="edit-field-fav">
-                                <!-- Wrapper -->
-                                <div class="wrapper">
-                                <div class="remove-fav">Remover<i class="fa-regular fa-rectangle-xmark"></i></div>
-                                    <div class="container-fav">
-                                        <div class="favoritos-img">
-                                        </div>
-                                        <div class="favoritos-info">
-                                            <h3>Titulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo curso</h3>
-                                            <p>Plataforma: <span>Plataforma aqui</span></p>
-                                            <p>Pago: <span>Gratis</span></p>
-                                            <a href="#">Assistir agora <i class="fa-solid fa-arrow-up-right-from-square"></i></a>       
-                                        </div>
-                                    </div>
-                                </div> <!-- wrapper -->
-
-                                <!-- Wrapper -->
-                                <div class="wrapper">
-                                <div class="remove-fav">Remover<i class="fa-regular fa-rectangle-xmark"></i></div>
-                                    <div class="container-fav">
-                                        <div class="favoritos-img">
-                                        </div>
-                                        <div class="favoritos-info">
-                                            <h3>Titulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo cursoTitulo curso</h3>
-                                            <p>Plataforma: <span>Plataforma aqui</span></p>
-                                            <p>Pago: <span>Gratis</span></p>
-                                            <a href="#">Assistir agora <i class="fa-solid fa-arrow-up-right-from-square"></i></a>       
-                                        </div>
-                                    </div>
-                                </div> <!-- wrapper -->
-                            
-                                    
-                                </div>
                         </div>
                         <!-- campo de favoritos -->
                     <div class="edit-field" data-target="4">

@@ -3,6 +3,7 @@ import {
   model,
   verificarAuth,
   firstLetterCamelCase,
+  getNewToken,
 } from "./modules.js";
 
 const session = verificarAuth();
@@ -12,6 +13,7 @@ const sliderContainer = document.getElementById("slider-container");
 let highlightTemp = document.getElementById("highlight").content;
 let sliderRow = document.getElementById("slider-row").content;
 const urlCursos = "http://localhost/codeguide/api/public/api/curso";
+const urlUser = "http://localhost/codeguide/api/public/api/usuario";
 const urlLinguagens = "http://localhost/codeguide/api/public/api/linguagem";
 
 export const dados = {
@@ -90,9 +92,28 @@ export const highlight = {
         }')`
       );
 
-      if (localStorage.getItem("session") === null) {
-        console.log("session");
-        console.log(favLink);
+      if (sessionStorage.getItem("session")) {
+        let userFav = JSON.parse(sessionStorage.getItem("favoritos"));
+        userFav.map((item) => {
+          if (item.idcurso == id) {
+            $(favLink).children().addClass("active-rate");
+          }
+        });
+        let userData = JSON.parse(sessionStorage.getItem("dados"));
+        $(favLink).click(function (e) {
+          e.preventDefault();
+          $(favLink).children().toggleClass("active-rate");
+
+          $.ajax({
+            method: "POST",
+            url: urlUser,
+            data: `iduser=${
+              userData.iduser
+            }&idcurso=${id}&form_name=${"add-fav"}`,
+          }).done((response) => {
+            getNewToken();
+          });
+        });
       }
 
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);

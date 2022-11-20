@@ -34,6 +34,12 @@
                         break;
                     case "del-interesse":
                         return Usuario::delInteresse();
+                        break;
+                    case "add-fav":
+                        return Usuario::addFav();
+                        break;  
+                    case "del-fav":
+                        return Usuario::delFav();
                         break;    
                     default:
                         throw new \Exception("Requisição Inválida.");

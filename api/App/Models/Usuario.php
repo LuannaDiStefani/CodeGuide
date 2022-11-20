@@ -200,9 +200,9 @@ namespace App\Models;
                 $query->bind_param('ii', $iduser, $idlinguagem);
                 $query->execute();
                 $result = $query->get_result();
-                $number_of_rows_affected = mysqli_affected_rows($conexao);
+                $verificacao = mysqli_num_rows($result);
 
-                if($number_of_rows_affected > 0){  
+                if($verificacao > 0){  
                     return "Linguagem já cadastrada";
                 }else{
                    $sql="INSERT INTO userinteresse (iduser,idlinguagem)
@@ -249,6 +249,48 @@ namespace App\Models;
 
         }
 
+        public static function addFav(){
+            if(isset($_POST['idcurso']) and isset($_POST['iduser'])){
+                $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                $iduser = $_POST['iduser'];
+                $idcurso = $_POST['idcurso'];
+                $searchSql = "SELECT * FROM favoritos WHERE iduser = (?) AND idcurso = (?)";       
+                $query = $conexao->prepare($searchSql);
+                $query->bind_param('ii', $iduser, $idcurso);
+                $query->execute();
+                $result = $query->get_result();
+                $verificacao = mysqli_num_rows($result);
+
+                if($verificacao > 0){  
+                    Usuario::delFav();
+                }else{
+                   $sql="INSERT INTO favoritos (iduser,idcurso)
+                                                value(?, ?)";
+                    $query = $conexao->prepare($sql);
+                    $query->bind_param('ii', $iduser, $idcurso);
+                    $query->execute();
+                }
+
+
+            }else{
+                throw new \Exception("Requisição inválida.");
+            }
+
+        }
+
+        public static function delFav(){
+            if(isset($_POST['idcurso']) and isset($_POST['iduser'])){
+                $conexao = new \mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                $iduser = $_POST['iduser'];
+                $idcurso = $_POST['idcurso'];
+                $sql = "DELETE FROM favoritos WHERE iduser = (?) AND idcurso = (?)";       
+                $query = $conexao->prepare($sql);
+                $query->bind_param('ii', $iduser, $idcurso);
+                $query->execute();
+
+                return "Favorito removido com sucesso.";
+            }
+        }
     }
 
 

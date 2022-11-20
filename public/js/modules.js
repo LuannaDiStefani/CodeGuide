@@ -253,6 +253,7 @@ export const verificarAuth = async () => {
       .done(function (result) {
         sessionStorage.setItem("dados", JSON.stringify(result.dados));
         sessionStorage.setItem("interesses", JSON.stringify(result.interesses));
+        sessionStorage.setItem("favoritos", JSON.stringify(result.favoritos));
       })
       .fail(function () {
         sessionStorage.clear();

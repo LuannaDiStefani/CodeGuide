@@ -7,10 +7,10 @@ import {
   insertDataList,
   exibirAlerta,
   doAjax,
-  verificarAuth,
   getNewToken,
+  firstLetterCamelCase,
 } from "../js/modules.js";
-import { buscarApi, dados } from "../js/slider.js";
+import { buscarApi, dados, search } from "../js/slider.js";
 
 if (sessionStorage.getItem("dados")) {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
@@ -48,6 +48,63 @@ if (sessionStorage.getItem("dados")) {
   }
 
   function getUser() {
+    const getFavorites = async () => {
+      const favoritos = JSON.parse(sessionStorage.getItem("favoritos"));
+      await search.getData();
+      favoritos.map((item) => {
+        dados.cursos.map((index) => {
+          if (item.idcurso == index.idcurso) {
+            $(".edit-field-fav").append(
+              `<div class="wrapper">
+              <div data-id="${
+                index.idcurso
+              }" class="remove-fav">Remover<i class="fa-regular fa-rectangle-xmark"></i></div>
+                  <div class="container-fav">
+                      <div class="favoritos-img">
+                        <img src="../../source/imgcurso/${index.imgcurso}">
+                      </div>
+                      <div class="favoritos-info">
+                          <h3>${index.nomecurso}</h3>
+                          <p>Plataforma: <span>${firstLetterCamelCase(
+                            index.plataforma
+                          )}</span></p>
+                          <p>Pago: <span>${firstLetterCamelCase(
+                            index.pago
+                          )}</span></p>
+                          <a href="${
+                            index.link
+                          }" target="_blank">Assistir agora <i class="fa-solid fa-arrow-up-right-from-square"></i></a>       
+                      </div>
+                  </div>
+              </div> `
+            );
+          }
+        });
+      });
+
+      $(".remove-fav").click(function () {
+        let idcurso = $(this).attr("data-id");
+        let confirmacao = confirm("Deseja excluir favorito?");
+        if (confirmacao) {
+          $.ajax({
+            method: "POST",
+            url: actionUrl,
+            data: `iduser=${
+              userData.iduser
+            }&idcurso=${idcurso}&form_name=${"del-fav"}`,
+          }).done((response) => {
+            exibirAlerta(`${response.status}: ${response.data}`, 1);
+            getNewToken();
+            setTimeout(function () {
+              location.reload();
+            }, 500);
+          });
+        }
+      });
+    };
+
+    getFavorites();
+
     const getInterestsIcon = () => {
       const interesses = JSON.parse(sessionStorage.getItem("interesses"));
 
