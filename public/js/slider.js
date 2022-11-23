@@ -4,6 +4,9 @@ import {
   verificarAuth,
   firstLetterCamelCase,
   getNewToken,
+  urlCursos,
+  urlLinguagens,
+  urlUser,
 } from "./modules.js";
 
 const session = verificarAuth();
@@ -12,9 +15,6 @@ $(".slider").append('<div class="loading">Carregando...</div>');
 const sliderContainer = document.getElementById("slider-container");
 let highlightTemp = document.getElementById("highlight").content;
 let sliderRow = document.getElementById("slider-row").content;
-const urlCursos = "http://localhost/codeguide/api/public/api/curso";
-const urlUser = "http://localhost/codeguide/api/public/api/usuario";
-const urlLinguagens = "http://localhost/codeguide/api/public/api/linguagem";
 
 export const dados = {
   cursos: [],
@@ -87,9 +87,7 @@ export const highlight = {
 
       $(previewCurso).css(
         "background-image",
-        `url('http://localhost/codeguide/source/imgcurso/${
-          dados.cursos[id - 1].imgcurso
-        }')`
+        `url('../../source/imgcurso/${dados.cursos[id - 1].imgcurso}')`
       );
 
       if (sessionStorage.getItem("session")) {
@@ -214,7 +212,7 @@ export const slide = {
           let img = document.createElement("img");
           img.setAttribute(
             "src",
-            `http://localhost/codeguide/source/imgcurso/${dados.cursos[key].imgcurso}`
+            `../../source/imgcurso/${dados.cursos[key].imgcurso}`
           );
           img.setAttribute("data-curso", dados.cursos[key].idcurso);
           img.setAttribute("class", "item-slide");

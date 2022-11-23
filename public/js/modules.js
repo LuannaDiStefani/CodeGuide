@@ -1,3 +1,10 @@
+export const urlCursos =
+  "http://exposoftalcina.com/3tid/codeguide/api/public/curso/";
+export const urlUser =
+  "http://exposoftalcina.com/3tid/codeguide/api/public/usuario/";
+export const urlLinguagens =
+  "http://exposoftalcina.com/3tid/codeguide/api/public/linguagem/";
+
 export function model() {
   const methods = {
     open() {
@@ -223,7 +230,7 @@ export const pictureHoverEffect = () => {
 
 export const getNewToken = () => {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
-  const actionUrl = "http://localhost/CodeGuide/login/logar.php";
+  const actionUrl = "../login/logar.php";
 
   $.ajax({
     method: "POST",
@@ -242,7 +249,7 @@ export const getNewToken = () => {
 };
 
 export const verificarAuth = async () => {
-  const url = "http://localhost/CodeGuide/login/auth.php";
+  const url = "../login/auth.php";
 
   if (sessionStorage.getItem("session")) {
     $.ajax({

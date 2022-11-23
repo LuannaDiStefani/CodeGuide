@@ -19,12 +19,12 @@ const menus = () => {
 
   const opcoesMenu = {
     deslogado: {
-      login: `<li><a href="http://localhost/codeguide/public/login/">Login</a></li>`,
-      cadastro: `<li><a href="http://localhost/codeguide/public/cadastro/">Cadastro</a></li>`,
+      login: `<li><a href="../login/">Login</a></li>`,
+      cadastro: `<li><a href="../cadastro/">Cadastro</a></li>`,
     },
     logado: {
-      perfil: `<li><a href="http://localhost/codeguide/public/perfil/">Perfil</a></li>`,
-      configuracoes: `<li><a href="http://localhost/codeguide/public/configurar/">Configurar</a></li>`,
+      perfil: `<li><a href="../perfil/">Perfil</a></li>`,
+      configuracoes: `<li><a href="../configurar/">Configurar</a></li>`,
       logout: `<li data-function="logout"><a href="#">Logout</a></li>`,
     },
     admin: {
@@ -59,7 +59,7 @@ const menus = () => {
           sessionStorage.clear();
           exibirAlerta("Deslogado com sucesso");
           setTimeout(function () {
-            window.location = "http://localhost/codeguide/public/";
+            window.location = "../";
           }, 500);
         }
       });

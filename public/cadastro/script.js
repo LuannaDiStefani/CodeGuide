@@ -1,11 +1,11 @@
 import { firstLetterCamelCase, exibirAlerta } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
-  window.location = "http://localhost/codeguide/public/";
+  window.location = "../";
 }
 
 const form = $("form[name='cadastro']");
-const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";
+const actionUrl = "../../api/public/api/usuario/";
 
 $(`[name="nome"]`).blur(function () {
   this.value = firstLetterCamelCase(this.value);

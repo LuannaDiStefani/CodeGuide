@@ -3,7 +3,7 @@
 
             <div class="hd-left">
                 <div id="cg-logo">
-                    <a href="http://localhost/codeguide/public/index.php"><div class="logo-img">
+                    <a href="https://exposoftalcina.com/3tid/codeguide/public/"><div class="logo-img">
                     </div></a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
     <div class="container-mobile">
         <nav class="menu-mobile">
             <div class="home-mobile">
-                <a href="http://localhost/codeguide/public/" class="menu-mobile-button">
+                <a href="https://exposoftalcina.com/3tid/codeguide/public/" class="menu-mobile-button">
                     <i class="fa-solid fa-house"></i>
                     Home
                 </a>

@@ -1,11 +1,11 @@
 import { verificarAuth, exibirAlerta } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
-  window.location = "http://localhost/codeguide/public/";
+  window.location = "../";
 }
 
 const form = $("form[name='logar']");
-const actionUrl = "http://localhost/CodeGuide/login/logar.php";
+const actionUrl = "../../login/logar.php";
 
 $(form).submit(function (e) {
   e.preventDefault();
@@ -30,7 +30,7 @@ const verificarDados = async () => {
   setTimeout(() => {
     if (sessionStorage.getItem("dados") !== undefined) {
       sessionStorage.setItem("pass", $('[name="senha"]').val());
-      window.location = "http://localhost/CodeGuide/public/";
+      window.location = "../";
     }
   }, "300");
 };

@@ -172,7 +172,7 @@ if (sessionStorage.getItem("dados")) {
 
   // Selecionando elementos
   const formUsername = $('[name="verificar"]');
-  const actionUrl = "http://localhost/codeguide/api/public/api/usuario/";
+  const actionUrl = "../../api/public/api/usuario/";
   const saveForm = document.getElementById("save-form-container");
   const input = document.getElementById("username");
   const changePicture = document.getElementById("send-picture");
@@ -300,7 +300,7 @@ if (sessionStorage.getItem("dados")) {
     const verified = verificaFile(file);
     if (verified) {
       formData.append("file", file, newFileName);
-      doAjax("http://localhost/codeguide/api/public/api/usuario", formData);
+      doAjax("../../api/public/api/usuario", formData);
       $(".edit-user-picture img").attr(
         "src",
         `../../source/imguser/${userData.fotoperfil}`
@@ -336,5 +336,5 @@ if (sessionStorage.getItem("dados")) {
       });
   });
 } else {
-  window.location = "http://localhost/codeguide/public/login/";
+  window.location = "../login/";
 }

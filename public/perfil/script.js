@@ -1,7 +1,7 @@
 import { buscarApi, dados } from "../js/slider.js";
 
 if (!sessionStorage.getItem("dados")) {
-  window.location = "http://localhost/codeguide/public/login/";
+  window.location = "../login/";
 }
 
 let userData = JSON.parse(sessionStorage.getItem("dados"));

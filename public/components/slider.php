@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="http://localhost/codeguide/public/components/slider.css">
+<link rel="stylesheet" href="https://exposoftalcina.com/3tid/codeguide/public/components/slider.css">
 
 <template id="highlight">
         <section class="highlight" data-id="0" style="display: none;">
@@ -41,7 +41,7 @@
                             <i class="fa-regular fa-message course-comment-icon"></i>
                         </div>
                         <div class="rate-icon">
-                            <a class="fav-link" data-highlight="fav-link" href="http://localhost/codeguide/public/login/"><i class="fa-regular fa-heart" data-highlight="fav-icon"></i></a>
+                            <a class="fav-link" data-highlight="fav-link" href="https://exposoftalcina.com/3tid/codeguide/public/login/"><i class="fa-regular fa-heart" data-highlight="fav-icon"></i></a>
                         </div>
                     </div>
                     <div class="model-container">
