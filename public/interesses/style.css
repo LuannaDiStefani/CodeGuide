@@ -11,7 +11,7 @@
 	min-height: 100vh;
 	object-fit: cover;
 	height: auto;
-	background: url(../../source/preview-space.png) no-repeat;
+	background: url(../source/preview-space.png) no-repeat;
 	background-size: cover;
 }
 
@@ -53,7 +53,7 @@
 
 .itens {
 	cursor: pointer;
-	background-image: url(../../source/codeguide.png);
+	background-image: url(../source/codeguide.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;

@@ -46,7 +46,7 @@
 
                         <div class="edit-field-user">
                             <div class="edit-user-picture">
-                                <img src="../../source/codeguide.png">
+                                <img src="../source/codeguide.png">
                                 <span class="open-model">
                                     <i class="fa-solid fa-image"></i>
                                     <p><kbd>Escolha uma foto</kbd></p>
@@ -59,7 +59,7 @@
                                         <h2>Alterar Foto de perfil</h2>
                                         <div class="upload">
                                             <div class="img-preview">
-                                                <img src="../../source/codeguide.png" id="choosen-img" form="send-picture" class="choosen-img" alt="Preview">
+                                                <img src="../source/codeguide.png" id="choosen-img" form="send-picture" class="choosen-img" alt="Preview">
                                                 <span id="file-name" form="send-picture" class="file-name">Nome do Arquivo</span>
                                             </div>
                                             <div class="upload-button-container">
@@ -117,6 +117,7 @@
                         <div class="edit-field-title"><h2>Favoritos</h2></div>
                         <!-- Campo de favoritos -->
                         <div class="edit-field-fav">
+                        </div>
                         </div>
                         <!-- campo de favoritos -->
                     <div class="edit-field" data-target="4">

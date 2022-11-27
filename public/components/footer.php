@@ -1,8 +1,8 @@
 <footer>
         <div class="container">
             <div class="footer-text">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>Amet laudantium debitis nulla quod, labore dolor fugit exercitationem ut ipsam nemo fugiat repudiandae doloremque saepe eos iure. Dolore maxime corrupti nostrum.</p>
+                <p>Este site é um projeto educacional de conclusão de curso.</p>
+                <p>Todos os direitos reservados para a Escola Alcina Dantas Feijão.</p>
             </div>
             <div class="footer-social-media">
                 <i class="fa-brands fa-linkedin"></i>

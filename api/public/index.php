@@ -8,8 +8,7 @@ require_once "../vendor/autoload.php";
 
 if($_GET['url']){
     $url = explode('/', $_GET['url']);
-    if($url[0] === 'api'){
-        array_shift($url);
+
         $service = 'App\Services\\'.ucfirst($url[0]).'Service';
         array_shift($url);
 
@@ -28,8 +27,6 @@ if($_GET['url']){
             http_response_code(400);
             
         }
-
-    }
 }
 
 ?>

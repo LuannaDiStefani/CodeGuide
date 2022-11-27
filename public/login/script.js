@@ -1,7 +1,7 @@
-import { verificarAuth, exibirAlerta } from "../js/modules.js";
+import { verificarAuth, exibirAlerta, _HOME } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
-  window.location = "../";
+  window.location = `${_HOME}/public`;
 }
 
 const form = $("form[name='logar']");
@@ -30,7 +30,7 @@ const verificarDados = async () => {
   setTimeout(() => {
     if (sessionStorage.getItem("dados") !== undefined) {
       sessionStorage.setItem("pass", $('[name="senha"]').val());
-      window.location = "../";
+      window.location = `${_HOME}/public`;
     }
   }, "300");
 };

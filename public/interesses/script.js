@@ -1,9 +1,8 @@
 import { buscarApi, dados } from "../js/slider.js";
-import { exibirAlerta, getNewToken } from "../js/modules.js";
+import { exibirAlerta, getNewToken, urlUser, _HOME } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
-  const actionUrl = "../../api/public/api/usuario/";
 
   const interessesContainer = document.querySelector(".interesses");
   const submit = document.querySelector(".enviar button");
@@ -27,7 +26,7 @@ if (sessionStorage.getItem("dados")) {
         linguagem.classList.add("itens");
         $(linguagem).css(
           "background-image",
-          `url(../../source/imglinguagem/${item.imagem})`
+          `url(../source/imglinguagem/${item.imagem})`
         );
         $(linguagem).attr("data-id", item.idlinguagem);
         $(linguagem).attr("title", item.nome);
@@ -52,7 +51,7 @@ if (sessionStorage.getItem("dados")) {
             const id = $(selecionados[i]).attr("data-id");
             $.ajax({
               method: "POST",
-              url: actionUrl,
+              url: urlUser,
               data: `iduser=${
                 userData.iduser
               }&idlinguagem=${id}&form_name=${"cad-interesse"}`,
@@ -60,7 +59,7 @@ if (sessionStorage.getItem("dados")) {
           }
           getNewToken();
           setTimeout(function () {
-            window.location = "../";
+            window.location = `${_HOME}/public;`
           }, 500);
         }
       });
@@ -71,5 +70,5 @@ if (sessionStorage.getItem("dados")) {
   interesses.fetch();
   interesses.submit();
 } else {
-  window.location = "../login/";
+  window.location = `${_HOME}/public/login/`;
 }

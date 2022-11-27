@@ -3,6 +3,9 @@ import {
   uploadButtons,
   insertDataList,
   exibirAlerta,
+  urlCursos,
+  urlLinguagens,
+  _HOME,
 } from "../../../public/js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
@@ -14,10 +17,8 @@ if (sessionStorage.getItem("dados")) {
     const adminPage = {
       allowedFileTypes: "image.*|application/pdf",
       allowedFileSize: 1024,
-      urlLinguagens: "../../../api/public/api/linguagem/",
-      urlCursos: "../../../api/public/api/curso/",
       fetchApi() {
-        fetch(adminPage.urlLinguagens)
+        fetch(urlLinguagens)
           .then((response) => response.json())
           .then((data) => insertDataList("linguagens", data.data));
       },
@@ -30,7 +31,7 @@ if (sessionStorage.getItem("dados")) {
 
         this.verificaFile(file, newFileName, formLinguagens);
 
-        this.doAjax(this.urlLinguagens, formLinguagens);
+        this.doAjax(urlLinguagens, formLinguagens);
       },
       cadastrarCurso(id) {
         const data = $(id).serialize();
@@ -39,7 +40,7 @@ if (sessionStorage.getItem("dados")) {
         let filename = file["name"];
         let newFileName = filename.replace(/[^A-Z0-9._]+/gi, "_");
         this.verificaFile(file, newFileName, formCursos);
-        this.doAjax(this.urlCursos, formCursos);
+        this.doAjax(urlCursos, formCursos);
       },
       doAjax(url, data) {
         $.ajax({
@@ -85,8 +86,8 @@ if (sessionStorage.getItem("dados")) {
       adminPage.cadastrarCurso("#cad-curso");
     });
   } else {
-    window.location = "../../../public/";
+    /*window.location = "../../../public/";*/
   }
 } else {
-  window.location = "../../../public/login/";
+ /* window.location = "../../../public/login/";*/
 }

@@ -7,6 +7,7 @@ import {
   urlCursos,
   urlLinguagens,
   urlUser,
+  _HOME,
 } from "./modules.js";
 
 const session = verificarAuth();
@@ -87,8 +88,9 @@ export const highlight = {
 
       $(previewCurso).css(
         "background-image",
-        `url('../../source/imgcurso/${dados.cursos[id - 1].imgcurso}')`
+        `url('${_HOME}/public/source/imgcurso/${dados.cursos[id - 1].imgcurso}')`
       );
+      
 
       if (sessionStorage.getItem("session")) {
         let userFav = JSON.parse(sessionStorage.getItem("favoritos"));
@@ -112,6 +114,8 @@ export const highlight = {
             getNewToken();
           });
         });
+      }else{
+          $(favLink).attr("href", `${_HOME}/public/login/`);
       }
 
       $(nomeCurso).text(dados.cursos[id - 1].nomecurso);
@@ -212,7 +216,7 @@ export const slide = {
           let img = document.createElement("img");
           img.setAttribute(
             "src",
-            `../../source/imgcurso/${dados.cursos[key].imgcurso}`
+            `${_HOME}/public/source/imgcurso/${dados.cursos[key].imgcurso}`
           );
           img.setAttribute("data-curso", dados.cursos[key].idcurso);
           img.setAttribute("class", "item-slide");

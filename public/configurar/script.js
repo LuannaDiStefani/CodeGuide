@@ -9,6 +9,8 @@ import {
   doAjax,
   getNewToken,
   firstLetterCamelCase,
+  urlUser,
+  _HOME,
 } from "../js/modules.js";
 import { buscarApi, dados, search } from "../js/slider.js";
 
@@ -33,7 +35,7 @@ if (sessionStorage.getItem("dados")) {
           $(".search-stack-icon")
             .empty()
             .append(
-              `<img src="../../source/imglinguagem/${
+              `<img src="../source/imglinguagem/${
                 dados.linguagens[selected - 1].imagem
               }">`
             );
@@ -61,7 +63,7 @@ if (sessionStorage.getItem("dados")) {
               }" class="remove-fav">Remover<i class="fa-regular fa-rectangle-xmark"></i></div>
                   <div class="container-fav">
                       <div class="favoritos-img">
-                        <img src="../../source/imgcurso/${index.imgcurso}">
+                        <img src="../source/imgcurso/${index.imgcurso}">
                       </div>
                       <div class="favoritos-info">
                           <h3>${index.nomecurso}</h3>
@@ -88,7 +90,7 @@ if (sessionStorage.getItem("dados")) {
         if (confirmacao) {
           $.ajax({
             method: "POST",
-            url: actionUrl,
+            url: urlUser,
             data: `iduser=${
               userData.iduser
             }&idcurso=${idcurso}&form_name=${"del-fav"}`,
@@ -128,7 +130,7 @@ if (sessionStorage.getItem("dados")) {
       if (confirmacao) {
         $.ajax({
           method: "POST",
-          url: actionUrl,
+          url: urlUser,
           data: `iduser=${
             userData.iduser
           }&idlinguagem=${idlinguagem}&form_name=${"del-interesse"}`,
@@ -153,11 +155,11 @@ if (sessionStorage.getItem("dados")) {
     if (userData.fotoperfil !== "") {
       $(".edit-user-picture img").attr(
         "src",
-        `../../source/imguser/${userData.fotoperfil}`
+        `../source/imguser/${userData.fotoperfil}`
       );
       $(".img-preview img").attr(
         "src",
-        `../../source/imguser/${userData.fotoperfil}`
+        `../source/imguser/${userData.fotoperfil}`
       );
     }
 
@@ -172,7 +174,6 @@ if (sessionStorage.getItem("dados")) {
 
   // Selecionando elementos
   const formUsername = $('[name="verificar"]');
-  const actionUrl = "../../api/public/api/usuario/";
   const saveForm = document.getElementById("save-form-container");
   const input = document.getElementById("username");
   const changePicture = document.getElementById("send-picture");
@@ -207,7 +208,7 @@ if (sessionStorage.getItem("dados")) {
       e.preventDefault();
       $.ajax({
         method: "POST",
-        url: actionUrl,
+        url: urlUser,
         data:
           $(input).serialize() +
           "&form_name=" +
@@ -238,7 +239,7 @@ if (sessionStorage.getItem("dados")) {
     if (!cadUsername) {
       $.ajax({
         method: "POST",
-        url: actionUrl,
+        url: urlUser,
         data:
           $(formUsername).serialize() +
           "&form_name=" +
@@ -268,7 +269,7 @@ if (sessionStorage.getItem("dados")) {
     if (pass === confPass) {
       $.ajax({
         method: "POST",
-        url: actionUrl,
+        url: urlUser,
         data: `senha=${pass}&form_name=${$(this).attr("id")}&id=${
           userData.iduser
         }`,
@@ -300,10 +301,10 @@ if (sessionStorage.getItem("dados")) {
     const verified = verificaFile(file);
     if (verified) {
       formData.append("file", file, newFileName);
-      doAjax("../../api/public/api/usuario", formData);
+      doAjax(urlUser, formData);
       $(".edit-user-picture img").attr(
         "src",
-        `../../source/imguser/${userData.fotoperfil}`
+        `../source/imguser/${userData.fotoperfil}`
       );
       $(".close-model").trigger("click");
 
@@ -319,7 +320,7 @@ if (sessionStorage.getItem("dados")) {
     const idlinguagem = $("#search-stack").val()[0];
     $.ajax({
       method: "POST",
-      url: actionUrl,
+      url: urlUser,
       data: `iduser=${
         userData.iduser
       }&idlinguagem=${idlinguagem}&form_name=${"cad-interesse"}`,
@@ -336,5 +337,5 @@ if (sessionStorage.getItem("dados")) {
       });
   });
 } else {
-  window.location = "../login/";
+  window.location = `${_HOME}/public/login/`;
 }

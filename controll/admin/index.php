@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="upload upload-curso">
                                         <div class="img-preview">
-                                            <img src="../../source/no-preview.jpg" form="cad-curso" id="choosen-img" class="choosen-img"
+                                            <img src="../../public/source/no-preview.jpg" form="cad-curso" id="choosen-img" class="choosen-img"
                                                 alt="Preview">
                                             <span id="file-name" form="cad-curso" class="file-name">Nome do Arquivo</span>
                                         </div>
@@ -116,7 +116,7 @@
                                     </div>
                                     <div class="upload-linguagem">
                                         <div class="img-preview">
-                                            <img src="../../source/no-preview.jpg" form="cad-linguagem" id="chossen-linguagem" class="choosen-img"
+                                            <img src="../../public/source/no-preview.jpg" form="cad-linguagem" id="chossen-linguagem" class="choosen-img"
                                                 alt="Preview">
                                             <span id="filename-linguagem" form="cad-linguagem" class="file-name">Nome do Arquivo</span>
                                         </div>

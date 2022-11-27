@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://exposoftalcina.com/3tid/codeguide/public/components/slider.css">
+<link rel="stylesheet" href="/3tid/codeguide/public/components/slider.css">
 
 <template id="highlight">
         <section class="highlight" data-id="0" style="display: none;">
@@ -25,8 +25,7 @@
                     <div class="description-head">Descrição:</div>
                     <div class="course-description">
                         <p data-highlight="descri-curso">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vel sapiente eveniet illum minima porro veniam maiores adipisci voluptatibus non aliquid commodi repudiandae voluptate, ad quisquam in rerum quibusdam culpa. 
-                            Quisquam fuga saepe aliquid? Eligendi quibusdam eius velit possimus tempora blanditiis obcaecati placeat ipsum vel tempore illo maiores sunt. 
+                            
                         </p>
                     </div>
                     <button class="read-more btn-1">Leia mais</button>
@@ -41,7 +40,7 @@
                             <i class="fa-regular fa-message course-comment-icon"></i>
                         </div>
                         <div class="rate-icon">
-                            <a class="fav-link" data-highlight="fav-link" href="https://exposoftalcina.com/3tid/codeguide/public/login/"><i class="fa-regular fa-heart" data-highlight="fav-icon"></i></a>
+                            <a class="fav-link" data-highlight="fav-link"><i class="fa-regular fa-heart" data-highlight="fav-icon"></i></a>
                         </div>
                     </div>
                     <div class="model-container">

@@ -1,11 +1,10 @@
-import { firstLetterCamelCase, exibirAlerta } from "../js/modules.js";
+import { firstLetterCamelCase, exibirAlerta, urlUser, _HOME } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
-  window.location = "../";
+  window.location = `${_HOME}/public/`;
 }
 
 const form = $("form[name='cadastro']");
-const actionUrl = "../../api/public/api/usuario/";
 
 $(`[name="nome"]`).blur(function () {
   this.value = firstLetterCamelCase(this.value);
@@ -16,7 +15,7 @@ $(`[name="nomeuser"`).blur(function () {
   if (!input.value == "") {
     $.ajax({
       method: "POST",
-      url: actionUrl,
+      url: urlUser,
       data: "username=" + $(input).val() + "&form_name=verificar",
     })
       .done(() => {
@@ -35,7 +34,7 @@ $(form).submit(function (e) {
 
   $.ajax({
     method: "POST",
-    url: actionUrl,
+    url: urlUser,
     data: $(form).serialize() + "&form_name=" + $(form).attr("name"),
   })
     .done((response) => {
@@ -46,5 +45,3 @@ $(form).submit(function (e) {
       exibirAlerta(`Error: ${resposta.data}`, 2);
     });
 });
-
-function headerLocation() {}

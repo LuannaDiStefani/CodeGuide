@@ -1,9 +1,11 @@
+export const _HOME = '/3tid/codeguide';
+
 export const urlCursos =
-  "http://exposoftalcina.com/3tid/codeguide/api/public/curso/";
+ `${_HOME}/api/public/curso`;
 export const urlUser =
-  "http://exposoftalcina.com/3tid/codeguide/api/public/usuario/";
+  `${_HOME}/api/public/usuario`;
 export const urlLinguagens =
-  "http://exposoftalcina.com/3tid/codeguide/api/public/linguagem/";
+  `${_HOME}/api/public/linguagem`;
 
 export function model() {
   const methods = {
@@ -230,7 +232,11 @@ export const pictureHoverEffect = () => {
 
 export const getNewToken = () => {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
-  const actionUrl = "../login/logar.php";
+  const actionUrl = `${_HOME}/login/logar.php`;
+  
+  console.log(`email=${userData.email}&senha=${sessionStorage.getItem(
+      "pass"
+    )}&form_name=logar`);
 
   $.ajax({
     method: "POST",
@@ -249,7 +255,7 @@ export const getNewToken = () => {
 };
 
 export const verificarAuth = async () => {
-  const url = "../login/auth.php";
+  const url = `${_HOME}/login/auth.php`;
 
   if (sessionStorage.getItem("session")) {
     $.ajax({

@@ -1,4 +1,9 @@
-import { verificaFile, doAjax } from "../../../public/js/modules";
+import {
+  verificaFile,
+  doAjax,
+  urlCursos,
+  urlLinguagens,
+} from "../../../public/js/modules";
 
 $(document).ready(function () {
   let formCursos = new FormData();
@@ -16,7 +21,7 @@ $(document).ready(function () {
     const verified = verificaFile(file);
     if (verified) {
       formCursos.append("file", file, newFileName);
-      doAjax("../../api/public/api/curso/", formCursos);
+      doAjax(urlCursos, formCursos);
     }
   });
 
@@ -33,7 +38,7 @@ $(document).ready(function () {
     const verified = verificaFile(file);
     if (verified) {
       formLinguagens.append("file", file, newFileName);
-      doAjax("../../api/public/api/linguagem/", formLinguagens);
+      doAjax(urlLinguagens, formLinguagens);
     }
   });
 });

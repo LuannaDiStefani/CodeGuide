@@ -1,11 +1,18 @@
 import { search, doSearch } from "./slider.js";
-import { exibirAlerta, verificarAuth } from "./modules.js";
+import { exibirAlerta, verificarAuth, _HOME } from "./modules.js";
 
 verificarAuth();
 
 search.allowSearch();
 
+let userData;
+if(sessionStorage.getItem("dados")){
+    userData = JSON.parse(sessionStorage.getItem("dados"));
+}
+
 const myMedia = window.matchMedia("(max-width: 595px)");
+
+$("#cg-logo a").attr("href", `${_HOME}/public/`);
 
 const menus = () => {
   const categoryMenu = document.querySelector(".mobile-category");
@@ -19,12 +26,12 @@ const menus = () => {
 
   const opcoesMenu = {
     deslogado: {
-      login: `<li><a href="../login/">Login</a></li>`,
-      cadastro: `<li><a href="../cadastro/">Cadastro</a></li>`,
+      login: `<li><a href="${_HOME}/public/login/">Login</a></li>`,
+      cadastro: `<li><a href="${_HOME}/public/cadastro/">Cadastro</a></li>`,
     },
     logado: {
-      perfil: `<li><a href="../perfil/">Perfil</a></li>`,
-      configuracoes: `<li><a href="../configurar/">Configurar</a></li>`,
+      perfil: `<li><a href="${_HOME}/public/perfil/">Perfil</a></li>`,
+      configuracoes: `<li><a href="${_HOME}/public/configurar/">Configurar</a></li>`,
       logout: `<li data-function="logout"><a href="#">Logout</a></li>`,
     },
     admin: {
@@ -33,11 +40,15 @@ const menus = () => {
   };
 
   function createMenuProfile() {
-    if (sessionStorage.getItem("dados")) {
+    if (userData !== undefined) {
       const logado = opcoesMenu.logado;
       for (const opcao in logado) {
         menuProfileHeader.insertAdjacentHTML("beforeend", logado[opcao]);
         menuProfileMobile.insertAdjacentHTML("beforeend", logado[opcao]);
+      }
+      if(userData.adm == 0){
+          menuProfileHeader.insertAdjacentHTML("beforeend", admin.painel);
+          menuProfileMobile.insertAdjacentHTML("beforeend", admin.painel);
       }
       allowLogout();
     } else {
@@ -47,6 +58,13 @@ const menus = () => {
         menuProfileMobile.insertAdjacentHTML("beforeend", deslogado[opcao]);
       }
     }
+    
+    $(".mobile-profile-options a").click(function(e){
+        e.preventDefault();
+        window.location = this.getAttribute("href");
+    })
+    
+    
   }
   createMenuProfile();
   function allowLogout() {
@@ -59,14 +77,14 @@ const menus = () => {
           sessionStorage.clear();
           exibirAlerta("Deslogado com sucesso");
           setTimeout(function () {
-            window.location = "../";
+            window.location = `${_HOME}/public/`;
           }, 500);
         }
       });
     });
   }
 
-  $(mobileProfile).click(function (e) {
+  $("div.profile-mobile").click(function (e) {
     e.preventDefault();
     $(".mobile-profile-options").slideToggle(300);
   });

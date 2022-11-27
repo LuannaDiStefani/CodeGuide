@@ -26,8 +26,8 @@
     
     <section class="welcome">
         <div class="container">
-            <video autoplay loop muted poster="../source/preview-earth.png" class="bg_video">
-                <source src="../source/video.mp4" type="video/mp4">
+            <video autoplay loop muted poster="./source/preview-earth.png" class="bg_video">
+                <source src="./source/video.mp4" type="video/mp4">
             </video>
             <div class="welcome-title">
                 

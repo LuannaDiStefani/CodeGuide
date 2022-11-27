@@ -104,7 +104,7 @@ header #cg-logo{
 
 header .logo-img{
     cursor: pointer;
-    background: url('../../source/codeguide.png') no-repeat;
+    background: url('../source/codeguide.png') no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
