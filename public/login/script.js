@@ -30,7 +30,7 @@ const verificarDados = async () => {
   setTimeout(() => {
     if (sessionStorage.getItem("dados") !== undefined) {
       sessionStorage.setItem("pass", $('[name="senha"]').val());
-      window.location = `${_HOME}/public`;
+      window.location = "../";
     }
   }, "300");
 };

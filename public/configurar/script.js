@@ -267,6 +267,8 @@ if (sessionStorage.getItem("dados")) {
     const confPass = $(`[name="confirmar-senha"]`).val();
 
     if (pass === confPass) {
+      sessionStorage.setItem("pass", pass);
+      
       $.ajax({
         method: "POST",
         url: urlUser,

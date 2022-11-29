@@ -1,8 +1,8 @@
 <?php 
 const DBHOST = "localhost";
-const DBUSER = "root";
-const DBPASS = "";
-const DBNAME = "codeguide";
+const DBUSER = "u413309708_codeguidetec";
+const DBPASS = "Oliver_0108";
+const DBNAME = "u413309708_codeguide";
 
 try{
      

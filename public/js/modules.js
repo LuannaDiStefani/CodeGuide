@@ -233,10 +233,6 @@ export const pictureHoverEffect = () => {
 export const getNewToken = () => {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
   const actionUrl = `${_HOME}/login/logar.php`;
-  
-  console.log(`email=${userData.email}&senha=${sessionStorage.getItem(
-      "pass"
-    )}&form_name=logar`);
 
   $.ajax({
     method: "POST",

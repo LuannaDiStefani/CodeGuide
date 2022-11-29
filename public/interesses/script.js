@@ -3,6 +3,9 @@ import { exibirAlerta, getNewToken, urlUser, _HOME } from "../js/modules.js";
 
 if (sessionStorage.getItem("dados")) {
   let userData = JSON.parse(sessionStorage.getItem("dados"));
+  let interessesUser = JSON.parse(sessionStorage.getItem("interesses"));
+  
+  if(interessesUser.length < 1){
 
   const interessesContainer = document.querySelector(".interesses");
   const submit = document.querySelector(".enviar button");
@@ -59,7 +62,7 @@ if (sessionStorage.getItem("dados")) {
           }
           getNewToken();
           setTimeout(function () {
-            window.location = `${_HOME}/public;`
+            window.location = "../";
           }, 500);
         }
       });
@@ -69,6 +72,9 @@ if (sessionStorage.getItem("dados")) {
   interesses.clean();
   interesses.fetch();
   interesses.submit();
+  }else{
+      window.location = '../';
+  }
 } else {
-  window.location = `${_HOME}/public/login/`;
+  window.location = '../login/';
 }
